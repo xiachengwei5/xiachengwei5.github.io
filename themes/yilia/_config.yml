@@ -1,0 +1,62 @@
+# Header
+menu:
+  主页: /
+  所有文章: /archives
+  #随笔: /tags/随笔
+  #成长: /tags/成长
+
+# SubNav
+subnav:
+  github: "https://github.com/xiachengwei5"
+  weibo: "http://weibo.com/xiachengwei5"
+  #rss: "#"
+  #zhihu: "#"
+  #douban: "#"
+  mail: "mailto:xiachengwei5@163.com"
+  jianshu: "http://www.jianshu.com/u/a31d9187f8ff"
+  #facebook: "#"
+  #google: "#"
+  #twitter: "#"
+  #linkedin: "#"
+
+#rss: /atom.xml
+
+# Content
+excerpt_link: more
+fancybox: true
+mathjax: true
+
+# Miscellaneous
+google_analytics: ''
+favicon: http://olywxnzqu.bkt.clouddn.com/img/hexo_index/logo.png
+
+#你的头像url
+avatar: "http://olywxnzqu.bkt.clouddn.com/img/hexo_index/logo.png"
+#是否开启分享
+share: true
+#是否开启多说评论，填写你在多说申请的项目名称 duoshuo: duoshuo-key
+#若使用disqus，请在博客config文件中填写disqus_shortname，并关闭多说评论
+duoshuo: true
+#是否开启云标签
+tagcloud: true
+
+#是否开启友情链接
+#不开启——
+#friends: false
+#开启——
+friends:
+  Myron: http://www.myronliu.com
+  Devzeng: http://www.devzeng.com
+  Heji: https://heji1993.github.io
+  litten: http://litten.me
+  sentsin: http://sentsin.com
+  MOxFIVE: http://moxfive.xyz
+  w3cplus: http://www.w3cplus.com
+  掘金: https://gold.xitu.io
+  阮一峰: http://www.ruanyifeng.com
+
+#是否开启“关于我”。
+#不开启——
+#aboutme: false
+#开启——
+aboutme: 动如脱兔，静如止水

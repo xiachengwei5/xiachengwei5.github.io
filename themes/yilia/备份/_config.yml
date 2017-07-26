@@ -1,0 +1,87 @@
+# Header
+menu:
+  主页: /
+  所有文章: /archives
+  #随笔: /tags/随笔
+  #成长: /tags/成长
+
+# SubNav
+subnav:
+  github: "https://github.com/xiachengwei5"
+  weibo: "http://weibo.com/xiachengwei5"
+  mail: "mailto:xiachengwei5@163.com"
+  jianshu: "http://www.jianshu.com/u/a31d9187f8ff"
+  #rss: "#"
+  #zhihu: "#"
+  #qq: "#"
+  #weixin: "#"
+  #douban: "#"
+  #segmentfault: "#"
+  #bilibili: "#"
+  #acfun: "#"
+  #facebook: "#"
+  #google: "#"
+  #twitter: "#"
+  #linkedin: "#"  
+  
+
+# Content
+excerpt_link: more
+fancybox: true
+mathjax: true
+
+# Miscellaneous
+google_analytics: ''
+favicon: http://olywxnzqu.bkt.clouddn.com/img/hexo_index/logo.png
+
+#你的头像url
+avatar: "http://olywxnzqu.bkt.clouddn.com/img/hexo_index/logo.png"
+
+
+#是否开启分享
+#share_jia: true
+
+#评论：1、多说；2、网易云跟帖；3、畅言；4、Disqus 不需要使用某项，直接设置值为false，或注释掉
+#具体请参考wiki：https://github.com/litten/hexo-theme-yilia/wiki/
+
+#1、多说
+#duoshuo: false
+
+#2、网易云跟帖
+#wangyiyun: true
+
+#3、畅言
+#changyan_appid: false
+#changyan_conf: false
+
+#4、Disqus 在hexo根目录的config里也有disqus_shortname字段，优先使用yilia的
+#disqus: false
+
+
+
+#智能菜单
+#smart_menu:
+  #innerArchive: '所有文章'
+  #tag: '标签'
+  #friends: '友链'
+  #aboutme: '关于我'
+
+#是否开启友情链接
+#不开启——
+#friends: false
+#开启——
+friends:
+  Myron: http://www.myronliu.com
+  Devzeng: http://www.devzeng.com
+  Heji: https://heji1993.github.io
+  sentsin: http://sentsin.com
+  MOxFIVE: http://moxfive.xyz
+  w3cplus: http://www.w3cplus.com
+  掘金: https://gold.xitu.io
+  阮一峰: http://www.ruanyifeng.com
+
+#是否开启“关于我”。
+#不开启——
+#aboutme: false
+#开启——
+aboutme: 动如脱兔，静如止水
