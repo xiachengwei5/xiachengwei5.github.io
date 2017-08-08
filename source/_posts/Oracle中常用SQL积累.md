@@ -168,3 +168,42 @@ ALTER USER U_HJYJ_HY IDENTIFIED BY U_HJYJ_HY DEFAULT TABLESPACE TBS_HJYJ_HY;
   如：
   SQLPLUS U_HJYJ_HY/U_HJYJ_HY@192.168.0.1:1521/orcl
 ```
+
+在工作中遇到了一个这样的问题：更新一个表中的数据， 但是这个表的数据是根据多个表才能查到， 即通过 select 查询出结果后，在通过查询出的结果 **修改** 或者 **添加** 数据： 
+
+**添加** ：
+
+insert的语句中查询出的字段一定要和需要插入的字段保持一致，不一致的话就使用"as" 用别名使之保持一致,否之无法插入；
+
+``` sql
+ INSERT INTO  z_test (  
+ user_id,  
+ user_name,  
+ book_name,  
+ game_name  
+)  
+select   
+u.user_id,  
+u.name as user_name,  
+b.book_name,  
+g.game_name   
+from   
+z_user u LEFT JOIN z_book b ON u.book_id = b.book_id   
+LEFT JOIN z_game g ON u.game_id = g.game_id   
+where  u.user_id = 1  
+```
+
+**修改** ：
+
+``` sql
+UPDATE z_test t,z_user u,z_book b,z_game g SET  
+t.user_name = u.name,  
+t.book_name = b.book_name,  
+t.game_name = g.game_name  
+WHERE 1=1  
+and t.user_id  =  u.user_id  
+and b.book_id  =  u.book_id  
+and g.game_id  =  u.game_id  
+and u.user_id = 1  
+```
+
