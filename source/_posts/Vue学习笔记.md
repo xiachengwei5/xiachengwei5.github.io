@@ -6,7 +6,7 @@ tags: [vue, todoList, component]
 
 ### 2017-08-23 
 
-用`Vue.js` 编写的一个功能完善的`todoList` 小工具，将`Vue` 的一大核心功能——响应的数据绑定用得淋漓尽致，覆盖了很多Vue的基础知识点，适合作为入门的实战练习。
+用`Vue.js` 编写的一个功能完善的`todoList` 小工具，将`Vue` 的一大核心功能——响应的数据绑定用得淋漓尽致，覆盖了很多Vue的基础知识点，适合作为入门的实战练习。[获取源码](https://github.com/xiachengwei5/vue-study-notes/tree/master/todoList) 
 
 #### 一、覆盖的知识点
 
@@ -45,7 +45,7 @@ hashchange           //hash过滤
 
 ### 2017-08-24
 
-学习自定义组件，组件间的通信。
+学习自定义组件，组件间的通信。[获取源码](https://github.com/xiachengwei5/vue-study-notes/tree/master/custom-component) 
 
 #### 一、覆盖的知识点
 
@@ -61,7 +61,7 @@ $emit              //子组件调用父组件的自定义函数
 
 ### 学习资料
 
-[获取源码](https://github.com/xiachengwei5/vue-todoList) 
+[获取源码](https://github.com/xiachengwei5/vue-study-notes) 
 
 [视频资料](http://pan.baidu.com/s/1hr6uwfy) 密码：7ys1
 
