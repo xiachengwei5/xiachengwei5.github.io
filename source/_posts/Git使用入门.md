@@ -41,9 +41,15 @@ git add README.md
 <!-- 如果需要提交的文件很多，对每个文件都这样处理太繁琐，可以通过如下命令一次性添加所有变更后的文件 -->
 git add --all
 git add .
+git add *
 
 <!-- 移除缓存 -->
 git rm --cached
+
+<!--对暂时不需要提交的文件进行暂存 -->
+git stash
+<!--恢复暂存文件 -->
+git stash pop
 
 <!-- 提交在缓存中的文件 -->
 git commit -m "提交说明"
@@ -76,11 +82,17 @@ git log
 git branch
 <!-- 查询远程仓库的分支情况 -->
 git branch -r
-<!-- 新建分支 -->
+
+<!-- 在本地新建分支 -->
 git branch 分支名称
-<!-- 删除分支 -->
-git branch -d
-<!-- 强制删除分支 -->
+<!-- 将本地分支提交到远程服务器 -->
+git push --set-upstream origin 分支名称
+
+<!-- 删除本地分支 -->
+git branch -d 分支名称
+<!-- 删除远程仓库分支 -->
+git push origin :分支名称
+<!-- 强制删除本地分支 -->
 git branch -D
 ```
 
