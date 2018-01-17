@@ -30,5 +30,14 @@ kill -9 14929 (进程id)
 sh start.sh
 // 关闭项目
 sh stop.sh
+
+
+// 解压
+unzip upms.war -d upms
+
+
+
+upms部署环境地址：
+/home/sushun/app/apache-tomcat-upms-8210/webapps
 ```
 

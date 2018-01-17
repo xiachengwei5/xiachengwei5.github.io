@@ -50,6 +50,11 @@ git rm --cached
 git stash
 <!--恢复暂存文件 -->
 git stash pop
+<!--删除暂存文件 -->
+git stash clean
+
+<!-- 单个文件用服务器覆盖本地 -->
+git checkout 文件
 
 <!-- 提交在缓存中的文件 -->
 git commit -m "提交说明"
@@ -68,8 +73,18 @@ git pull origin master
 git tag
 <!-- 新建标签 -->
 git tag v1.0
+<!-- 新建带注释的标签 -->
+git tag -a V1.1 -m '注释内容'
+<!-- 将标签推送到远程仓库 -->
+git push origin --tags
 <!-- 切换到指定标签 -->
 git checkout v1.0
+<!-- 删除本地标签 -->
+git tag -d V1.0
+<!-- 删除远程仓库标签（推送的空的同名版本到线下,达到删除线上版本的目标） -->
+git push origin :refs/tags/V1.0
+<!-- 获取指定标签的代码 -->
+git fetch origin tag V1.2
 
 <!-- 查看日志 -->
 git log
@@ -94,6 +109,9 @@ git branch -d 分支名称
 git push origin :分支名称
 <!-- 强制删除本地分支 -->
 git branch -D
+
+<!-- 将远程仓库分支（本地不存在）拉取到本地 -->
+git checkout -b 本地分支名 origin/远程分支名
 ```
 
 #### 切换 
