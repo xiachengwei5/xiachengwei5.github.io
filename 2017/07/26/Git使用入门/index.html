@@ -17,7 +17,7 @@
 <meta property="og:image" content="http://olywxnzqu.bkt.clouddn.com/img/git_door/show.png">
 <meta property="og:image" content="http://olywxnzqu.bkt.clouddn.com/img/git_door/git_bush.png">
 <meta property="og:image" content="http://olywxnzqu.bkt.clouddn.com/img/git_door/selectFont.png">
-<meta property="og:updated_time" content="2018-01-17T07:01:33.458Z">
+<meta property="og:updated_time" content="2018-01-17T07:23:15.274Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git使用入门">
 <meta name="twitter:description" content="最近在修改mybatis-generator的插件，让自动生成的代码更满足符合开发的要求，因为是业余研究，经常需要下班后在自己电脑上来继续之前的工作，之前的状态是下班之前把在公司的电脑上写的代码拷到U盘，回去之后再把代码拷到自己电脑中替换掉之前的，某些特定情况的数据（如：数据库连接信息等）还需要根据环境来调整，每次搭建开发环境都需要较长时间，这样一折腾之后连开发的激情都没有了，为了解决这个问题就需">
@@ -318,6 +318,13 @@
 <span class="line">59</span>
 <span class="line">60</span>
 <span class="line">61</span>
+<span class="line">62</span>
+<span class="line">63</span>
+<span class="line">64</span>
+<span class="line">65</span>
+<span class="line">66</span>
+<span class="line">67</span>
+<span class="line">68</span>
 </pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 初始化 git 仓库 --&gt;</span></span>
 <span class="line">git init</span>
 <span class="line"></span>
@@ -379,6 +386,13 @@
 <span class="line"></span>
 <span class="line"><span class="comment">&lt;!-- 查看日志 --&gt;</span></span>
 <span class="line">git log</span>
+<span class="line"></span>
+<span class="line"><span class="comment">&lt;!-- 查看当前的远程仓库 --&gt;</span></span>
+<span class="line">git remote -v</span>
+<span class="line"></span>
+<span class="line"><span class="comment">&lt;!-- 切换远程仓库地址 --&gt;</span></span>
+<span class="line">git remote set-url origin http://192.168.31.8/pms/pms-govern.git</span>
+<span class="line">git remote set-url origin git@192.168.31.8:pms/pms-govern.git</span>
 </pre></td></tr></table></figure>
 <h4 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span>
 <span class="line">2</span>
