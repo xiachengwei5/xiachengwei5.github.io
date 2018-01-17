@@ -1,0 +1,1230 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>SpringMVC集成Swagger插件以及Swagger注解的简单使用 | 颭的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="一、简介Swagger 是一个规范和完整的框架，用于生成、描述、调用和可视化 RESTful 风格的 Web 服务。总体目标是使客户端和文件系统作为服务器以同样的速度来更新 。接口的方法，参数和模型紧密集成到服务器端的代码，允许API来始终保持同步。Swagger 让部署管理和使用功能强大的API从未如此简单。  我们的RESTful API就有可能要面对多个开发人员或多个开发团队：IOS开发、A">
+<meta name="keywords" content="spring,spring-mvc,swagger">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SpringMVC集成Swagger插件以及Swagger注解的简单使用">
+<meta property="og:url" content="http://xiachengwei5.coding.me/2017/07/28/SpringMVC集成Swagger插件以及Swagger注解的简单使用/index.html">
+<meta property="og:site_name" content="颭的博客">
+<meta property="og:description" content="一、简介Swagger 是一个规范和完整的框架，用于生成、描述、调用和可视化 RESTful 风格的 Web 服务。总体目标是使客户端和文件系统作为服务器以同样的速度来更新 。接口的方法，参数和模型紧密集成到服务器端的代码，允许API来始终保持同步。Swagger 让部署管理和使用功能强大的API从未如此简单。  我们的RESTful API就有可能要面对多个开发人员或多个开发团队：IOS开发、A">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://olywxnzqu.bkt.clouddn.com/img/swagger/relust.png">
+<meta property="og:image" content="http://olywxnzqu.bkt.clouddn.com/img/swagger/insertUserInfo.png">
+<meta property="og:updated_time" content="2018-01-17T07:01:33.460Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SpringMVC集成Swagger插件以及Swagger注解的简单使用">
+<meta name="twitter:description" content="一、简介Swagger 是一个规范和完整的框架，用于生成、描述、调用和可视化 RESTful 风格的 Web 服务。总体目标是使客户端和文件系统作为服务器以同样的速度来更新 。接口的方法，参数和模型紧密集成到服务器端的代码，允许API来始终保持同步。Swagger 让部署管理和使用功能强大的API从未如此简单。  我们的RESTful API就有可能要面对多个开发人员或多个开发团队：IOS开发、A">
+<meta name="twitter:image" content="http://olywxnzqu.bkt.clouddn.com/img/swagger/relust.png">
+  
+  
+    <link rel="icon" href="http://olywxnzqu.bkt.clouddn.com/img/hexo_index/logo.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="http://olywxnzqu.bkt.clouddn.com/img/hexo_index/logo.png" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">夏</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">勤能补拙，熟能生巧</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/xiachengwei5" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/xiachengwei5" title="weibo">weibo</a>
+					        
+								<a class="mail" target="_blank" href="mailto:xiachengwei5@163.com" title="mail">mail</a>
+					        
+								<a class="jianshu" target="_blank" href="http://www.jianshu.com/u/a31d9187f8ff" title="jianshu">jianshu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/CSS/" style="font-size: 20px;">CSS</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/Git/" style="font-size: 15px;">Git</a> <a href="/tags/GitHub/" style="font-size: 10px;">GitHub</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Oracle/" style="font-size: 10px;">Oracle</a> <a href="/tags/SQL/" style="font-size: 10px;">SQL</a> <a href="/tags/component/" style="font-size: 10px;">component</a> <a href="/tags/eclipse/" style="font-size: 10px;">eclipse</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/git插件/" style="font-size: 10px;">git插件</a> <a href="/tags/jQuery/" style="font-size: 10px;">jQuery</a> <a href="/tags/js/" style="font-size: 15px;">js</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/mybatsi-generator/" style="font-size: 10px;">mybatsi-generator</a> <a href="/tags/shell/" style="font-size: 10px;">shell</a> <a href="/tags/spring/" style="font-size: 10px;">spring</a> <a href="/tags/spring-mvc/" style="font-size: 10px;">spring-mvc</a> <a href="/tags/swagger/" style="font-size: 10px;">swagger</a> <a href="/tags/todoList/" style="font-size: 10px;">todoList</a> <a href="/tags/tools/" style="font-size: 10px;">tools</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a> <a href="/tags/图片轮播/" style="font-size: 10px;">图片轮播</a> <a href="/tags/布局/" style="font-size: 10px;">布局</a> <a href="/tags/思考/" style="font-size: 10px;">思考</a> <a href="/tags/朗读者/" style="font-size: 10px;">朗读者</a> <a href="/tags/选择器/" style="font-size: 15px;">选择器</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.myronliu.com">Myron</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.devzeng.com">Devzeng</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://heji1993.github.io">Heji</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://litten.me">litten</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://sentsin.com">sentsin</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://moxfive.xyz">MOxFIVE</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.w3cplus.com">w3cplus</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://gold.xitu.io">掘金</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.ruanyifeng.com">阮一峰</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://www.liaoxuefeng.com/">廖雪峰</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">动如脱兔，静如止水</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">夏</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img src="http://olywxnzqu.bkt.clouddn.com/img/hexo_index/logo.png" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">夏</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">勤能补拙，熟能生巧</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/xiachengwei5" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/xiachengwei5" title="weibo">weibo</a>
+			        
+						<a class="mail" target="_blank" href="mailto:xiachengwei5@163.com" title="mail">mail</a>
+			        
+						<a class="jianshu" target="_blank" href="http://www.jianshu.com/u/a31d9187f8ff" title="jianshu">jianshu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-SpringMVC集成Swagger插件以及Swagger注解的简单使用" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/07/28/SpringMVC集成Swagger插件以及Swagger注解的简单使用/" class="article-date">
+  	<time datetime="2017-07-28T07:00:00.000Z" itemprop="datePublished">2017-07-28</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      SpringMVC集成Swagger插件以及Swagger注解的简单使用
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/spring/">spring</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/spring-mvc/">spring-mvc</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/swagger/">swagger</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="一、简介"><a href="#一、简介" class="headerlink" title="一、简介"></a>一、简介</h3><p><a href="https://swagger.io/" target="_blank" rel="external">Swagger</a> 是一个规范和完整的框架，用于生成、描述、调用和可视化 RESTful 风格的 Web 服务。总体目标是<strong>使客户端和文件系统作为服务器以同样的速度来更新</strong> 。接口的方法，参数和模型紧密集成到服务器端的代码，允许API来始终保持同步。Swagger 让部署管理和使用功能强大的API从未如此简单。</p>
+<p> 我们的RESTful API就有可能要面对多个开发人员或多个开发团队：IOS开发、Android开发、Web开发等。为了减少与其他团队平时开发期间的频繁沟通成本，传统做法我们会创建一份RESTful API文档来记录所有接口细节，然而这样的做法有以下几个问题：</p>
+<blockquote>
+<ol>
+<li>由于接口众多，并且细节复杂（需要考虑不同的HTTP请求类型、HTTP头部信息、HTTP请求内容等），高质量地创建这份文档本身就是件非常吃力的事，下游的抱怨声不绝于耳；</li>
+<li>随着时间推移，不断修改接口实现的时候都必须同步修改接口文档，而文档与代码又处于两个不同的媒介，除非有严格的管理机制，不然很容易导致不一致现象；</li>
+</ol>
+</blockquote>
+<p>而swagger完美的解决了上面的几个问题，并与Spring MVC程序配合组织出强大RESTful API文档。它既可以减少我们创建文档的工作量，同时说明内容又整合入实现代码中，让维护文档和修改代码整合为一体，可以让我们在修改代码逻辑的同时方便的修改文档说明。另外Swagger2也提供了强大的<strong>页面测试功能</strong> 来调试每个RESTful API。</p>
+<a id="more"></a>
+<h3 id="二、添加Swagger2依赖"><a href="#二、添加Swagger2依赖" class="headerlink" title="二、添加Swagger2依赖"></a>二、添加Swagger2依赖</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+<span class="line">8</span>
+<span class="line">9</span>
+<span class="line">10</span>
+<span class="line">11</span>
+<span class="line">12</span>
+<span class="line">13</span>
+<span class="line">14</span>
+<span class="line">15</span>
+<span class="line">16</span>
+<span class="line">17</span>
+<span class="line">18</span>
+<span class="line">19</span>
+<span class="line">20</span>
+<span class="line">21</span>
+<span class="line">22</span>
+<span class="line">23</span>
+<span class="line">24</span>
+<span class="line">25</span>
+</pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span>
+<span class="line">     <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>io.springfox<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span>
+<span class="line">     <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>springfox-swagger2<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span>
+<span class="line">     <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.6.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span>
+<span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span>
+<span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span>
+<span class="line">     <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>io.springfox<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span>
+<span class="line">     <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>springfox-swagger-ui<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span>
+<span class="line">     <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.6.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span>
+<span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span>
+<span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span>  </span>
+<span class="line">     <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.fasterxml.jackson.core<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span>  </span>
+<span class="line">     <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>jackson-core<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span>  </span>
+<span class="line">     <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.6.5<span class="tag">&lt;/<span class="name">version</span>&gt;</span>  </span>
+<span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span>  </span>
+<span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span>  </span>
+<span class="line">     <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.fasterxml.jackson.core<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span>  </span>
+<span class="line">     <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>jackson-databind<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span>  </span>
+<span class="line">     <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.6.5<span class="tag">&lt;/<span class="name">version</span>&gt;</span>  </span>
+<span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span>  </span>
+<span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span>  </span>
+<span class="line">     <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.fasterxml.jackson.core<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span>  </span>
+<span class="line">     <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>jackson-annotations<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span>  </span>
+<span class="line">     <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.6.5<span class="tag">&lt;/<span class="name">version</span>&gt;</span>  </span>
+<span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span>
+</pre></td></tr></table></figure>
+<h3 id="三、创建Swagger2配置类"><a href="#三、创建Swagger2配置类" class="headerlink" title="三、创建Swagger2配置类"></a>三、创建Swagger2配置类</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+<span class="line">8</span>
+<span class="line">9</span>
+<span class="line">10</span>
+<span class="line">11</span>
+<span class="line">12</span>
+<span class="line">13</span>
+<span class="line">14</span>
+<span class="line">15</span>
+<span class="line">16</span>
+<span class="line">17</span>
+<span class="line">18</span>
+<span class="line">19</span>
+<span class="line">20</span>
+<span class="line">21</span>
+<span class="line">22</span>
+<span class="line">23</span>
+<span class="line">24</span>
+<span class="line">25</span>
+<span class="line">26</span>
+<span class="line">27</span>
+<span class="line">28</span>
+<span class="line">29</span>
+<span class="line">30</span>
+<span class="line">31</span>
+<span class="line">32</span>
+<span class="line">33</span>
+<span class="line">34</span>
+<span class="line">35</span>
+<span class="line">36</span>
+<span class="line">37</span>
+<span class="line">38</span>
+<span class="line">39</span>
+<span class="line">40</span>
+<span class="line">41</span>
+<span class="line">42</span>
+<span class="line">43</span>
+<span class="line">44</span>
+<span class="line">45</span>
+</pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.xia.common.config;</span>
+<span class="line"><span class="keyword">import</span> org.springframework.context.annotation.Bean;</span>
+<span class="line"><span class="keyword">import</span> org.springframework.context.annotation.Configuration;</span>
+<span class="line"><span class="keyword">import</span> org.springframework.web.servlet.config.annotation.EnableWebMvc;</span>
+<span class="line"><span class="keyword">import</span> io.swagger.annotations.ApiOperation;</span>
+<span class="line"><span class="keyword">import</span> springfox.documentation.builders.ApiInfoBuilder;</span>
+<span class="line"><span class="keyword">import</span> springfox.documentation.builders.PathSelectors;</span>
+<span class="line"><span class="keyword">import</span> springfox.documentation.builders.RequestHandlerSelectors;</span>
+<span class="line"><span class="keyword">import</span> springfox.documentation.service.ApiInfo;</span>
+<span class="line"><span class="keyword">import</span> springfox.documentation.spi.DocumentationType;</span>
+<span class="line"><span class="keyword">import</span> springfox.documentation.spring.web.plugins.Docket;</span>
+<span class="line"><span class="keyword">import</span> springfox.documentation.swagger2.annotations.EnableSwagger2;</span>
+<span class="line"></span>
+<span class="line"><span class="comment">/**</span>
+<span class="line"> * 类描述：配置swagger2信息 </span>
+<span class="line"> * 创建人：XiaChengwei </span>
+<span class="line"> * 创建时间：2017年7月28日 上午10:03:29</span>
+<span class="line"> * <span class="doctag">@version</span> 1.0</span>
+<span class="line"> */</span></span>
+<span class="line"><span class="meta">@Configuration</span>		<span class="comment">//让Spring来加载该类配置</span></span>
+<span class="line"><span class="meta">@EnableWebMvc</span>		<span class="comment">//启用Mvc，非springboot框架需要引入注解@EnableWebMvc</span></span>
+<span class="line"><span class="meta">@EnableSwagger</span>2		<span class="comment">//启用Swagger2</span></span>
+<span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Swagger2Config</span> </span>&#123;</span>
+<span class="line">	<span class="meta">@Bean</span></span>
+<span class="line">	<span class="function"><span class="keyword">public</span> Docket <span class="title">createRestApi</span><span class="params">()</span> </span>&#123;</span>
+<span class="line">		<span class="keyword">return</span> <span class="keyword">new</span> Docket(DocumentationType.SWAGGER_2)</span>
+<span class="line">				.apiInfo(apiInfo()).select()</span>
+<span class="line">				<span class="comment">//扫描指定包中的swagger注解</span></span>
+<span class="line">				<span class="comment">//.apis(RequestHandlerSelectors.basePackage("com.xia.controller"))</span></span>
+<span class="line">				<span class="comment">//扫描所有有注解的api，用这种方式更灵活</span></span>
+<span class="line">				.apis(RequestHandlerSelectors.withMethodAnnotation(ApiOperation.class))</span>
+<span class="line">				.paths(PathSelectors.any())</span>
+<span class="line">				.build();</span>
+<span class="line">	&#125;</span>
+<span class="line"></span>
+<span class="line">	<span class="function"><span class="keyword">private</span> ApiInfo <span class="title">apiInfo</span><span class="params">()</span> </span>&#123;</span>
+<span class="line">		<span class="keyword">return</span> <span class="keyword">new</span> ApiInfoBuilder()</span>
+<span class="line">				.title(<span class="string">"基础平台 RESTful APIs"</span>)</span>
+<span class="line">				.description(<span class="string">"基础平台 RESTful 风格的接口文档，内容详细，极大的减少了前后端的沟通成本，同时确保代码与文档保持高度一致，极大的减少维护文档的时间。"</span>)</span>
+<span class="line">				.termsOfServiceUrl(<span class="string">"http://xiachengwei5.coding.me"</span>)</span>
+<span class="line">				.contact(<span class="string">"Xia"</span>)</span>
+<span class="line">				.version(<span class="string">"1.0.0"</span>)</span>
+<span class="line">				.build();</span>
+<span class="line">	&#125;</span>
+<span class="line">&#125;</span>
+</pre></td></tr></table></figure>
+<h3 id="四、编写swagger注解"><a href="#四、编写swagger注解" class="headerlink" title="四、编写swagger注解"></a>四、编写swagger注解</h3><p>实体类：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+<span class="line">8</span>
+<span class="line">9</span>
+<span class="line">10</span>
+<span class="line">11</span>
+<span class="line">12</span>
+<span class="line">13</span>
+<span class="line">14</span>
+<span class="line">15</span>
+<span class="line">16</span>
+<span class="line">17</span>
+<span class="line">18</span>
+<span class="line">19</span>
+<span class="line">20</span>
+<span class="line">21</span>
+<span class="line">22</span>
+<span class="line">23</span>
+<span class="line">24</span>
+<span class="line">25</span>
+<span class="line">26</span>
+<span class="line">27</span>
+<span class="line">28</span>
+<span class="line">29</span>
+<span class="line">30</span>
+<span class="line">31</span>
+<span class="line">32</span>
+<span class="line">33</span>
+<span class="line">34</span>
+<span class="line">35</span>
+<span class="line">36</span>
+<span class="line">37</span>
+<span class="line">38</span>
+<span class="line">39</span>
+<span class="line">40</span>
+<span class="line">41</span>
+<span class="line">42</span>
+<span class="line">43</span>
+<span class="line">44</span>
+<span class="line">45</span>
+<span class="line">46</span>
+<span class="line">47</span>
+<span class="line">48</span>
+<span class="line">49</span>
+<span class="line">50</span>
+<span class="line">51</span>
+<span class="line">52</span>
+<span class="line">53</span>
+<span class="line">54</span>
+<span class="line">55</span>
+<span class="line">56</span>
+<span class="line">57</span>
+<span class="line">58</span>
+<span class="line">59</span>
+<span class="line">60</span>
+<span class="line">61</span>
+<span class="line">62</span>
+<span class="line">63</span>
+<span class="line">64</span>
+<span class="line">65</span>
+<span class="line">66</span>
+<span class="line">67</span>
+<span class="line">68</span>
+<span class="line">69</span>
+<span class="line">70</span>
+<span class="line">71</span>
+<span class="line">72</span>
+<span class="line">73</span>
+<span class="line">74</span>
+<span class="line">75</span>
+<span class="line">76</span>
+<span class="line">77</span>
+<span class="line">78</span>
+<span class="line">79</span>
+<span class="line">80</span>
+<span class="line">81</span>
+<span class="line">82</span>
+<span class="line">83</span>
+<span class="line">84</span>
+<span class="line">85</span>
+<span class="line">86</span>
+<span class="line">87</span>
+<span class="line">88</span>
+<span class="line">89</span>
+<span class="line">90</span>
+<span class="line">91</span>
+<span class="line">92</span>
+<span class="line">93</span>
+<span class="line">94</span>
+<span class="line">95</span>
+<span class="line">96</span>
+<span class="line">97</span>
+<span class="line">98</span>
+<span class="line">99</span>
+<span class="line">100</span>
+<span class="line">101</span>
+<span class="line">102</span>
+<span class="line">103</span>
+<span class="line">104</span>
+<span class="line">105</span>
+<span class="line">106</span>
+<span class="line">107</span>
+<span class="line">108</span>
+<span class="line">109</span>
+<span class="line">110</span>
+<span class="line">111</span>
+<span class="line">112</span>
+<span class="line">113</span>
+<span class="line">114</span>
+<span class="line">115</span>
+<span class="line">116</span>
+<span class="line">117</span>
+<span class="line">118</span>
+<span class="line">119</span>
+<span class="line">120</span>
+<span class="line">121</span>
+<span class="line">122</span>
+<span class="line">123</span>
+<span class="line">124</span>
+<span class="line">125</span>
+<span class="line">126</span>
+<span class="line">127</span>
+<span class="line">128</span>
+<span class="line">129</span>
+<span class="line">130</span>
+<span class="line">131</span>
+<span class="line">132</span>
+<span class="line">133</span>
+<span class="line">134</span>
+<span class="line">135</span>
+<span class="line">136</span>
+<span class="line">137</span>
+<span class="line">138</span>
+<span class="line">139</span>
+<span class="line">140</span>
+<span class="line">141</span>
+<span class="line">142</span>
+<span class="line">143</span>
+</pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.xia.model;</span>
+<span class="line"></span>
+<span class="line"><span class="keyword">import</span> java.util.Date;</span>
+<span class="line"><span class="keyword">import</span> org.springframework.format.annotation.DateTimeFormat;</span>
+<span class="line"><span class="keyword">import</span> com.fasterxml.jackson.annotation.JsonFormat;</span>
+<span class="line"><span class="keyword">import</span> com.fasterxml.jackson.annotation.JsonIgnoreProperties;</span>
+<span class="line"><span class="keyword">import</span> com.fasterxml.jackson.annotation.JsonInclude;</span>
+<span class="line"><span class="keyword">import</span> io.swagger.annotations.ApiModel;</span>
+<span class="line"><span class="keyword">import</span> io.swagger.annotations.ApiModelProperty;</span>
+<span class="line"><span class="comment">/**</span>
+<span class="line"> * 人员信息表</span>
+<span class="line"> * 注解：<span class="doctag">@ApiModel</span> 和 <span class="doctag">@ApiModelProperty</span> 用于在通过对象接收参数时在API文档中显示字段的说明</span>
+<span class="line"> * 注解：<span class="doctag">@DateTimeFormat</span> 和 <span class="doctag">@JsonFormat</span> 用于在接收和返回日期格式时将其格式化</span>
+<span class="line"> * 实体类对应的数据表为：  user_info</span>
+<span class="line"> * <span class="doctag">@author</span> XiaChengwei </span>
+<span class="line"> * <span class="doctag">@date</span>:  2017-07-14 16:45:29</span>
+<span class="line"> */</span></span>
+<span class="line"><span class="meta">@JsonInclude</span>(JsonInclude.Include.NON_NULL)</span>
+<span class="line"><span class="meta">@JsonIgnoreProperties</span>(&#123; <span class="string">"handler"</span>,<span class="string">"hibernateLazyInitializer"</span> &#125;) </span>
+<span class="line"><span class="meta">@ApiModel</span>(value =<span class="string">"UserInfo"</span>)</span>
+<span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserInfo</span> </span>&#123;</span>
+<span class="line">    <span class="meta">@ApiModelProperty</span>(value = <span class="string">"ID"</span>)</span>
+<span class="line">    <span class="keyword">private</span> Integer id;</span>
+<span class="line"></span>
+<span class="line">    <span class="meta">@ApiModelProperty</span>(value = <span class="string">"用户登录账号"</span>, required = <span class="keyword">true</span>)</span>
+<span class="line">    <span class="keyword">private</span> String userNo;</span>
+<span class="line"></span>
+<span class="line">    <span class="meta">@ApiModelProperty</span>(value = <span class="string">"姓名"</span>, required = <span class="keyword">true</span>)</span>
+<span class="line">    <span class="keyword">private</span> String userName;</span>
+<span class="line">    </span>
+<span class="line">    <span class="meta">@ApiModelProperty</span>(value = <span class="string">"姓名拼音"</span>)</span>
+<span class="line">    <span class="keyword">private</span> String spellName;</span>
+<span class="line"></span>
+<span class="line">    <span class="meta">@ApiModelProperty</span>(value = <span class="string">"密码"</span>, required = <span class="keyword">true</span>)</span>
+<span class="line">    <span class="keyword">private</span> String password;</span>
+<span class="line"></span>
+<span class="line">    <span class="meta">@ApiModelProperty</span>(value = <span class="string">"手机号"</span>, required = <span class="keyword">true</span>)</span>
+<span class="line">    <span class="keyword">private</span> String userPhone;</span>
+<span class="line"></span>
+<span class="line">    <span class="meta">@ApiModelProperty</span>(value = <span class="string">"性别"</span>)</span>
+<span class="line">    <span class="keyword">private</span> Integer userGender;</span>
+<span class="line"></span>
+<span class="line">    <span class="meta">@ApiModelProperty</span>(value = <span class="string">"记录创建时间"</span>)</span>
+<span class="line">    <span class="meta">@DateTimeFormat</span>(pattern = <span class="string">"yyyy-MM-dd HH:mm:ss"</span>)</span>
+<span class="line">    <span class="keyword">private</span> Date createTime;</span>
+<span class="line"></span>
+<span class="line">    <span class="meta">@ApiModelProperty</span>(value = <span class="string">"记录修改时间"</span>)</span>
+<span class="line">    <span class="meta">@DateTimeFormat</span>(pattern = <span class="string">"yyyy-MM-dd HH:mm:ss"</span>)</span>
+<span class="line">    <span class="keyword">private</span> Date updateTime;</span>
+<span class="line">    </span>
+<span class="line">    <span class="function"><span class="keyword">public</span> Integer <span class="title">getId</span><span class="params">()</span> </span>&#123;</span>
+<span class="line">        <span class="keyword">return</span> id;</span>
+<span class="line">    &#125;</span>
+<span class="line"></span>
+<span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setId</span><span class="params">(Integer id)</span> </span>&#123;</span>
+<span class="line">        <span class="keyword">this</span>.id = id;</span>
+<span class="line">    &#125;</span>
+<span class="line">    </span>
+<span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getUserNo</span><span class="params">()</span> </span>&#123;</span>
+<span class="line">        <span class="keyword">return</span> userNo;</span>
+<span class="line">    &#125;</span>
+<span class="line"></span>
+<span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setUserNo</span><span class="params">(String userNo)</span> </span>&#123;</span>
+<span class="line">        <span class="keyword">this</span>.userNo = userNo == <span class="keyword">null</span> ? <span class="keyword">null</span> : userNo.trim();</span>
+<span class="line">    &#125;</span>
+<span class="line">    </span>
+<span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getUserName</span><span class="params">()</span> </span>&#123;</span>
+<span class="line">        <span class="keyword">return</span> userName;</span>
+<span class="line">    &#125;</span>
+<span class="line"></span>
+<span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setUserName</span><span class="params">(String userName)</span> </span>&#123;</span>
+<span class="line">        <span class="keyword">this</span>.userName = userName == <span class="keyword">null</span> ? <span class="keyword">null</span> : userName.trim();</span>
+<span class="line">    &#125;</span>
+<span class="line">    </span>
+<span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getSpellName</span><span class="params">()</span> </span>&#123;</span>
+<span class="line">		<span class="keyword">return</span> spellName;</span>
+<span class="line">	&#125;</span>
+<span class="line"></span>
+<span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setSpellName</span><span class="params">(String spellName)</span> </span>&#123;</span>
+<span class="line">		<span class="keyword">this</span>.spellName = spellName;</span>
+<span class="line">	&#125;</span>
+<span class="line"></span>
+<span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getPassword</span><span class="params">()</span> </span>&#123;</span>
+<span class="line">        <span class="keyword">return</span> password;</span>
+<span class="line">    &#125;</span>
+<span class="line"></span>
+<span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setPassword</span><span class="params">(String password)</span> </span>&#123;</span>
+<span class="line">        <span class="keyword">this</span>.password = password == <span class="keyword">null</span> ? <span class="keyword">null</span> : password.trim();</span>
+<span class="line">    &#125;</span>
+<span class="line">   </span>
+<span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getUserPhone</span><span class="params">()</span> </span>&#123;</span>
+<span class="line">        <span class="keyword">return</span> userPhone;</span>
+<span class="line">    &#125;</span>
+<span class="line"></span>
+<span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setUserPhone</span><span class="params">(String userPhone)</span> </span>&#123;</span>
+<span class="line">        <span class="keyword">this</span>.userPhone = userPhone == <span class="keyword">null</span> ? <span class="keyword">null</span> : userPhone.trim();</span>
+<span class="line">    &#125;</span>
+<span class="line">    </span>
+<span class="line">    <span class="function"><span class="keyword">public</span> Integer <span class="title">getUserGender</span><span class="params">()</span> </span>&#123;</span>
+<span class="line">        <span class="keyword">return</span> userGender;</span>
+<span class="line">    &#125;</span>
+<span class="line"></span>
+<span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setUserGender</span><span class="params">(Integer userGender)</span> </span>&#123;</span>
+<span class="line">        <span class="keyword">this</span>.userGender = userGender;</span>
+<span class="line">    &#125;</span>
+<span class="line">  </span>
+<span class="line">	<span class="meta">@JsonFormat</span>(locale = <span class="string">"zh"</span>, timezone = <span class="string">"GMT+8"</span>, pattern = <span class="string">"yyyy-MM-dd HH:mm:ss"</span>)</span>
+<span class="line">    <span class="function"><span class="keyword">public</span> Date <span class="title">getCreateTime</span><span class="params">()</span> </span>&#123;</span>
+<span class="line">        <span class="keyword">return</span> createTime;</span>
+<span class="line">    &#125;</span>
+<span class="line"></span>
+<span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setCreateTime</span><span class="params">(Date createTime)</span> </span>&#123;</span>
+<span class="line">        <span class="keyword">this</span>.createTime = createTime;</span>
+<span class="line">    &#125;</span>
+<span class="line"></span>
+<span class="line">    <span class="meta">@JsonFormat</span>(locale = <span class="string">"zh"</span>, timezone = <span class="string">"GMT+8"</span>, pattern = <span class="string">"yyyy-MM-dd HH:mm:ss"</span>)</span>
+<span class="line">    <span class="function"><span class="keyword">public</span> Date <span class="title">getUpdateTime</span><span class="params">()</span> </span>&#123;</span>
+<span class="line">        <span class="keyword">return</span> updateTime;</span>
+<span class="line">    &#125;</span>
+<span class="line"></span>
+<span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setUpdateTime</span><span class="params">(Date updateTime)</span> </span>&#123;</span>
+<span class="line">        <span class="keyword">this</span>.updateTime = updateTime;</span>
+<span class="line">    &#125;</span>
+<span class="line"></span>
+<span class="line">    <span class="meta">@Override</span></span>
+<span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span>
+<span class="line">        StringBuilder sb = <span class="keyword">new</span> StringBuilder();</span>
+<span class="line">        sb.append(getClass().getSimpleName());</span>
+<span class="line">        sb.append(<span class="string">" ["</span>);</span>
+<span class="line">        sb.append(<span class="string">"Hash = "</span>).append(hashCode());</span>
+<span class="line">        sb.append(<span class="string">", id="</span>).append(id);</span>
+<span class="line">        sb.append(<span class="string">", userNo="</span>).append(userNo);</span>
+<span class="line">        sb.append(<span class="string">", userName="</span>).append(userName);</span>
+<span class="line">        sb.append(<span class="string">", spellName="</span>).append(spellName);</span>
+<span class="line">        sb.append(<span class="string">", password="</span>).append(password);</span>
+<span class="line">        sb.append(<span class="string">", userPhone="</span>).append(userPhone);</span>
+<span class="line">        sb.append(<span class="string">", userGender="</span>).append(userGender);</span>
+<span class="line">        sb.append(<span class="string">", createTime="</span>).append(createTime);</span>
+<span class="line">        sb.append(<span class="string">", updateTime="</span>).append(updateTime);</span>
+<span class="line">        sb.append(<span class="string">"]"</span>);</span>
+<span class="line">        <span class="keyword">return</span> sb.toString();</span>
+<span class="line">    &#125;</span>
+<span class="line">&#125;</span>
+</pre></td></tr></table></figure>
+<p>控制类：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+<span class="line">8</span>
+<span class="line">9</span>
+<span class="line">10</span>
+<span class="line">11</span>
+<span class="line">12</span>
+<span class="line">13</span>
+<span class="line">14</span>
+<span class="line">15</span>
+<span class="line">16</span>
+<span class="line">17</span>
+<span class="line">18</span>
+<span class="line">19</span>
+<span class="line">20</span>
+<span class="line">21</span>
+<span class="line">22</span>
+<span class="line">23</span>
+<span class="line">24</span>
+<span class="line">25</span>
+<span class="line">26</span>
+<span class="line">27</span>
+<span class="line">28</span>
+<span class="line">29</span>
+<span class="line">30</span>
+<span class="line">31</span>
+<span class="line">32</span>
+<span class="line">33</span>
+<span class="line">34</span>
+<span class="line">35</span>
+<span class="line">36</span>
+<span class="line">37</span>
+<span class="line">38</span>
+<span class="line">39</span>
+<span class="line">40</span>
+<span class="line">41</span>
+<span class="line">42</span>
+<span class="line">43</span>
+<span class="line">44</span>
+<span class="line">45</span>
+<span class="line">46</span>
+<span class="line">47</span>
+<span class="line">48</span>
+<span class="line">49</span>
+<span class="line">50</span>
+<span class="line">51</span>
+<span class="line">52</span>
+<span class="line">53</span>
+<span class="line">54</span>
+<span class="line">55</span>
+<span class="line">56</span>
+<span class="line">57</span>
+<span class="line">58</span>
+<span class="line">59</span>
+<span class="line">60</span>
+<span class="line">61</span>
+<span class="line">62</span>
+<span class="line">63</span>
+<span class="line">64</span>
+<span class="line">65</span>
+<span class="line">66</span>
+<span class="line">67</span>
+<span class="line">68</span>
+<span class="line">69</span>
+<span class="line">70</span>
+<span class="line">71</span>
+<span class="line">72</span>
+<span class="line">73</span>
+<span class="line">74</span>
+<span class="line">75</span>
+<span class="line">76</span>
+<span class="line">77</span>
+<span class="line">78</span>
+<span class="line">79</span>
+<span class="line">80</span>
+<span class="line">81</span>
+<span class="line">82</span>
+<span class="line">83</span>
+<span class="line">84</span>
+<span class="line">85</span>
+<span class="line">86</span>
+<span class="line">87</span>
+<span class="line">88</span>
+<span class="line">89</span>
+<span class="line">90</span>
+<span class="line">91</span>
+<span class="line">92</span>
+<span class="line">93</span>
+<span class="line">94</span>
+<span class="line">95</span>
+<span class="line">96</span>
+<span class="line">97</span>
+<span class="line">98</span>
+<span class="line">99</span>
+<span class="line">100</span>
+<span class="line">101</span>
+<span class="line">102</span>
+<span class="line">103</span>
+<span class="line">104</span>
+<span class="line">105</span>
+<span class="line">106</span>
+<span class="line">107</span>
+<span class="line">108</span>
+<span class="line">109</span>
+<span class="line">110</span>
+<span class="line">111</span>
+<span class="line">112</span>
+<span class="line">113</span>
+<span class="line">114</span>
+<span class="line">115</span>
+<span class="line">116</span>
+<span class="line">117</span>
+<span class="line">118</span>
+<span class="line">119</span>
+<span class="line">120</span>
+<span class="line">121</span>
+<span class="line">122</span>
+<span class="line">123</span>
+<span class="line">124</span>
+<span class="line">125</span>
+<span class="line">126</span>
+<span class="line">127</span>
+<span class="line">128</span>
+<span class="line">129</span>
+<span class="line">130</span>
+<span class="line">131</span>
+<span class="line">132</span>
+<span class="line">133</span>
+<span class="line">134</span>
+<span class="line">135</span>
+<span class="line">136</span>
+<span class="line">137</span>
+<span class="line">138</span>
+<span class="line">139</span>
+<span class="line">140</span>
+<span class="line">141</span>
+<span class="line">142</span>
+<span class="line">143</span>
+<span class="line">144</span>
+<span class="line">145</span>
+<span class="line">146</span>
+<span class="line">147</span>
+<span class="line">148</span>
+<span class="line">149</span>
+<span class="line">150</span>
+<span class="line">151</span>
+<span class="line">152</span>
+<span class="line">153</span>
+<span class="line">154</span>
+<span class="line">155</span>
+<span class="line">156</span>
+<span class="line">157</span>
+<span class="line">158</span>
+<span class="line">159</span>
+<span class="line">160</span>
+<span class="line">161</span>
+<span class="line">162</span>
+<span class="line">163</span>
+<span class="line">164</span>
+<span class="line">165</span>
+<span class="line">166</span>
+<span class="line">167</span>
+<span class="line">168</span>
+<span class="line">169</span>
+<span class="line">170</span>
+<span class="line">171</span>
+<span class="line">172</span>
+<span class="line">173</span>
+<span class="line">174</span>
+<span class="line">175</span>
+<span class="line">176</span>
+<span class="line">177</span>
+<span class="line">178</span>
+<span class="line">179</span>
+<span class="line">180</span>
+<span class="line">181</span>
+<span class="line">182</span>
+<span class="line">183</span>
+<span class="line">184</span>
+<span class="line">185</span>
+<span class="line">186</span>
+</pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.infore.controller;</span>
+<span class="line"></span>
+<span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RequestMapping;</span>
+<span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RequestMethod;</span>
+<span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.ResponseBody;</span>
+<span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RestController;</span>
+<span class="line"><span class="keyword">import</span> com.github.pagehelper.PageHelper;</span>
+<span class="line"><span class="keyword">import</span> com.github.pagehelper.PageInfo;</span>
+<span class="line"><span class="keyword">import</span> com.infore.common.pinyin.PinyinUtils;</span>
+<span class="line"><span class="keyword">import</span> com.infore.common.util.ControllerUtil;</span>
+<span class="line"><span class="keyword">import</span> com.infore.model.ResponseDto;</span>
+<span class="line"><span class="keyword">import</span> com.infore.model.UserInfo;</span>
+<span class="line"><span class="keyword">import</span> com.infore.model.dto.UserInfoDto;</span>
+<span class="line"><span class="keyword">import</span> com.infore.service.UserInfoService;</span>
+<span class="line"><span class="keyword">import</span> gbap.log.Logger;</span>
+<span class="line"><span class="keyword">import</span> gbap.log.LoggerFactory;</span>
+<span class="line"><span class="keyword">import</span> io.swagger.annotations.Api;</span>
+<span class="line"><span class="keyword">import</span> io.swagger.annotations.ApiImplicitParam;</span>
+<span class="line"><span class="keyword">import</span> io.swagger.annotations.ApiImplicitParams;</span>
+<span class="line"><span class="keyword">import</span> io.swagger.annotations.ApiOperation;</span>
+<span class="line"><span class="keyword">import</span> java.util.List;</span>
+<span class="line"><span class="keyword">import</span> javax.annotation.Resource;</span>
+<span class="line"><span class="keyword">import</span> javax.ws.rs.core.MediaType;</span>
+<span class="line"></span>
+<span class="line"><span class="comment">/**</span>
+<span class="line"> * 人员信息控制类</span>
+<span class="line"> * <span class="doctag">@author</span> XiaChengwei </span>
+<span class="line"> * <span class="doctag">@date</span>:  2017-07-14 16:45:29</span>
+<span class="line"> */</span></span>
+<span class="line"><span class="meta">@RestController</span></span>
+<span class="line"><span class="meta">@RequestMapping</span>(value = <span class="string">"/userInfo"</span>, produces = MediaType.APPLICATION_JSON)</span>
+<span class="line"><span class="meta">@Api</span>(value = <span class="string">"用户信息"</span>, description = <span class="string">"用户信息"</span>, produces = MediaType.APPLICATION_JSON)</span>
+<span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserInfoController</span> </span>&#123;</span>
+<span class="line">	<span class="keyword">private</span> Logger logger = LoggerFactory.getLogger(getClass());</span>
+<span class="line">	</span>
+<span class="line">	<span class="meta">@Resource</span></span>
+<span class="line">	UserInfoService service;</span>
+<span class="line">	</span>
+<span class="line">	<span class="meta">@ResponseBody</span></span>
+<span class="line">	<span class="meta">@RequestMapping</span>(value = <span class="string">"/selectAllUsers"</span>, method = RequestMethod.GET)</span>
+<span class="line">	<span class="meta">@ApiOperation</span>(value = <span class="string">"查询所有的人员信息并分页展示"</span>, notes = <span class="string">"查询所有的人员信息并分页展示"</span>)</span>
+<span class="line">	<span class="meta">@ApiImplicitParams</span>(&#123;</span>
+<span class="line">		<span class="meta">@ApiImplicitParam</span>(name = <span class="string">"page"</span>,value = <span class="string">"跳转到的页数"</span>, required = <span class="keyword">true</span>, paramType = <span class="string">"query"</span>),</span>
+<span class="line">		<span class="meta">@ApiImplicitParam</span>(name = <span class="string">"size"</span>,value = <span class="string">"每页展示的记录数"</span>, required = <span class="keyword">true</span>, paramType = <span class="string">"query"</span>)</span>
+<span class="line">	&#125;)</span>
+<span class="line">	<span class="function"><span class="keyword">public</span> ResponseDto <span class="title">selectAllUsers</span><span class="params">(Integer page, Integer size)</span> </span>&#123;</span>
+<span class="line">		page = page == <span class="keyword">null</span> || page &lt;= <span class="number">0</span> ? <span class="number">1</span> : page;</span>
+<span class="line">        size = size == <span class="keyword">null</span> || size &lt;= <span class="number">5</span> ? <span class="number">5</span> : size;</span>
+<span class="line">        PageHelper.startPage(page, size);<span class="comment">//PageHelper只对紧跟着的第一个SQL语句起作用</span></span>
+<span class="line">        List&lt;UserInfo&gt; userInfoList = service.selectAllUsers();</span>
+<span class="line">        PageInfo pageInfo = <span class="keyword">new</span> PageInfo(userInfoList);</span>
+<span class="line">		<span class="keyword">return</span> ControllerUtil.returnDto(<span class="keyword">true</span>, <span class="string">"成功"</span>, pageInfo);</span>
+<span class="line">	&#125;</span>
+<span class="line">	</span>
+<span class="line">	<span class="meta">@ResponseBody</span></span>
+<span class="line">	<span class="meta">@RequestMapping</span>(value = <span class="string">"/selectContacts"</span>, method = RequestMethod.GET)</span>
+<span class="line">	<span class="meta">@ApiOperation</span>(value = <span class="string">"查询通讯录人员信息"</span>, notes = <span class="string">"查询通讯录人员信息"</span>)</span>
+<span class="line">	<span class="function"><span class="keyword">public</span> ResponseDto <span class="title">selectContacts</span><span class="params">()</span> </span>&#123;</span>
+<span class="line">		List&lt;UserInfo&gt; list = service.selectContacts();</span>
+<span class="line">		<span class="keyword">return</span> ControllerUtil.returnDto(<span class="keyword">true</span>, <span class="string">"成功"</span>, list);</span>
+<span class="line">	&#125;</span>
+<span class="line">	</span>
+<span class="line">	<span class="meta">@ResponseBody</span></span>
+<span class="line">	<span class="meta">@RequestMapping</span>(value = <span class="string">"selectByUserNo"</span>, method = RequestMethod.GET)</span>
+<span class="line">	<span class="meta">@ApiOperation</span>(value = <span class="string">"新增人员前先检测用户名是否可用"</span>, notes = <span class="string">"新增人员前先检测用户名是否可用"</span>)</span>
+<span class="line">	<span class="meta">@ApiImplicitParams</span>(&#123;</span>
+<span class="line">		<span class="meta">@ApiImplicitParam</span>(name = <span class="string">"user_no"</span>, value = <span class="string">"用户输入的用户名"</span>, required = <span class="keyword">true</span>, paramType = <span class="string">"query"</span>)</span>
+<span class="line">	&#125;)</span>
+<span class="line">	<span class="function"><span class="keyword">public</span> ResponseDto <span class="title">selectByUserNo</span><span class="params">(String user_no)</span> </span>&#123;</span>
+<span class="line">		UserInfo userInfo = service.selectByUserNo(user_no);</span>
+<span class="line">		<span class="keyword">if</span>(<span class="keyword">null</span> == userInfo || <span class="string">""</span>.equals(userInfo.getUserNo())) &#123;</span>
+<span class="line">			<span class="keyword">return</span> ControllerUtil.returnDto(<span class="keyword">true</span>, <span class="string">"此用户名可用"</span>, <span class="keyword">null</span>);</span>
+<span class="line">		&#125;<span class="keyword">else</span> &#123;</span>
+<span class="line">			<span class="keyword">return</span> ControllerUtil.returnDto(<span class="keyword">false</span>, <span class="string">"此用户名不可用"</span>, <span class="keyword">null</span>);</span>
+<span class="line">		&#125;</span>
+<span class="line">	&#125;</span>
+<span class="line"></span>
+<span class="line">	<span class="meta">@ResponseBody</span></span>
+<span class="line">	<span class="meta">@RequestMapping</span>(value = <span class="string">"insertSelective"</span>, method = RequestMethod.POST)</span>
+<span class="line">	<span class="meta">@ApiOperation</span>(value = <span class="string">"新增人员"</span>, notes = <span class="string">"新增人员"</span>)</span>
+<span class="line">	<span class="function"><span class="keyword">public</span> ResponseDto <span class="title">insertSelective</span><span class="params">(UserInfoDto userInfoDto)</span> </span>&#123;</span>
+<span class="line">		<span class="keyword">int</span> count = <span class="number">0</span>;</span>
+<span class="line">		PinyinUtils pinyin = <span class="keyword">new</span> PinyinUtils();</span>
+<span class="line">		<span class="keyword">try</span> &#123;</span>
+<span class="line">			<span class="comment">//新增人员之前先检查用户名是否可用</span></span>
+<span class="line">			UserInfo userInfo = service.selectByUserNo(userInfoDto.getUserNo());</span>
+<span class="line">			<span class="keyword">if</span>(<span class="keyword">null</span> != userInfo &amp;&amp; !<span class="string">""</span>.equals(userInfo.getUserNo())) &#123;</span>
+<span class="line">				<span class="keyword">return</span> ControllerUtil.returnDto(<span class="keyword">false</span>, <span class="string">"此用户名不可用"</span>, <span class="keyword">null</span>);</span>
+<span class="line">			&#125;</span>
+<span class="line">			</span>
+<span class="line">			<span class="keyword">if</span>(<span class="keyword">null</span> != userInfoDto.getUserName() &amp;&amp; !<span class="string">""</span>.equals(userInfoDto.getUserName())) &#123;</span>
+<span class="line">				<span class="comment">//获取姓名拼音并存在对象中</span></span>
+<span class="line">				userInfoDto.setSpellName(pinyin.getPingYin(userInfoDto.getUserName()));</span>
+<span class="line">			&#125;<span class="keyword">else</span> &#123;</span>
+<span class="line">				<span class="keyword">return</span> ControllerUtil.returnDto(<span class="keyword">false</span>, <span class="string">"请输入姓名"</span>, count);</span>
+<span class="line">			&#125;</span>
+<span class="line">			</span>
+<span class="line">			count = service.insertSelective(userInfoDto);</span>
+<span class="line">			<span class="keyword">if</span>(count &lt;= <span class="number">0</span>) &#123;</span>
+<span class="line">				<span class="keyword">return</span> ControllerUtil.returnDto(<span class="keyword">false</span>, <span class="string">"失败"</span>, count);</span>
+<span class="line">			&#125;<span class="keyword">else</span> &#123;</span>
+<span class="line">				<span class="keyword">return</span> ControllerUtil.returnDto(<span class="keyword">true</span>, <span class="string">"成功"</span>, count);</span>
+<span class="line">			&#125;</span>
+<span class="line">		&#125; <span class="keyword">catch</span> (Exception e) &#123;</span>
+<span class="line">			logger.error(<span class="string">"userInfo--insertSelective:系统异常"</span>);</span>
+<span class="line">			<span class="keyword">return</span> ControllerUtil.returnDto(<span class="keyword">false</span>, <span class="string">"系统异常"</span>, count);</span>
+<span class="line">		&#125;</span>
+<span class="line">	&#125;</span>
+<span class="line">	</span>
+<span class="line">	<span class="meta">@ResponseBody</span></span>
+<span class="line">	<span class="meta">@RequestMapping</span>(value = <span class="string">"updateByPrimaryKeySelective"</span>, method = RequestMethod.POST)</span>
+<span class="line">	<span class="meta">@ApiOperation</span>(value = <span class="string">"根据id修改人员信息"</span>, notes = <span class="string">"根据id修改人员信息"</span>)</span>
+<span class="line">	<span class="function"><span class="keyword">public</span> ResponseDto <span class="title">updateByPrimaryKeySelective</span><span class="params">(UserInfoDto userInfoDto)</span> </span>&#123;</span>
+<span class="line">		<span class="keyword">int</span> count = <span class="number">0</span>;</span>
+<span class="line">		<span class="keyword">try</span> &#123;</span>
+<span class="line">			count = service.updateByPrimaryKeySelective(userInfoDto);</span>
+<span class="line">			<span class="keyword">if</span>(count &lt;= <span class="number">0</span>) &#123;</span>
+<span class="line">				<span class="keyword">return</span> ControllerUtil.returnDto(<span class="keyword">false</span>, <span class="string">"失败"</span>, count);</span>
+<span class="line">			&#125;<span class="keyword">else</span> &#123;</span>
+<span class="line">				<span class="keyword">return</span> ControllerUtil.returnDto(<span class="keyword">true</span>, <span class="string">"成功"</span>, count);</span>
+<span class="line">			&#125;</span>
+<span class="line">		&#125; <span class="keyword">catch</span> (Exception e) &#123;</span>
+<span class="line">			logger.error(<span class="string">"userInfo--updateByPrimaryKeySelective:系统异常"</span>);</span>
+<span class="line">			<span class="keyword">return</span> ControllerUtil.returnDto(<span class="keyword">false</span>, <span class="string">"系统异常"</span>, count);</span>
+<span class="line">		&#125;</span>
+<span class="line">	&#125;</span>
+<span class="line">	</span>
+<span class="line">	<span class="meta">@ResponseBody</span></span>
+<span class="line">	<span class="meta">@RequestMapping</span>(value = <span class="string">"modifyPwdById"</span>, method = RequestMethod.GET)</span>
+<span class="line">	<span class="meta">@ApiOperation</span>(value = <span class="string">"修改密码"</span>, notes = <span class="string">"修改密码"</span>)</span>
+<span class="line">	<span class="meta">@ApiImplicitParams</span>(&#123;</span>
+<span class="line">		<span class="meta">@ApiImplicitParam</span>(name = <span class="string">"id"</span>,value = <span class="string">"人员信息id"</span>, required = <span class="keyword">true</span>, paramType = <span class="string">"query"</span>),</span>
+<span class="line">		<span class="meta">@ApiImplicitParam</span>(name = <span class="string">"security_code"</span>,value = <span class="string">"验证码"</span>, required = <span class="keyword">true</span>, paramType = <span class="string">"query"</span>),</span>
+<span class="line">		<span class="meta">@ApiImplicitParam</span>(name = <span class="string">"password"</span>,value = <span class="string">"新密码"</span>, required = <span class="keyword">true</span>, paramType = <span class="string">"query"</span>)</span>
+<span class="line">	&#125;)</span>
+<span class="line">	<span class="function"><span class="keyword">public</span> ResponseDto <span class="title">updateByPrimaryKeySelective</span><span class="params">(Integer id, String security_code, String password)</span> </span>&#123;</span>
+<span class="line">		<span class="keyword">int</span> count = <span class="number">0</span>;</span>
+<span class="line">		<span class="keyword">try</span> &#123;</span>
+<span class="line">			<span class="comment">//先对验证码是否正确做验证（此处暂未处理）</span></span>
+<span class="line">			UserInfoDto userInfoDto = <span class="keyword">new</span> UserInfoDto();</span>
+<span class="line">			userInfoDto.setId(id);</span>
+<span class="line">			userInfoDto.setPassword(password);</span>
+<span class="line">			count = service.modifyPwdById(userInfoDto);</span>
+<span class="line">			<span class="keyword">if</span>(count &lt;= <span class="number">0</span>) &#123;</span>
+<span class="line">				<span class="keyword">return</span> ControllerUtil.returnDto(<span class="keyword">false</span>, <span class="string">"失败"</span>, count);</span>
+<span class="line">			&#125;<span class="keyword">else</span> &#123;</span>
+<span class="line">				<span class="keyword">return</span> ControllerUtil.returnDto(<span class="keyword">true</span>, <span class="string">"成功"</span>, count);</span>
+<span class="line">			&#125;</span>
+<span class="line">		&#125; <span class="keyword">catch</span> (Exception e) &#123;</span>
+<span class="line">			logger.error(<span class="string">"userInfo--modifyPwdById:系统异常"</span>);</span>
+<span class="line">			<span class="keyword">return</span> ControllerUtil.returnDto(<span class="keyword">false</span>, <span class="string">"系统异常"</span>, count);</span>
+<span class="line">		&#125;</span>
+<span class="line">	&#125;</span>
+<span class="line">	</span>
+<span class="line">	<span class="meta">@ResponseBody</span></span>
+<span class="line">	<span class="meta">@RequestMapping</span>(value = <span class="string">"deleteByPrimaryKey"</span>, method = RequestMethod.GET)</span>
+<span class="line">	<span class="meta">@ApiOperation</span>(value = <span class="string">"根据id删除人员信息"</span>, notes = <span class="string">"根据id删除人员信息"</span>)</span>
+<span class="line">	<span class="meta">@ApiImplicitParams</span>(&#123;</span>
+<span class="line">		<span class="meta">@ApiImplicitParam</span>(name = <span class="string">"id"</span>, value = <span class="string">"人员信息id"</span>, required = <span class="keyword">true</span>, paramType = <span class="string">"query"</span>)</span>
+<span class="line">	&#125;)</span>
+<span class="line">	<span class="function"><span class="keyword">public</span> ResponseDto <span class="title">deleteByPrimaryKey</span><span class="params">(Integer id)</span> </span>&#123;</span>
+<span class="line">		<span class="keyword">int</span> count = <span class="number">0</span>;</span>
+<span class="line">		<span class="keyword">try</span> &#123;</span>
+<span class="line">			count = service.deleteByPrimaryKey(id);</span>
+<span class="line">			<span class="keyword">if</span>(count &lt;= <span class="number">0</span>) &#123;</span>
+<span class="line">				<span class="keyword">return</span> ControllerUtil.returnDto(<span class="keyword">false</span>, <span class="string">"失败"</span>, count);</span>
+<span class="line">			&#125;<span class="keyword">else</span> &#123;</span>
+<span class="line">				<span class="keyword">return</span> ControllerUtil.returnDto(<span class="keyword">true</span>, <span class="string">"成功"</span>, count);</span>
+<span class="line">			&#125;</span>
+<span class="line">		&#125; <span class="keyword">catch</span> (Exception e) &#123;</span>
+<span class="line">			logger.error(<span class="string">"userInfo--deleteByPrimaryKey:系统异常"</span>);</span>
+<span class="line">			<span class="keyword">return</span> ControllerUtil.returnDto(<span class="keyword">false</span>, <span class="string">"系统异常"</span>, count);</span>
+<span class="line">		&#125;</span>
+<span class="line">	&#125;</span>
+<span class="line">	</span>
+<span class="line">	<span class="meta">@ResponseBody</span></span>
+<span class="line">	<span class="meta">@RequestMapping</span>(value = <span class="string">"selectById"</span>, method = RequestMethod.GET)</span>
+<span class="line">	<span class="meta">@ApiOperation</span>(value = <span class="string">"根据id查询人员的所有信息"</span>, notes = <span class="string">"根据id查询人员的所有信息"</span>)</span>
+<span class="line">	<span class="meta">@ApiImplicitParams</span>(&#123;</span>
+<span class="line">		<span class="meta">@ApiImplicitParam</span>(name = <span class="string">"id"</span>, value = <span class="string">"人员信息id"</span>, required = <span class="keyword">true</span>, paramType = <span class="string">"query"</span>)</span>
+<span class="line">	&#125;)</span>
+<span class="line">	<span class="function"><span class="keyword">public</span> ResponseDto <span class="title">selectById</span><span class="params">(Integer id)</span> </span>&#123;</span>
+<span class="line">		UserInfoDto dto = service.selectById(id);</span>
+<span class="line">		<span class="keyword">return</span> ControllerUtil.returnDto(<span class="keyword">true</span>, <span class="string">"成功"</span>, dto);</span>
+<span class="line">	&#125;</span>
+<span class="line">&#125;</span>
+</pre></td></tr></table></figure>
+<h3 id="五、访问"><a href="#五、访问" class="headerlink" title="五、访问"></a>五、访问</h3><p>配置完成之后重启服务器，访问地址 <code>http://localhost:8080/项目名/swagger-ui.html</code>，如：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span>
+</pre></td><td class="code"><pre><span class="line">http://localhost:8080/spring-mvc/swagger-ui.html</span>
+</pre></td></tr></table></figure>
+<p>访问之后的效果图如下：</p>
+<p><img src="http://olywxnzqu.bkt.clouddn.com/img/swagger/relust.png" alt="访问效果图"> </p>
+<p>点击具体的接口展开详情，效果图如下：</p>
+<p><img src="http://olywxnzqu.bkt.clouddn.com/img/swagger/insertUserInfo.png" alt="新增人员接口"> </p>
+<p>在<code>/userInfo/selectById</code> 接口中输入相关参数，点击<strong>Try it out</strong> 按钮查看接口的返回值，如下：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+<span class="line">8</span>
+<span class="line">9</span>
+<span class="line">10</span>
+<span class="line">11</span>
+<span class="line">12</span>
+<span class="line">13</span>
+<span class="line">14</span>
+<span class="line">15</span>
+</pre></td><td class="code"><pre><span class="line">&#123;</span>
+<span class="line">  <span class="attr">"success"</span>: <span class="literal">true</span>,</span>
+<span class="line">  <span class="attr">"msg"</span>: <span class="string">"成功"</span>,</span>
+<span class="line">  <span class="attr">"data"</span>: &#123;</span>
+<span class="line">    <span class="attr">"id"</span>: <span class="number">1</span>,</span>
+<span class="line">    <span class="attr">"userNo"</span>: <span class="string">"admin"</span>,</span>
+<span class="line">    <span class="attr">"userName"</span>: <span class="string">"管理员"</span>,</span>
+<span class="line">    <span class="attr">"spellName"</span>: <span class="string">"guanliyuan"</span>,</span>
+<span class="line">    <span class="attr">"password"</span>: <span class="string">"123"</span>,</span>
+<span class="line">    <span class="attr">"userPhone"</span>: <span class="string">"18681558780"</span>,</span>
+<span class="line">    <span class="attr">"userGender"</span>: <span class="number">0</span>,</span>
+<span class="line">    <span class="attr">"createTime"</span>: <span class="string">"2017-06-27 01:56:28"</span>,</span>
+<span class="line">    <span class="attr">"updateTime"</span>: <span class="string">"2017-07-26 15:56:05"</span></span>
+<span class="line">  &#125;</span>
+<span class="line">&#125;</span>
+</pre></td></tr></table></figure>
+<h3 id="六、参考资料"><a href="#六、参考资料" class="headerlink" title="六、参考资料"></a>六、参考资料</h3><p><a href="https://github.com/xiachengwei5/spring-mvc" target="_blank" rel="external">源码地址</a> </p>
+<p><a href="http://blog.csdn.net/BuddyUU/article/details/53763056" target="_blank" rel="external">swagger2 与 springmvc 整合 生成接口文档</a> </p>
+<p><a href="https://my.oschina.net/wangmengjun/blog/907679" target="_blank" rel="external">一步步完成Maven+SpringMVC+SpringFox+Swagger整合示例</a> </p>
+<p><a href="http://blog.csdn.net/he90227/article/details/52119506" target="_blank" rel="external">Spring MVC中使用 Swagger2 构建Restful API</a> </p>
+<p><a href="http://m.blog.csdn.net/FansUnion/article/details/51923720" target="_blank" rel="external">Spring MVC中使用Swagger生成API文档和完整项目示例</a> </p>
+<p><a href="http://www.cnblogs.com/baiyunchen/p/5895513.html" target="_blank" rel="external">SwaggerUI用户手册</a> </p>
+<h3 id="七、拓展延伸"><a href="#七、拓展延伸" class="headerlink" title="七、拓展延伸"></a>七、拓展延伸</h3><p><a href="http://rapapi.org" target="_blank" rel="external">RAP</a> </p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/07/28/通过Eclipse的Git插件维护GitHub上的代码/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          通过Eclipse的Git插件维护GitHub上的代码
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/07/26/Git使用入门/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Git使用入门</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="SpringMVC集成Swagger插件以及Swagger注解的简单使用" data-title="SpringMVC集成Swagger插件以及Swagger注解的简单使用" data-url="http://xiachengwei5.coding.me/2017/07/28/SpringMVC集成Swagger插件以及Swagger注解的简单使用/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2018 夏
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: undefined,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: undefined
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

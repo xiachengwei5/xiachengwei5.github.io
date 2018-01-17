@@ -1,0 +1,1255 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>CSS3 新特性 | 颭的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="CSS3 是最新的 CSS 标准，并且完全向后兼容，不过目前W3C 仍然在对 CSS3 规范进行开发，虽然标准的规范还没有正式发布，但是现代浏览器已经支持相当多的 CSS3 属性了。CSS3 提供了很多可以把玩的新特性，模糊了之前只控制样式的定义，让之前很难处理的样式（如：圆角、多列等）和只能通过Javascript来实现的动画效果等现在都能通过CSS3 新特性提供的属性很轻松的实现，功能是越来越">
+<meta name="keywords" content="CSS,CSS3">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS3 新特性">
+<meta property="og:url" content="http://xiachengwei5.coding.me/2017/02/25/CSS3-新特性/index.html">
+<meta property="og:site_name" content="颭的博客">
+<meta property="og:description" content="CSS3 是最新的 CSS 标准，并且完全向后兼容，不过目前W3C 仍然在对 CSS3 规范进行开发，虽然标准的规范还没有正式发布，但是现代浏览器已经支持相当多的 CSS3 属性了。CSS3 提供了很多可以把玩的新特性，模糊了之前只控制样式的定义，让之前很难处理的样式（如：圆角、多列等）和只能通过Javascript来实现的动画效果等现在都能通过CSS3 新特性提供的属性很轻松的实现，功能是越来越">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://olywxnzqu.bkt.clouddn.com/img/CSS3_xintexing/duijiaoxiangdeng.png">
+<meta property="og:image" content="http://olywxnzqu.bkt.clouddn.com/img/CSS3_xintexing/background-origin.gif">
+<meta property="og:image" content="http://olywxnzqu.bkt.clouddn.com/img/CSS3_xintexing/baiduxueyuan.png">
+<meta property="og:updated_time" content="2017-07-21T09:05:10.111Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CSS3 新特性">
+<meta name="twitter:description" content="CSS3 是最新的 CSS 标准，并且完全向后兼容，不过目前W3C 仍然在对 CSS3 规范进行开发，虽然标准的规范还没有正式发布，但是现代浏览器已经支持相当多的 CSS3 属性了。CSS3 提供了很多可以把玩的新特性，模糊了之前只控制样式的定义，让之前很难处理的样式（如：圆角、多列等）和只能通过Javascript来实现的动画效果等现在都能通过CSS3 新特性提供的属性很轻松的实现，功能是越来越">
+<meta name="twitter:image" content="http://olywxnzqu.bkt.clouddn.com/img/CSS3_xintexing/duijiaoxiangdeng.png">
+  
+  
+    <link rel="icon" href="http://olywxnzqu.bkt.clouddn.com/img/hexo_index/logo.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="http://olywxnzqu.bkt.clouddn.com/img/hexo_index/logo.png" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">夏</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">勤能补拙，熟能生巧</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/xiachengwei5" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/xiachengwei5" title="weibo">weibo</a>
+					        
+								<a class="mail" target="_blank" href="mailto:xiachengwei5@163.com" title="mail">mail</a>
+					        
+								<a class="jianshu" target="_blank" href="http://www.jianshu.com/u/a31d9187f8ff" title="jianshu">jianshu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/CSS/" style="font-size: 20px;">CSS</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/Git/" style="font-size: 15px;">Git</a> <a href="/tags/GitHub/" style="font-size: 10px;">GitHub</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Oracle/" style="font-size: 10px;">Oracle</a> <a href="/tags/SQL/" style="font-size: 10px;">SQL</a> <a href="/tags/component/" style="font-size: 10px;">component</a> <a href="/tags/eclipse/" style="font-size: 10px;">eclipse</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/git插件/" style="font-size: 10px;">git插件</a> <a href="/tags/jQuery/" style="font-size: 10px;">jQuery</a> <a href="/tags/js/" style="font-size: 15px;">js</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/mybatsi-generator/" style="font-size: 10px;">mybatsi-generator</a> <a href="/tags/shell/" style="font-size: 10px;">shell</a> <a href="/tags/spring/" style="font-size: 10px;">spring</a> <a href="/tags/spring-mvc/" style="font-size: 10px;">spring-mvc</a> <a href="/tags/swagger/" style="font-size: 10px;">swagger</a> <a href="/tags/todoList/" style="font-size: 10px;">todoList</a> <a href="/tags/tools/" style="font-size: 10px;">tools</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a> <a href="/tags/图片轮播/" style="font-size: 10px;">图片轮播</a> <a href="/tags/布局/" style="font-size: 10px;">布局</a> <a href="/tags/思考/" style="font-size: 10px;">思考</a> <a href="/tags/朗读者/" style="font-size: 10px;">朗读者</a> <a href="/tags/选择器/" style="font-size: 15px;">选择器</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.myronliu.com">Myron</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.devzeng.com">Devzeng</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://heji1993.github.io">Heji</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://litten.me">litten</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://sentsin.com">sentsin</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://moxfive.xyz">MOxFIVE</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.w3cplus.com">w3cplus</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://gold.xitu.io">掘金</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.ruanyifeng.com">阮一峰</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://www.liaoxuefeng.com/">廖雪峰</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">动如脱兔，静如止水</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">夏</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img src="http://olywxnzqu.bkt.clouddn.com/img/hexo_index/logo.png" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">夏</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">勤能补拙，熟能生巧</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/xiachengwei5" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/xiachengwei5" title="weibo">weibo</a>
+			        
+						<a class="mail" target="_blank" href="mailto:xiachengwei5@163.com" title="mail">mail</a>
+			        
+						<a class="jianshu" target="_blank" href="http://www.jianshu.com/u/a31d9187f8ff" title="jianshu">jianshu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-CSS3-新特性" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/02/25/CSS3-新特性/" class="article-date">
+  	<time datetime="2017-02-25T05:49:29.000Z" itemprop="datePublished">2017-02-25</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      CSS3 新特性
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS3/">CSS3</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>CSS3 是最新的 CSS 标准，并且完全向后兼容，不过目前W3C 仍然在对 CSS3 规范进行开发，虽然标准的规范还没有正式发布，但是现代浏览器已经支持相当多的 CSS3 属性了。CSS3 提供了很多可以把玩的新特性，模糊了之前只控制样式的定义，让之前很难处理的样式（如：圆角、多列等）和只能通过Javascript来实现的动画效果等现在都能通过CSS3 新特性提供的属性很轻松的实现，功能是越来越强大。</p>
+<h3 id="一、CSS3-边框"><a href="#一、CSS3-边框" class="headerlink" title="一、CSS3 边框"></a>一、CSS3 边框</h3><p>在 css3 中新增的边框属性如下：</p>
+<p><strong>创建圆角边框</strong> <a href="http://www.w3school.com.cn/tiy/t.asp?f=css3_border-radius" target="_blank" rel="external">示例</a></p>
+<p>在CSS2中添加圆角很棘手，我们不得不在每个角落使用不同的图像。但是在CSS3中通过添加一个属性就可以搞定，那就是<code>border-radius</code> ，代码如下：<br><a id="more"></a><br><strong>语法：</strong> border-radius : length length;</p>
+<p>length： 由浮点数字和单位标识符组成的长度值（如：20px）。不可为负值，如果为负值则与0展示效果一样。第一个值设置其水平半径，第二个值设置其垂直半径，如果第二个值省略则默认第二个值等于第一个值。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+</pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span>&#123;</span>
+<span class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid;</span>
+<span class="line">  <span class="comment">/* 设置每个圆角水平半径和垂直半径都为30px */</span></span>
+<span class="line">  <span class="attribute">border-radius</span>: <span class="number">30px</span>;</span>
+<span class="line">&#125;</span>
+</pre></td></tr></table></figure>
+<p><code>border-radius</code> 是4个角的缩写方法。四个角的表示顺序与<code>border</code>类似按照<code>border-top-left-radius</code>、<code>border-top-right-radius</code>、<code>border-bottom-right-radius</code>、<code>border-bottom-left-radius</code>的顺序来设置：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+<span class="line">8</span>
+<span class="line">9</span>
+<span class="line">10</span>
+<span class="line">11</span>
+</pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span>&#123;</span>
+<span class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid;</span>
+<span class="line">  <span class="comment">/* 如果 / 前后的值都存在，那么 / 前面的值设置其水平半径，/ 后面值设置其垂直半径，如果没有 / ，则水平和垂直半径相等 */</span></span>
+<span class="line">  <span class="attribute">border-radius</span>: <span class="number">10px</span> <span class="number">15px</span> <span class="number">20px</span> <span class="number">30px</span> / <span class="number">20px</span> <span class="number">30px</span> <span class="number">10px</span> <span class="number">15px</span>;</span>
+<span class="line"></span>
+<span class="line">  <span class="comment">/* 上面写法等价于下面的写法，第一个值是水平半径，第二个值是垂直半径 */</span></span>
+<span class="line">  <span class="attribute">border-top-left-radius</span>: <span class="number">10px</span> <span class="number">20px</span>;</span>
+<span class="line">  <span class="attribute">border-top-right-radius</span>: <span class="number">15px</span> <span class="number">30px</span>;</span>
+<span class="line">  <span class="attribute">border-bottom-right-radius</span>: <span class="number">20px</span> <span class="number">10px</span>;</span>
+<span class="line">  <span class="attribute">border-bottom-left-radius</span>: <span class="number">30px</span> <span class="number">15px</span>;</span>
+<span class="line">&#125;</span>
+</pre></td></tr></table></figure>
+<p><code>border-radius</code> 指定不同数量的值遵循对角相等的原则，即指定了值的取指定值，没有指定值的与对角值相等，对角相等模型如下：</p>
+<p><img src="http://olywxnzqu.bkt.clouddn.com/img/CSS3_xintexing/duijiaoxiangdeng.png" alt="对角相等模型"></p>
+<p><strong>边框阴影</strong></p>
+<p>通过属性<code>box-shadow</code> 向边框添加阴影。</p>
+<p><strong>语法：</strong> {box-shadow : [inset]  x-offset  y-offset  blur-radius  extension-radius  spread-radiuscolor}</p>
+<p>说明：对象选择器 {box-shadow:[投影方式]  X轴偏移量  Y轴偏移量   模糊半径  阴影扩展半径 阴影颜色}</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+</pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span>&#123;</span>
+<span class="line">  <span class="comment">/* 内阴影，向右偏移10px，向下偏移10px，模糊半径5px，阴影缩小10px */</span></span>
+<span class="line">  <span class="attribute">box-shadow</span>: inset <span class="number">10px</span> <span class="number">10px</span> <span class="number">5px</span> -<span class="number">10px</span> <span class="number">#888888</span>;</span>
+<span class="line">&#125;</span>
+</pre></td></tr></table></figure>
+<p><strong>box-shadow属性的参数设置取值：</strong></p>
+<blockquote>
+<p>阴影类型：此参数可选。如不设值，默认投影方式是外阴影；如取其唯一值<strong>inset</strong> ，其投影为内阴影；</p>
+<p>X-offset:阴影水平偏移量，其值可以是正负值。如果值为正值，则阴影在对象的右边，其值为负值时，阴影在对象的左边；</p>
+<p>Y-offset:阴影垂直偏移量，其值也可以是正负值。如果为正值，阴影在对象的底部，其值为负值时，阴影在对象的顶部；</p>
+<p>Blur-radius:阴影模糊半径：此参数可选，但其值只能是为正值，如果其值为0时，表示阴影不具有模糊效果，其值越大阴影的边缘就越模糊；</p>
+<p>Extension-radius阴影扩展半径：此参数可选，其值可以是正负值，如果值为正，则整个阴影都延展扩大，反之值为负值时，则缩小；</p>
+<p>阴影颜色：此参数可选。如不设定颜色，浏览器会取默认色，但各浏览器默认取色不一致，特别是在webkit内核下的safari和chrome浏览器下表现为透明色，在Firefox/Opera下表现为黑色（已验证），建议不要省略此参数。</p>
+</blockquote>
+<p><strong>边框图片</strong></p>
+<p><strong>语法：</strong></p>
+<blockquote>
+<ul>
+<li><p>border-image : border-image-source || border-image-slice [ / border-image-width] || border-image-repeat</p>
+</li>
+<li><p>border-image ： none | image [ number | percentage]{1,4} [ / border-width&gt;{1,4} ] ? [ stretch | repeat | round ]{0,2}</p>
+</li>
+</ul>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+</pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span>&#123;</span>
+<span class="line">  <span class="attribute">border-image</span>:<span class="built_in">url</span>(border.png) <span class="number">30</span> <span class="number">30</span> round;</span>
+<span class="line"></span>
+<span class="line">  <span class="attribute">border-image</span>: <span class="built_in">url</span>(border.png) <span class="number">20</span>/<span class="number">10px</span> repeat;</span>
+<span class="line">&#125;</span>
+</pre></td></tr></table></figure>
+<p>border-image的参数说明：</p>
+<blockquote>
+<ul>
+<li>none:是border-image的默认值，如果取值为none时，表示边框无背景图片；</li>
+<li>image：设置border-image的背景图片，这个跟background-image一样，使用绝对或相对的url地址，来指定背景图片；</li>
+<li>number：number是一个数值，用来设置边框的宽度，其单位是px，其实就像border-width一样取值，可以使用1~4个值，其具体表示四个方位的值，可以参考border-width的设置方式；</li>
+<li>percntage：percntage也是用来设置边框的宽度，跟number不同之处是，其使用的是百分比值来设置边框宽度；</li>
+<li>stretch,repeat,round:他们是用来设置边框背景图片的铺放方式，类似于background-position，其中stretch是拉伸，repeat是重复，round是平铺，stretch为默认值。<br><code>border-image-slice</code> 这玩意比较复杂，感觉是看明白了，但是就是做不出例子的效果，不知道是资源图片的原因还是写法的原因，还是浏览器的原因还是写例子的人自己都没整明白，这东西现在比较糊，到时整明白在整理。</li>
+</ul>
+</blockquote>
+<h3 id="二、CSS3-背景"><a href="#二、CSS3-背景" class="headerlink" title="二、CSS3 背景"></a>二、CSS3 背景</h3><p><strong><code>background-size</code> 属性</strong>  <a href="http://www.w3school.com.cn/tiy/t.asp?f=css3_background-size" target="_blank" rel="external">示例</a></p>
+<p>在 CSS3 之前，背景图片的尺寸是由图片的实际尺寸决定的。在 CSS3 中，可以设置背景图片的尺寸，这就允许我们在不同的环境中重复使用背景图片。可以像素或百分比规定尺寸。如果以百分比规定尺寸，那么尺寸相对于父元素的宽度和高度。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+<span class="line">8</span>
+<span class="line">9</span>
+</pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span>&#123;</span>
+<span class="line">  <span class="attribute">background</span>:<span class="built_in">url</span>(bg_flower.gif);</span>
+<span class="line">  <span class="comment">/* 通过像素规定尺寸 */</span></span>
+<span class="line">  <span class="attribute">background-size</span>:<span class="number">63px</span> <span class="number">100px</span>;</span>
+<span class="line"></span>
+<span class="line">  <span class="comment">/* 通过百分比规定尺寸 */</span></span>
+<span class="line">  <span class="attribute">background-size</span>:<span class="number">100%</span> <span class="number">50%</span>;</span>
+<span class="line">  <span class="attribute">background-repeat</span>:no-repeat;</span>
+<span class="line">&#125;</span>
+</pre></td></tr></table></figure>
+<p><strong><code>background-origin</code> 属性</strong> <a href="http://www.w3school.com.cn/tiy/t.asp?f=css3_background-origin" target="_blank" rel="external">示例</a></p>
+<p>规定背景图片的定位区域，背景图片可以放置于 <code>content-box</code>、<code>padding-box</code> 或 <code>border-box</code> 区域，</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+</pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span>&#123;</span>
+<span class="line">  <span class="attribute">background</span>:<span class="built_in">url</span>(bg_flower.gif);</span>
+<span class="line">  <span class="attribute">background-repeat</span>:no-repeat;</span>
+<span class="line">  <span class="attribute">background-size</span>:<span class="number">100%</span> <span class="number">100%</span>;</span>
+<span class="line">  <span class="comment">/* 规定背景图片的定位区域 */</span></span>
+<span class="line">  <span class="attribute">background-origin</span>:content-box;</span>
+<span class="line">&#125;</span>
+</pre></td></tr></table></figure>
+<p>区域的具体划分如下：</p>
+<p><img src="http://olywxnzqu.bkt.clouddn.com/img/CSS3_xintexing/background-origin.gif" alt="background-origin 属性指定的区域"></p>
+<p><strong><code>background-clip</code> 属性</strong> <a href="http://www.w3school.com.cn/tiy/t.asp?f=css3_background-clip" target="_blank" rel="external">示例</a></p>
+<p>与<code>background-origin</code> 属性相似，规定背景颜色的绘制区域，区域划分与<code>background-origin</code> 属性相同。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+</pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span>&#123;</span>
+<span class="line">  <span class="attribute">background-color</span>:yellow;</span>
+<span class="line">  <span class="attribute">background-clip</span>:content-box;</span>
+<span class="line">&#125;</span>
+</pre></td></tr></table></figure>
+<p><strong>CSS3 多重背景图片</strong>   <a href="http://www.w3school.com.cn/tiy/t.asp?f=css3_background_multiple" target="_blank" rel="external">示例</a></p>
+<p>CSS3 允许为元素设置多个背景图像</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+</pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span>&#123;</span>
+<span class="line">  <span class="attribute">background-image</span>:<span class="built_in">url</span>(bg_flower.gif),<span class="built_in">url</span>(bg_flower_2.gif);</span>
+<span class="line">&#125;</span>
+</pre></td></tr></table></figure>
+<h3 id="三、CSS3-文本效果"><a href="#三、CSS3-文本效果" class="headerlink" title="三、CSS3 文本效果"></a>三、CSS3 文本效果</h3><p><strong><code>text-shadow</code> 属性</strong> <a href="http://www.w3school.com.cn/tiy/t.asp?f=css3_text-shadow" target="_blank" rel="external">示例</a></p>
+<p>给为本添加阴影，能够设置水平阴影、垂直阴影、模糊距离，以及阴影的颜色。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+</pre></td><td class="code"><pre><span class="line"><span class="selector-tag">h1</span>&#123;</span>
+<span class="line">  <span class="attribute">text-shadow</span>: <span class="number">5px</span> <span class="number">5px</span> <span class="number">5px</span> <span class="number">#FF0000</span>;</span>
+<span class="line">&#125;</span>
+</pre></td></tr></table></figure>
+<p><strong>text-wrap 属性</strong>  <a href="http://www.w3school.com.cn/cssref/pr_text-wrap.asp" target="_blank" rel="external">示例</a></p>
+<p>设置区域内的自动换行。</p>
+<p><strong>语法：</strong> text-wrap: normal | none | unrestricted | suppress | break-word;</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+</pre></td><td class="code"><pre><span class="line"><span class="comment">/* 允许对长单词进行拆分，并换行到下一行 */</span></span>
+<span class="line"><span class="selector-tag">p</span> &#123;<span class="attribute">word-wrap</span>:break-word;&#125;</span>
+</pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>normal</td>
+<td>只在允许的换行点进行换行。</td>
+</tr>
+<tr>
+<td>none</td>
+<td>不换行。元素无法容纳的文本会溢出。</td>
+</tr>
+<tr>
+<td>break-word</td>
+<td>在任意两个字符间换行。</td>
+</tr>
+<tr>
+<td>suppress</td>
+<td>压缩元素中的换行。浏览器只在行中没有其他有效换行点时进行换行。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="四、CSS3-字体"><a href="#四、CSS3-字体" class="headerlink" title="四、CSS3 字体"></a>四、CSS3 字体</h3><p><strong>字体定义</strong></p>
+<p>在 CSS3 之前，web 设计师必须使用已在用户计算机上安装好的字体。但是通过 CSS3，web 设计师可以使用他们喜欢的任意字体。当找到或购买到希望使用的字体时，可将该字体文件存放到 web 服务器上，它会在需要时被自动下载到用户的计算机上。字体需要在 CSS3 @font-face 规则中定义。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+<span class="line">8</span>
+<span class="line">9</span>
+<span class="line">10</span>
+</pre></td><td class="code"><pre><span class="line"><span class="comment">/* 定义字体 */</span></span>
+<span class="line">@<span class="keyword">font-face</span>&#123;</span>
+<span class="line">  <span class="attribute">font-family</span>: myFont;</span>
+<span class="line">  <span class="attribute">src</span>: <span class="built_in">url</span>(<span class="string">'Sansation_Light.ttf'</span>),</span>
+<span class="line">       <span class="built_in">url</span>(<span class="string">'Sansation_Light.eot'</span>);     <span class="comment">/* IE9+ */</span></span>
+<span class="line">&#125;</span>
+<span class="line"></span>
+<span class="line"><span class="selector-tag">div</span>&#123;</span>
+<span class="line">  <span class="attribute">font-family</span>:myFont;</span>
+<span class="line">&#125;</span>
+</pre></td></tr></table></figure>
+<p><strong>使用粗体字体</strong></p>
+<p> “Sansation_Light.ttf”文件 是定义的正常字体，”Sansation_Bold.ttf” 是另一个字体文件，它包含了 Sansation 字体的粗体字符。只要 font-family 为 “myFirstFont” 的文本需要显示为粗体，浏览器就会使用该字体。</p>
+<p>（其实没弄清楚这样处理的原因，经测试直接在html中通过 b 标签也可以实现加粗的效果）</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+<span class="line">8</span>
+<span class="line">9</span>
+<span class="line">10</span>
+<span class="line">11</span>
+<span class="line">12</span>
+<span class="line">13</span>
+<span class="line">14</span>
+<span class="line">15</span>
+<span class="line">16</span>
+<span class="line">17</span>
+<span class="line">18</span>
+<span class="line">19</span>
+</pre></td><td class="code"><pre><span class="line"><span class="comment">/* 定义正常字体 */</span></span>
+<span class="line">@<span class="keyword">font-face</span>&#123;</span>
+<span class="line">  <span class="attribute">font-family</span>: myFirstFont;</span>
+<span class="line">  <span class="attribute">src</span>: <span class="built_in">url</span>(<span class="string">'/example/css3/Sansation_Light.ttf'</span>),</span>
+<span class="line">       <span class="built_in">url</span>(<span class="string">'/example/css3/Sansation_Light.eot'</span>); <span class="comment">/* IE9+ */</span></span>
+<span class="line">&#125;</span>
+<span class="line"></span>
+<span class="line"><span class="comment">/* 定义粗体时使用的字体 */</span></span>
+<span class="line">@<span class="keyword">font-face</span>&#123;</span>
+<span class="line">  <span class="attribute">font-family</span>: myFirstFont;</span>
+<span class="line">  <span class="attribute">src</span>: <span class="built_in">url</span>(<span class="string">'/example/css3/Sansation_Bold.ttf'</span>),</span>
+<span class="line">       <span class="built_in">url</span>(<span class="string">'/example/css3/Sansation_Bold.eot'</span>); <span class="comment">/* IE9+ */</span></span>
+<span class="line">  <span class="comment">/* 标识属性 */</span></span>
+<span class="line">  <span class="attribute">font-weight</span>:bold;</span>
+<span class="line">&#125;</span>
+<span class="line"></span>
+<span class="line"><span class="selector-tag">div</span>&#123;</span>
+<span class="line">  <span class="attribute">font-family</span>:myFirstFont;</span>
+<span class="line">&#125;</span>
+</pre></td></tr></table></figure>
+<h3 id="五、CSS3-2D-转换"><a href="#五、CSS3-2D-转换" class="headerlink" title="五、CSS3 2D 转换"></a>五、CSS3 2D 转换</h3><p>通过 CSS3 转换，我们能够对元素进行<strong>移动、缩放、转动、拉长或拉伸</strong>，转换是使元素改变形状、尺寸和位置的一种效果。</p>
+<p><strong>translate() 方法</strong> <a href="http://www.w3school.com.cn/tiy/t.asp?f=css3_transform_rotate" target="_blank" rel="external">示例</a></p>
+<p>通过 translate(x , y) 方法，元素根据给定的 left（x 坐标） 和 top（y 坐标） 位置参数从其当前位置移动，x为正值向右移动，为负值向左移动；y为正值向下移动，为负值向上移动；</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+</pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span>&#123;</span>
+<span class="line">  <span class="attribute">transform</span>: <span class="built_in">translate</span>(50px,100px);</span>
+<span class="line">  <span class="attribute">-ms-transform</span>: <span class="built_in">translate</span>(50px,100px);		   <span class="comment">/* IE 9 */</span></span>
+<span class="line">  <span class="attribute">-webkit-transform</span>: <span class="built_in">translate</span>(50px,100px);     <span class="comment">/* Safari and Chrome */</span></span>
+<span class="line">  <span class="attribute">-o-transform</span>: <span class="built_in">translate</span>(50px,100px);		   <span class="comment">/* Opera */</span></span>
+<span class="line">  <span class="attribute">-moz-transform</span>: <span class="built_in">translate</span>(50px,100px);        <span class="comment">/* Firefox */</span></span>
+<span class="line">&#125;</span>
+</pre></td></tr></table></figure>
+<p><strong>rotate() 方法</strong> <a href="http://www.w3school.com.cn/tiy/t.asp?f=css3_transform_rotate" target="_blank" rel="external">示例</a></p>
+<p>控制元素顺时针旋转给定的角度。为正值，元素将顺时针旋转。为负值，元素将逆时针旋转。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+</pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span>&#123;</span>
+<span class="line">  <span class="attribute">transform</span>: <span class="built_in">rotate</span>(30deg);</span>
+<span class="line">  <span class="attribute">-ms-transform</span>: <span class="built_in">rotate</span>(30deg);        <span class="comment">/* IE 9 */</span></span>
+<span class="line">  <span class="attribute">-webkit-transform</span>: <span class="built_in">rotate</span>(30deg);    <span class="comment">/* Safari and Chrome */</span></span>
+<span class="line">  <span class="attribute">-o-transform</span>: <span class="built_in">rotate</span>(30deg);         <span class="comment">/* Opera */</span></span>
+<span class="line">  <span class="attribute">-moz-transform</span>: <span class="built_in">rotate</span>(30deg);       <span class="comment">/* Firefox */</span></span>
+<span class="line">&#125;</span>
+</pre></td></tr></table></figure>
+<p><strong>scale() 方法</strong> <a href="http://www.w3school.com.cn/tiy/t.asp?f=css3_transform_scale" target="_blank" rel="external">示例</a></p>
+<p>根据给定的宽度（X 轴）和高度（Y 轴）参数，控制元素的尺寸的增加、减少。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+</pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span>&#123;</span>
+<span class="line">  <span class="attribute">transform</span>: <span class="built_in">scale</span>(2,4);</span>
+<span class="line">  <span class="attribute">-ms-transform</span>: <span class="built_in">scale</span>(2,4);         <span class="comment">/* IE 9 */</span></span>
+<span class="line">  <span class="attribute">-webkit-transform</span>: <span class="built_in">scale</span>(2,4);     <span class="comment">/* Safari 和 Chrome */</span></span>
+<span class="line">  <span class="attribute">-o-transform</span>: <span class="built_in">scale</span>(2,4);	        <span class="comment">/* Opera */</span></span>
+<span class="line">  <span class="attribute">-moz-transform</span>: <span class="built_in">scale</span>(2,4);       <span class="comment">/* Firefox */</span></span>
+<span class="line">&#125;</span>
+</pre></td></tr></table></figure>
+<p><strong>skew() 方法</strong> <a href="http://www.w3school.com.cn/tiy/t.asp?f=css3_transform_skew" target="_blank" rel="external">示例</a></p>
+<p>根据给定的水平线（X 轴）和垂直线（Y 轴）参数设置元素翻转给定的角度。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+<span class="line">8</span>
+</pre></td><td class="code"><pre><span class="line"><span class="comment">/* 设置围绕 X 轴把元素翻转 30 度，围绕 Y 轴翻转 20 度。 */</span></span>
+<span class="line"><span class="selector-tag">div</span>&#123;</span>
+<span class="line">  <span class="attribute">transform</span>: <span class="built_in">skew</span>(30deg,20deg);</span>
+<span class="line">  <span class="attribute">-ms-transform</span>: <span class="built_in">skew</span>(30deg,20deg);         <span class="comment">/* IE 9 */</span></span>
+<span class="line">  <span class="attribute">-webkit-transform</span>: <span class="built_in">skew</span>(30deg,20deg);     <span class="comment">/* Safari and Chrome */</span></span>
+<span class="line">  <span class="attribute">-o-transform</span>: <span class="built_in">skew</span>(30deg,20deg);          <span class="comment">/* Opera */</span></span>
+<span class="line">  <span class="attribute">-moz-transform</span>: <span class="built_in">skew</span>(30deg,20deg);        <span class="comment">/* Firefox */</span></span>
+<span class="line">&#125;</span>
+</pre></td></tr></table></figure>
+<p><strong>matrix() 方法</strong> <a href="http://www.w3school.com.cn/tiy/t.asp?f=css3_transform_matrix" target="_blank" rel="external">示例</a></p>
+<p>matrix() 方法把所有 2D 转换方法组合在一起。matrix() 方法需要六个参数，包含数学函数，允许旋转、缩放、移动以及倾斜元素。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+<span class="line">8</span>
+</pre></td><td class="code"><pre><span class="line"><span class="comment">/* 使用 matrix 方法将 div 元素旋转 30 度 */</span></span>
+<span class="line"><span class="selector-tag">div</span>&#123;</span>
+<span class="line">  <span class="attribute">transform</span>:<span class="built_in">matrix</span>(0.866,0.5,-0.5,0.866,0,0);</span>
+<span class="line">  <span class="attribute">-ms-transform</span>:<span class="built_in">matrix</span>(0.866,0.5,-0.5,0.866,0,0);          <span class="comment">/* IE 9 */</span></span>
+<span class="line">  <span class="attribute">-moz-transform</span>:<span class="built_in">matrix</span>(0.866,0.5,-0.5,0.866,0,0);         <span class="comment">/* Firefox */</span></span>
+<span class="line">  <span class="attribute">-webkit-transform</span>:<span class="built_in">matrix</span>(0.866,0.5,-0.5,0.866,0,0);      <span class="comment">/* Safari and Chrome */</span></span>
+<span class="line">  <span class="attribute">-o-transform</span>:<span class="built_in">matrix</span>(0.866,0.5,-0.5,0.866,0,0);           <span class="comment">/* Opera */</span></span>
+<span class="line">&#125;</span>
+</pre></td></tr></table></figure>
+<p><strong>2D Transform 方法汇总</strong></p>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>matrix(n,n,n,n,n,n)</td>
+<td>定义 2D 转换，使用六个值的矩阵。</td>
+</tr>
+<tr>
+<td>translate(x,y)</td>
+<td>定义 2D 转换，沿着 X 和 Y 轴移动元素。</td>
+</tr>
+<tr>
+<td>translateX(n)</td>
+<td>定义 2D 转换，沿着 X 轴移动元素。</td>
+</tr>
+<tr>
+<td>translateY(n)</td>
+<td>定义 2D 转换，沿着 Y 轴移动元素。</td>
+</tr>
+<tr>
+<td>scale(x,y)</td>
+<td>定义 2D 缩放转换，改变元素的宽度和高度。</td>
+</tr>
+<tr>
+<td>scaleX(n)</td>
+<td>定义 2D 缩放转换，改变元素的宽度。</td>
+</tr>
+<tr>
+<td>scaleY(n)</td>
+<td>定义 2D 缩放转换，改变元素的高度。</td>
+</tr>
+<tr>
+<td>rotate(angle)</td>
+<td>定义 2D 旋转，在参数中规定角度。</td>
+</tr>
+<tr>
+<td>skew(x-angle,y-angle)</td>
+<td>定义 2D 倾斜转换，沿着 X 和 Y 轴。</td>
+</tr>
+<tr>
+<td>skewX(angle)</td>
+<td>定义 2D 倾斜转换，沿着 X 轴。</td>
+</tr>
+<tr>
+<td>skewY(angle)</td>
+<td>定义 2D 倾斜转换，沿着 Y 轴。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="六、CSS3-3D-转换"><a href="#六、CSS3-3D-转换" class="headerlink" title="六、CSS3 3D 转换"></a>六、CSS3 3D 转换</h3><p>CSS3 允许使用 3D 转换来对元素进行格式化</p>
+<p><strong>rotateX() 方法</strong> <a href="http://www.w3school.com.cn/tiy/t.asp?f=css3_transform_rotateX" target="_blank" rel="external">示例</a></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+</pre></td><td class="code"><pre><span class="line"><span class="comment">/* 设置元素围绕其 X 轴以给定的度数进行旋转 */</span></span>
+<span class="line"><span class="selector-tag">div</span>&#123;</span>
+<span class="line">  <span class="attribute">transform</span>: <span class="built_in">rotateX</span>(120deg);</span>
+<span class="line">  <span class="attribute">-webkit-transform</span>: <span class="built_in">rotateX</span>(120deg);	<span class="comment">/* Safari 和 Chrome */</span></span>
+<span class="line">  <span class="attribute">-moz-transform</span>: <span class="built_in">rotateX</span>(120deg);	<span class="comment">/* Firefox */</span></span>
+<span class="line">&#125;</span>
+</pre></td></tr></table></figure>
+<p><strong>rotateY() 旋转</strong> <a href="http://www.w3school.com.cn/tiy/t.asp?f=css3_transform_rotateY" target="_blank" rel="external">示例</a></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+</pre></td><td class="code"><pre><span class="line"><span class="comment">/* 设置元素围绕其 Y 轴以给定的度数进行旋转 */</span></span>
+<span class="line"><span class="selector-tag">div</span>&#123;</span>
+<span class="line">  <span class="attribute">transform</span>: <span class="built_in">rotateY</span>(130deg);</span>
+<span class="line">  <span class="attribute">-webkit-transform</span>: <span class="built_in">rotateY</span>(130deg);	<span class="comment">/* Safari 和 Chrome */</span></span>
+<span class="line">  <span class="attribute">-moz-transform</span>: <span class="built_in">rotateY</span>(130deg);	<span class="comment">/* Firefox */</span></span>
+<span class="line">&#125;</span>
+</pre></td></tr></table></figure>
+<p>2017百度前端学院热身试题 <a href="http://ife.baidu.com/game/warmUp#/F4A83299B6A3990C231A5693E52A25A1BB3AAB" target="_blank" rel="external">百度前端学院热身试题-第三题</a> 就重点考察了元素2D、3D转换的内容，说明这部分是比较适用比较重要的部分，要熟练掌握。</p>
+<p><img src="http://olywxnzqu.bkt.clouddn.com/img/CSS3_xintexing/baiduxueyuan.png" alt="百度前端学院热身试题-第三题"></p>
+<h3 id="七、CSS3-过渡"><a href="#七、CSS3-过渡" class="headerlink" title="七、CSS3 过渡"></a>七、CSS3 过渡</h3><p>通过 CSS3可以在不使用 Flash 动画或 JavaScript 的情况下，当元素从一种样式变换为另一种样式时为元素添加效果。</p>
+<p>要实现这一点，必须规定以下两项内容：</p>
+<ul>
+<li>设置添加过渡效果的 CSS 属性；</li>
+<li>设置过渡效果的时长；</li>
+</ul>
+<p><strong>注意：</strong> 如果时长未设置，则不会有过渡效果，因为默认值是 0。</p>
+<p><strong>单项改变</strong> <a href="http://www.w3school.com.cn/tiy/t.asp?f=css3_transition1" target="_blank" rel="external">示例</a></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+<span class="line">8</span>
+<span class="line">9</span>
+<span class="line">10</span>
+<span class="line">11</span>
+</pre></td><td class="code"><pre><span class="line"><span class="comment">/* 设置将变化效果添加在“宽度”上，时长为2秒；该时长在其他属性上并不适用 */</span></span>
+<span class="line"><span class="selector-tag">div</span>&#123;</span>
+<span class="line">  <span class="attribute">transition</span>: width <span class="number">2s</span>;</span>
+<span class="line">  <span class="attribute">-moz-transition</span>: width <span class="number">2s</span>;         <span class="comment">/* Firefox 4 */</span></span>
+<span class="line">  <span class="attribute">-webkit-transition</span>: width <span class="number">2s</span>;      <span class="comment">/* Safari 和 Chrome */</span></span>
+<span class="line">  <span class="attribute">-o-transition</span>: width <span class="number">2s</span>;           <span class="comment">/* Opera */</span></span>
+<span class="line">&#125;</span>
+<span class="line"><span class="comment">/* 配合在一起使用的效果就是当鼠标移上去的时候宽度变为300px，这个过程耗时2秒 */</span></span>
+<span class="line"><span class="selector-tag">div</span><span class="selector-pseudo">:hover</span>&#123;</span>
+<span class="line">  <span class="attribute">width</span>:<span class="number">300px</span>;</span>
+<span class="line">&#125;</span>
+</pre></td></tr></table></figure>
+<p><strong>注意：</strong> 当鼠标移出元素时，它会逐渐变回原来的样式。</p>
+<p><strong>多项改变</strong> <a href="http://www.w3school.com.cn/tiy/t.asp?f=css3_transition2" target="_blank" rel="external">示例</a>  </p>
+<p>如需向多个样式添加过渡效果，请添加多个属性，由逗号隔开。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+<span class="line">8</span>
+<span class="line">9</span>
+<span class="line">10</span>
+<span class="line">11</span>
+<span class="line">12</span>
+<span class="line">13</span>
+<span class="line">14</span>
+<span class="line">15</span>
+<span class="line">16</span>
+<span class="line">17</span>
+</pre></td><td class="code"><pre><span class="line"><span class="comment">/* 同时向宽度、高度和转换添加过渡效果 */</span></span>
+<span class="line"><span class="selector-tag">div</span>&#123;</span>
+<span class="line">  <span class="attribute">transition</span>: width <span class="number">2s</span>, height <span class="number">2s</span>, transform <span class="number">2s</span>;</span>
+<span class="line">  <span class="attribute">-moz-transition</span>: width <span class="number">2s</span>, height <span class="number">2s</span>, -moz-transform <span class="number">2s</span>;</span>
+<span class="line">  <span class="attribute">-webkit-transition</span>: width <span class="number">2s</span>, height <span class="number">2s</span>, -webkit-transform <span class="number">2s</span>;</span>
+<span class="line">  <span class="attribute">-o-transition</span>: width <span class="number">2s</span>, height <span class="number">2s</span>,-o-transform <span class="number">2s</span>;</span>
+<span class="line">&#125;</span>
+<span class="line"></span>
+<span class="line"><span class="comment">/* 当鼠标移上时宽度和高度都变成200px，同时旋转180度，每个属性变化都耗时2秒 */</span></span>
+<span class="line"><span class="selector-tag">div</span><span class="selector-pseudo">:hover</span>&#123;</span>
+<span class="line">  <span class="attribute">width</span>:<span class="number">200px</span>;</span>
+<span class="line">  <span class="attribute">height</span>:<span class="number">200px</span>;</span>
+<span class="line">  <span class="attribute">transform</span>:<span class="built_in">rotate</span>(180deg);</span>
+<span class="line">  <span class="attribute">-moz-transform</span>:<span class="built_in">rotate</span>(180deg);        <span class="comment">/* Firefox 4 */</span></span>
+<span class="line">  <span class="attribute">-webkit-transform</span>:<span class="built_in">rotate</span>(180deg);     <span class="comment">/* Safari and Chrome */</span></span>
+<span class="line">  <span class="attribute">-o-transform</span>:<span class="built_in">rotate</span>(180deg);          <span class="comment">/* Opera */</span></span>
+<span class="line">&#125;</span>
+</pre></td></tr></table></figure>
+<p><strong>过渡属性详解</strong> <a href="http://www.w3school.com.cn/css3/css3_transition.asp" target="_blank" rel="external">详解</a></p>
+<p><code>transition</code> 是简写属性，</p>
+<p><strong>语法：</strong> transition : transition-property | transition-duration | transition-timing-function | transition-delay;</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+</pre></td><td class="code"><pre><span class="line"><span class="comment">/* 设置在宽度上添加过渡效果，时长为1秒，过渡效果时间曲线为linear，等待2秒后开始过渡 */</span></span>
+<span class="line"><span class="selector-tag">div</span>&#123;</span>
+<span class="line">  <span class="attribute">transition</span>: width <span class="number">1s</span> linear <span class="number">2s</span>;</span>
+<span class="line">  <span class="attribute">-moz-transition</span>: width <span class="number">1s</span> linear <span class="number">2s</span>;       <span class="comment">/* Firefox 4 */</span></span>
+<span class="line">  <span class="attribute">-webkit-transition</span>: width <span class="number">1s</span> linear <span class="number">2s</span>;    <span class="comment">/* Safari and Chrome */</span></span>
+<span class="line">  <span class="attribute">-o-transition</span>: width <span class="number">1s</span> linear <span class="number">2s</span>;         <span class="comment">/* Opera */</span></span>
+<span class="line">&#125;</span>
+</pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>transition</td>
+<td>简写属性，用于在一个属性中设置四个过渡属性。</td>
+</tr>
+<tr>
+<td>transition-property</td>
+<td>规定应用过渡的 CSS 属性的名称。</td>
+</tr>
+<tr>
+<td>transition-duration</td>
+<td>定义过渡效果花费的时间。默认是 0。</td>
+</tr>
+<tr>
+<td>transition-timing-function</td>
+<td>规定过渡效果的时间曲线。默认是 “ease”。</td>
+</tr>
+<tr>
+<td>transition-delay</td>
+<td>规定过渡效果何时开始。默认是 0。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="八、CSS3-动画"><a href="#八、CSS3-动画" class="headerlink" title="八、CSS3 动画"></a>八、CSS3 动画</h3><p>通过 CSS3可以创建动画，这些动画可以取代网页中的画图片、Flash 动画以及 JavaScript。</p>
+<p>CSS3 中通过@keyframes 规则来创建动画。在 @keyframes 中规定某项 CSS 样式，就能创建由当前样式（动画开始前的样式）逐渐改为新样式（需要变到的样式）的动画效果。</p>
+<p><strong>通过from , to关键字设置动画发生的时间</strong> <a href="http://www.w3school.com.cn/tiy/t.asp?f=css3_animation1" target="_blank" rel="external">示例</a>  </p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+<span class="line">8</span>
+<span class="line">9</span>
+<span class="line">10</span>
+<span class="line">11</span>
+<span class="line">12</span>
+<span class="line">13</span>
+<span class="line">14</span>
+<span class="line">15</span>
+<span class="line">16</span>
+<span class="line">17</span>
+<span class="line">18</span>
+<span class="line">19</span>
+<span class="line">20</span>
+<span class="line">21</span>
+<span class="line">22</span>
+<span class="line">23</span>
+<span class="line">24</span>
+<span class="line">25</span>
+<span class="line">26</span>
+<span class="line">27</span>
+<span class="line">28</span>
+<span class="line">29</span>
+<span class="line">30</span>
+<span class="line">31</span>
+<span class="line">32</span>
+</pre></td><td class="code"><pre><span class="line"><span class="comment">/* 通过@keyframes 创建动画 */</span></span>
+<span class="line">@<span class="keyword">keyframes</span> myfirst&#123;</span>
+<span class="line">  <span class="selector-tag">from</span> &#123;<span class="attribute">background</span>: red;&#125;</span>
+<span class="line">  <span class="selector-tag">to</span> &#123;<span class="attribute">background</span>: yellow;&#125;</span>
+<span class="line">&#125;</span>
+<span class="line"><span class="comment">/* Firefox */</span></span>
+<span class="line">@-<span class="keyword">moz</span>-<span class="keyword">keyframes</span> myfirst &#123;</span>
+<span class="line">  <span class="selector-tag">from</span> &#123;<span class="attribute">background</span>: red;&#125;</span>
+<span class="line">  <span class="selector-tag">to</span> &#123;<span class="attribute">background</span>: yellow;&#125;</span>
+<span class="line">&#125;</span>
+<span class="line"><span class="comment">/* Safari 和 Chrome */</span></span>
+<span class="line">@-<span class="keyword">webkit</span>-<span class="keyword">keyframes</span> myfirst &#123;</span>
+<span class="line">  <span class="selector-tag">from</span> &#123;<span class="attribute">background</span>: red;&#125;</span>
+<span class="line">  <span class="selector-tag">to</span> &#123;<span class="attribute">background</span>: yellow;&#125;</span>
+<span class="line">&#125;</span>
+<span class="line"><span class="comment">/* Opera */</span></span>
+<span class="line">@-<span class="keyword">o</span>-<span class="keyword">keyframes</span> myfirst &#123;</span>
+<span class="line">  <span class="selector-tag">from</span> &#123;<span class="attribute">background</span>: red;&#125;</span>
+<span class="line">  <span class="selector-tag">to</span> &#123;<span class="attribute">background</span>: yellow;&#125;</span>
+<span class="line">&#125;</span>
+<span class="line"></span>
+<span class="line"><span class="comment">/*</span>
+<span class="line">   将创建的动画绑定到选择器，并至少指定以下两项 CSS3 动画属性</span>
+<span class="line">   1.指定动画的名称；</span>
+<span class="line">   2.指定动画的时长；</span>
+<span class="line">*/</span></span>
+<span class="line"><span class="selector-tag">div</span>&#123;</span>
+<span class="line">  <span class="attribute">animation</span>: myfirst <span class="number">5s</span>;</span>
+<span class="line">  <span class="attribute">-moz-animation</span>: myfirst <span class="number">5s</span>;       <span class="comment">/* Firefox */</span></span>
+<span class="line">  <span class="attribute">-webkit-animation</span>: myfirst <span class="number">5s</span>;    <span class="comment">/* Safari 和 Chrome */</span></span>
+<span class="line">  <span class="attribute">-o-animation</span>: myfirst <span class="number">5s</span>;         <span class="comment">/* Opera */</span></span>
+<span class="line">&#125;</span>
+</pre></td></tr></table></figure>
+<p><strong>通过百分比设置动画发生的时间</strong> <a href="http://www.w3school.com.cn/tiy/t.asp?f=css3_animation2" target="_blank" rel="external">示例</a></p>
+<p>动画是使元素从一种样式逐渐变化为另一种样式的效果。可以改变任意多的样式任意多的次数。可以用关键词 “from” 和 “to”来设置动画变化发生的时间，其效果等同于 0% 和 100%。0% 是动画的开始，100% 是动画的完成。为了得到最佳的浏览器支持，应该始终定义 0% 和 100% 选择器。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+<span class="line">8</span>
+<span class="line">9</span>
+<span class="line">10</span>
+<span class="line">11</span>
+<span class="line">12</span>
+<span class="line">13</span>
+<span class="line">14</span>
+<span class="line">15</span>
+<span class="line">16</span>
+</pre></td><td class="code"><pre><span class="line"><span class="comment">/* 当动画为 25% 及 50% 时改变背景色，然后当动画 100% 完成时再次改变 */</span></span>
+<span class="line">@<span class="keyword">keyframes</span> myfirst&#123;</span>
+<span class="line">  0%   &#123;<span class="attribute">background</span>: red;&#125;</span>
+<span class="line">  25%  &#123;<span class="attribute">background</span>: yellow;&#125;</span>
+<span class="line">  50%  &#123;<span class="attribute">background</span>: blue;&#125;</span>
+<span class="line">  100% &#123;<span class="attribute">background</span>: green;&#125;</span>
+<span class="line">&#125;</span>
+<span class="line"></span>
+<span class="line"><span class="comment">/* 同时改变背景色和位置 */</span></span>
+<span class="line">@<span class="keyword">keyframes</span> myfirst&#123;</span>
+<span class="line">  0%   &#123;<span class="attribute">background</span>: red; <span class="attribute">left</span>:<span class="number">0px</span>; <span class="attribute">top</span>:<span class="number">0px</span>;&#125;</span>
+<span class="line">  25%  &#123;<span class="attribute">background</span>: yellow; <span class="attribute">left</span>:<span class="number">200px</span>; <span class="attribute">top</span>:<span class="number">0px</span>;&#125;</span>
+<span class="line">  50%  &#123;<span class="attribute">background</span>: blue; <span class="attribute">left</span>:<span class="number">200px</span>; <span class="attribute">top</span>:<span class="number">200px</span>;&#125;</span>
+<span class="line">  75%  &#123;<span class="attribute">background</span>: green; <span class="attribute">left</span>:<span class="number">0px</span>; <span class="attribute">top</span>:<span class="number">200px</span>;&#125;</span>
+<span class="line">  100% &#123;<span class="attribute">background</span>: red; <span class="attribute">left</span>:<span class="number">0px</span>; <span class="attribute">top</span>:<span class="number">0px</span>;&#125;</span>
+<span class="line">&#125;</span>
+</pre></td></tr></table></figure>
+<p><strong>动画属性详解</strong></p>
+<p><code>animation</code> 是除了 <code>animation-play-state</code> 属性所有动画属性的简写属性。</p>
+<p><strong>语法：</strong> animation : animation-name | animation-duration | animation-timing-function | animation-delay | animation-iteration-count | animation-direction</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+<span class="line">8</span>
+<span class="line">9</span>
+<span class="line">10</span>
+</pre></td><td class="code"><pre><span class="line"><span class="comment">/* 应用的动画为myfirst，一个动画周期为5秒，动画的速度曲线为linear，动画2秒后播放，播放次数为infinite，即无限循环，动画下一周期是否逆向播放取值alternate，即逆向播放 */</span></span>
+<span class="line"><span class="selector-tag">div</span>&#123;</span>
+<span class="line">  <span class="attribute">animation</span>: myfirst <span class="number">5s</span> linear <span class="number">2s</span> infinite alternate;</span>
+<span class="line">  <span class="comment">/* Firefox: */</span></span>
+<span class="line">  <span class="attribute">-moz-animation</span>: myfirst <span class="number">5s</span> linear <span class="number">2s</span> infinite alternate;</span>
+<span class="line">  <span class="comment">/* Safari 和 Chrome: */</span></span>
+<span class="line">  <span class="attribute">-webkit-animation</span>: myfirst <span class="number">5s</span> linear <span class="number">2s</span> infinite alternate;</span>
+<span class="line">  <span class="comment">/* Opera: */</span></span>
+<span class="line">  <span class="attribute">-o-animation</span>: myfirst <span class="number">5s</span> linear <span class="number">2s</span> infinite alternate;</span>
+<span class="line">&#125;</span>
+</pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>@keyframes</td>
+<td>规定动画。</td>
+</tr>
+<tr>
+<td>animation</td>
+<td>所有动画属性的简写属性，除了 animation-play-state 属性。</td>
+</tr>
+<tr>
+<td>animation-name</td>
+<td>规定 @keyframes 动画的名称。</td>
+</tr>
+<tr>
+<td>animation-duration</td>
+<td>规定动画完成一个周期所花费的秒或毫秒。默认是 0。</td>
+</tr>
+<tr>
+<td>animation-timing-function</td>
+<td>规定动画的速度曲线。默认是 “ease”。</td>
+</tr>
+<tr>
+<td>animation-delay</td>
+<td>规定动画何时开始。默认是 0。</td>
+</tr>
+<tr>
+<td>animation-iteration-count</td>
+<td>规定动画被播放的次数。默认是 1。</td>
+</tr>
+<tr>
+<td>animation-direction</td>
+<td>规定动画是否在下一周期逆向地播放。默认是 “normal”。</td>
+</tr>
+<tr>
+<td>animation-play-state</td>
+<td>规定动画是否正在运行或暂停。默认是 “running”。</td>
+</tr>
+<tr>
+<td>animation-fill-mode</td>
+<td>规定对象动画时间之外的状态。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="九、CSS3-多列"><a href="#九、CSS3-多列" class="headerlink" title="九、CSS3 多列"></a>九、CSS3 多列</h3><p>通过 CSS3够创建多个列来对文本进行布局，就像我们经常看到的报纸的布局一样。</p>
+<p><strong>CSS3 创建多列</strong>  <a href="http://www.w3school.com.cn/tiy/t.asp?f=css3_column-count" target="_blank" rel="external">示例</a></p>
+<p><code>column-count</code> 属性规定元素应该被分隔的列数。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+</pre></td><td class="code"><pre><span class="line"><span class="comment">/* 将div中的文本分为3列 */</span></span>
+<span class="line"><span class="selector-tag">div</span>&#123;</span>
+<span class="line">  <span class="attribute">column-count</span>:<span class="number">3</span>;</span>
+<span class="line">  <span class="attribute">-moz-column-count</span>:<span class="number">3</span>;        <span class="comment">/* Firefox */</span></span>
+<span class="line">  <span class="attribute">-webkit-column-count</span>:<span class="number">3</span>;     <span class="comment">/* Safari 和 Chrome */</span></span>
+<span class="line">&#125;</span>
+</pre></td></tr></table></figure>
+<p><strong>CSS3 规定列之间的间隔</strong> <a href="http://www.w3school.com.cn/tiy/t.asp?f=css3_column-gap" target="_blank" rel="external">示例</a></p>
+<p><code>column-gap</code> 属性规定列之间的间隔。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+</pre></td><td class="code"><pre><span class="line"><span class="comment">/* 设置列之间的间隔为 40 像素 */</span></span>
+<span class="line"><span class="selector-tag">div</span>&#123;</span>
+<span class="line">  <span class="attribute">column-gap</span>:<span class="number">40px</span>;</span>
+<span class="line">  <span class="attribute">-moz-column-gap</span>:<span class="number">40px</span>;        <span class="comment">/* Firefox */</span></span>
+<span class="line">  <span class="attribute">-webkit-column-gap</span>:<span class="number">40px</span>;     <span class="comment">/* Safari 和 Chrome */</span></span>
+<span class="line">&#125;</span>
+</pre></td></tr></table></figure>
+<p><strong>CSS3 列规则</strong> <a href="http://www.w3school.com.cn/tiy/t.asp?f=css3_column-rule" target="_blank" rel="external">示例</a></p>
+<p><code>column-rule</code> 属性设置列之间的宽度、样式和颜色规则。</p>
+<p><strong>语法：</strong> column-rule : column-rule-width | column-rule-style | column-rule-color</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+</pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span>&#123;</span>
+<span class="line">  <span class="attribute">column-rule</span>:<span class="number">3px</span> outset <span class="number">#ff0000</span>;</span>
+<span class="line">  <span class="attribute">-moz-column-rule</span>:<span class="number">3px</span> outset <span class="number">#ff0000</span>;       <span class="comment">/* Firefox */</span></span>
+<span class="line">  <span class="attribute">-webkit-column-rule</span>:<span class="number">3px</span> outset <span class="number">#ff0000</span>;    <span class="comment">/* Safari and Chrome */</span></span>
+<span class="line">&#125;</span>
+</pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>column-count</td>
+<td>规定元素应该被分隔的列数。</td>
+</tr>
+<tr>
+<td>column-fill</td>
+<td>规定如何填充列。</td>
+</tr>
+<tr>
+<td>column-gap</td>
+<td>规定列之间的间隔。</td>
+</tr>
+<tr>
+<td>column-rule</td>
+<td>设置所有 column-rule-* 属性的简写属性。</td>
+</tr>
+<tr>
+<td>column-rule-width</td>
+<td>规定列之间规则的宽度。</td>
+</tr>
+<tr>
+<td>column-rule-style</td>
+<td>规定列之间规则的样式。</td>
+</tr>
+<tr>
+<td>column-rule-color</td>
+<td>规定列之间规则的颜色。</td>
+</tr>
+<tr>
+<td>column-span</td>
+<td>规定元素应该横跨的列数。</td>
+</tr>
+<tr>
+<td>column-width</td>
+<td>规定列的宽度。</td>
+</tr>
+<tr>
+<td>columns</td>
+<td>语法 : column-width  column-count。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="十、CSS3-用户界面"><a href="#十、CSS3-用户界面" class="headerlink" title="十、CSS3 用户界面"></a>十、CSS3 用户界面</h3><p><strong>CSS3 resize</strong>  <a href="http://www.w3school.com.cn/tiy/t.asp?f=css3_resize" target="_blank" rel="external">示例</a></p>
+<p>在 CSS3中<code>resize</code> 属性设置是否可由用户调整元素尺寸。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+</pre></td><td class="code"><pre><span class="line"><span class="comment">/* 设置div可以由用户调整大小 */</span></span>
+<span class="line"><span class="selector-tag">div</span>&#123;</span>
+<span class="line">  <span class="attribute">resize</span>:both;</span>
+<span class="line">  <span class="attribute">overflow</span>:auto;</span>
+<span class="line">&#125;</span>
+</pre></td></tr></table></figure>
+<p><strong>CSS3 box-sizing</strong>  <a href="http://www.w3school.com.cn/tiy/t.asp?f=css3_box-sizing" target="_blank" rel="external">示例</a></p>
+<p><code>box-sizing</code> 属性允许您以确切的方式定义适应某个区域的具体内容。</p>
+<p><strong>这个属性没太懂</strong></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+<span class="line">8</span>
+</pre></td><td class="code"><pre><span class="line"><span class="comment">/* 规定两个并排的带边框方框 */</span></span>
+<span class="line"><span class="selector-tag">div</span>&#123;</span>
+<span class="line">  <span class="attribute">box-sizing</span>:border-box;</span>
+<span class="line">  <span class="attribute">-moz-box-sizing</span>:border-box;        <span class="comment">/* Firefox */</span></span>
+<span class="line">  <span class="attribute">-webkit-box-sizing</span>:border-box;     <span class="comment">/* Safari */</span></span>
+<span class="line">  <span class="attribute">width</span>:<span class="number">50%</span>;</span>
+<span class="line">  <span class="attribute">float</span>:left;</span>
+<span class="line">&#125;</span>
+</pre></td></tr></table></figure>
+<p><strong>CSS3 outline-offset</strong> <a href="http://www.w3school.com.cn/tiy/t.asp?f=css3_outline-offset" target="_blank" rel="external">示例</a></p>
+<p><code>outline-offset</code> 属性对轮廓进行偏移，并在超出边框边缘的位置绘制轮廓。</p>
+<p>轮廓与边框有两点不同：</p>
+<blockquote>
+<ul>
+<li>轮廓不占用空间；</li>
+<li>轮廓可能是非矩形；<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+</pre></td><td class="code"><pre><span class="line"><span class="comment">/* 规定边框边缘之外 15 像素处的轮廓 */</span></span>
+<span class="line"><span class="selector-tag">div</span>&#123;</span>
+<span class="line">  <span class="attribute">border</span>:<span class="number">2px</span> solid black;</span>
+<span class="line">  <span class="attribute">outline</span>:<span class="number">2px</span> solid red;</span>
+<span class="line">  <span class="attribute">outline-offset</span>:<span class="number">15px</span>;</span>
+<span class="line">&#125;</span>
+</pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<h3 id="十一、参考资料"><a href="#十一、参考资料" class="headerlink" title="十一、参考资料"></a>十一、参考资料</h3><p><a href="http://www.w3school.com.cn/css3/" target="_blank" rel="external">w3school  CSS3 教程</a></p>
+<p><a href="http://www.w3cplus.com/content/css3-border-image" target="_blank" rel="external">CSS3 Border-image</a></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/02/26/看朗读者的思考/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          心记：朗读者——一个人，一段文，一个故事，一串思考
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/02/19/CSS布局/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">CSS布局</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="CSS3-新特性" data-title="CSS3 新特性" data-url="http://xiachengwei5.coding.me/2017/02/25/CSS3-新特性/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2018 夏
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: undefined,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: undefined
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>Vue学习笔记 | 颭的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="2017-08-23用Vue.js 编写的一个功能完善的todoList 小工具，将Vue 的一大核心功能——响应的数据绑定用得淋漓尽致，覆盖了很多Vue的基础知识点，适合作为入门的实战练习。获取源码  一、覆盖的知识点1 2 3 4 5 6 7 8 9 10 11 12 13 v-model              //表单空间绑定（语法糖） v-bind               //动态">
+<meta name="keywords" content="vue,todoList,component">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vue学习笔记">
+<meta property="og:url" content="http://xiachengwei5.coding.me/2018/01/17/Vue学习笔记/index.html">
+<meta property="og:site_name" content="颭的博客">
+<meta property="og:description" content="2017-08-23用Vue.js 编写的一个功能完善的todoList 小工具，将Vue 的一大核心功能——响应的数据绑定用得淋漓尽致，覆盖了很多Vue的基础知识点，适合作为入门的实战练习。获取源码  一、覆盖的知识点1 2 3 4 5 6 7 8 9 10 11 12 13 v-model              //表单空间绑定（语法糖） v-bind               //动态">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://olywxnzqu.bkt.clouddn.com/todoList.gif">
+<meta property="og:image" content="http://olywxnzqu.bkt.clouddn.com/customComponent.gif">
+<meta property="og:image" content="http://olywxnzqu.bkt.clouddn.com/img/vue-study/jianjinkuangjia.png">
+<meta property="og:image" content="http://olywxnzqu.bkt.clouddn.com/img/vue-study/xunidom1.png">
+<meta property="og:image" content="http://olywxnzqu.bkt.clouddn.com/img/vue-study/xunidom2.png">
+<meta property="og:image" content="http://olywxnzqu.bkt.clouddn.com/img/vue-study/xunidom3.png">
+<meta property="og:image" content="http://olywxnzqu.bkt.clouddn.com/img/vue-study/MVVM.png">
+<meta property="og:updated_time" content="2018-01-17T07:01:33.460Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Vue学习笔记">
+<meta name="twitter:description" content="2017-08-23用Vue.js 编写的一个功能完善的todoList 小工具，将Vue 的一大核心功能——响应的数据绑定用得淋漓尽致，覆盖了很多Vue的基础知识点，适合作为入门的实战练习。获取源码  一、覆盖的知识点1 2 3 4 5 6 7 8 9 10 11 12 13 v-model              //表单空间绑定（语法糖） v-bind               //动态">
+<meta name="twitter:image" content="http://olywxnzqu.bkt.clouddn.com/todoList.gif">
+  
+  
+    <link rel="icon" href="http://olywxnzqu.bkt.clouddn.com/img/hexo_index/logo.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="http://olywxnzqu.bkt.clouddn.com/img/hexo_index/logo.png" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">夏</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">勤能补拙，熟能生巧</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/xiachengwei5" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/xiachengwei5" title="weibo">weibo</a>
+					        
+								<a class="mail" target="_blank" href="mailto:xiachengwei5@163.com" title="mail">mail</a>
+					        
+								<a class="jianshu" target="_blank" href="http://www.jianshu.com/u/a31d9187f8ff" title="jianshu">jianshu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/CSS/" style="font-size: 20px;">CSS</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/Git/" style="font-size: 15px;">Git</a> <a href="/tags/GitHub/" style="font-size: 10px;">GitHub</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Oracle/" style="font-size: 10px;">Oracle</a> <a href="/tags/SQL/" style="font-size: 10px;">SQL</a> <a href="/tags/component/" style="font-size: 10px;">component</a> <a href="/tags/eclipse/" style="font-size: 10px;">eclipse</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/git插件/" style="font-size: 10px;">git插件</a> <a href="/tags/jQuery/" style="font-size: 10px;">jQuery</a> <a href="/tags/js/" style="font-size: 15px;">js</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/mybatsi-generator/" style="font-size: 10px;">mybatsi-generator</a> <a href="/tags/shell/" style="font-size: 10px;">shell</a> <a href="/tags/spring/" style="font-size: 10px;">spring</a> <a href="/tags/spring-mvc/" style="font-size: 10px;">spring-mvc</a> <a href="/tags/swagger/" style="font-size: 10px;">swagger</a> <a href="/tags/todoList/" style="font-size: 10px;">todoList</a> <a href="/tags/tools/" style="font-size: 10px;">tools</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a> <a href="/tags/图片轮播/" style="font-size: 10px;">图片轮播</a> <a href="/tags/布局/" style="font-size: 10px;">布局</a> <a href="/tags/思考/" style="font-size: 10px;">思考</a> <a href="/tags/朗读者/" style="font-size: 10px;">朗读者</a> <a href="/tags/选择器/" style="font-size: 15px;">选择器</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.myronliu.com">Myron</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.devzeng.com">Devzeng</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://heji1993.github.io">Heji</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://litten.me">litten</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://sentsin.com">sentsin</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://moxfive.xyz">MOxFIVE</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.w3cplus.com">w3cplus</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://gold.xitu.io">掘金</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.ruanyifeng.com">阮一峰</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://www.liaoxuefeng.com/">廖雪峰</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">动如脱兔，静如止水</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">夏</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img src="http://olywxnzqu.bkt.clouddn.com/img/hexo_index/logo.png" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">夏</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">勤能补拙，熟能生巧</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/xiachengwei5" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/xiachengwei5" title="weibo">weibo</a>
+			        
+						<a class="mail" target="_blank" href="mailto:xiachengwei5@163.com" title="mail">mail</a>
+			        
+						<a class="jianshu" target="_blank" href="http://www.jianshu.com/u/a31d9187f8ff" title="jianshu">jianshu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-Vue学习笔记" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/01/17/Vue学习笔记/" class="article-date">
+  	<time datetime="2018-01-17T07:01:33.460Z" itemprop="datePublished">2018-01-17</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Vue学习笔记
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/component/">component</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/todoList/">todoList</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/">vue</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="2017-08-23"><a href="#2017-08-23" class="headerlink" title="2017-08-23"></a>2017-08-23</h3><p>用<code>Vue.js</code> 编写的一个功能完善的<code>todoList</code> 小工具，将<code>Vue</code> 的一大核心功能——响应的数据绑定用得淋漓尽致，覆盖了很多Vue的基础知识点，适合作为入门的实战练习。<a href="https://github.com/xiachengwei5/vue-study-notes/tree/master/todoList" target="_blank" rel="external">获取源码</a> </p>
+<h4 id="一、覆盖的知识点"><a href="#一、覆盖的知识点" class="headerlink" title="一、覆盖的知识点"></a>一、覆盖的知识点</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+<span class="line">8</span>
+<span class="line">9</span>
+<span class="line">10</span>
+<span class="line">11</span>
+<span class="line">12</span>
+<span class="line">13</span>
+</pre></td><td class="code"><pre><span class="line">v-model              <span class="comment">//表单空间绑定（语法糖）</span></span>
+<span class="line">v-bind               <span class="comment">//动态绑定属性</span></span>
+<span class="line">v-on                 <span class="comment">//绑定事件</span></span>
+<span class="line">v-show               <span class="comment">//条件渲染</span></span>
+<span class="line">v-on:keypu<span class="number">.13</span>        <span class="comment">//事件修饰符</span></span>
+<span class="line">v-<span class="keyword">for</span>                <span class="comment">//循环</span></span>
+<span class="line">localStorage         <span class="comment">//本地存储</span></span>
+<span class="line">filter               <span class="comment">//过滤器</span></span>
+<span class="line">watch                <span class="comment">//观察模式</span></span>
+<span class="line">computed             <span class="comment">//计算属性</span></span>
+<span class="line">directives           <span class="comment">//自定义指令</span></span>
+<span class="line">hashchange           <span class="comment">//hash过滤</span></span>
+<span class="line">...</span>
+</pre></td></tr></table></figure>
+<a id="more"></a>
+<h4 id="二、主要实现的功能"><a href="#二、主要实现的功能" class="headerlink" title="二、主要实现的功能"></a>二、主要实现的功能</h4><blockquote>
+<ul>
+<li>添加任务；</li>
+<li>编辑任务；</li>
+<li>删除任务；</li>
+<li>筛选任务；</li>
+<li>本地存储；</li>
+<li>统计未完成任务数；</li>
+</ul>
+</blockquote>
+<h4 id="三、实现后的效果"><a href="#三、实现后的效果" class="headerlink" title="三、实现后的效果"></a>三、实现后的效果</h4><p><img src="http://olywxnzqu.bkt.clouddn.com/todoList.gif" alt="演示效果">  </p>
+<h3 id="2017-08-24"><a href="#2017-08-24" class="headerlink" title="2017-08-24"></a>2017-08-24</h3><p>学习自定义组件，组件间的通信。<a href="https://github.com/xiachengwei5/vue-study-notes/tree/master/custom-component" target="_blank" rel="external">获取源码</a> </p>
+<h4 id="一、覆盖的知识点-1"><a href="#一、覆盖的知识点-1" class="headerlink" title="一、覆盖的知识点"></a>一、覆盖的知识点</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+</pre></td><td class="code"><pre><span class="line">component          <span class="comment">//自定义组件</span></span>
+<span class="line">props              <span class="comment">//子组件要显式地用 props 选项声明它期待获得的数据</span></span>
+<span class="line">$emit              <span class="comment">//子组件调用父组件的自定义函数</span></span>
+</pre></td></tr></table></figure>
+<h4 id="二、实现后的效果"><a href="#二、实现后的效果" class="headerlink" title="二、实现后的效果"></a>二、实现后的效果</h4><p><img src="http://olywxnzqu.bkt.clouddn.com/customComponent.gif" alt="自定义组件"> </p>
+<h3 id="2017-08-21"><a href="#2017-08-21" class="headerlink" title="2017-08-21"></a>2017-08-21</h3><h4 id="一、渐进式框架Vue"><a href="#一、渐进式框架Vue" class="headerlink" title="一、渐进式框架Vue"></a>一、渐进式框架Vue</h4><p>简单的理解就是Vue的功能很强大很全面，但是你可以根据实际的需求用多少取多少，而不是必须将所有的内容都引入；</p>
+<p><img src="http://olywxnzqu.bkt.clouddn.com/img/vue-study/jianjinkuangjia.png" alt="渐进式框架"> </p>
+<h4 id="二、Vue-中的两个核心点"><a href="#二、Vue-中的两个核心点" class="headerlink" title="二、Vue 中的两个核心点"></a>二、Vue 中的两个核心点</h4><h5 id="1、响应的数据绑定"><a href="#1、响应的数据绑定" class="headerlink" title="1、响应的数据绑定"></a>1、响应的数据绑定</h5><p>当数据发生改变时自动更新视图</p>
+<p>利用<code>Object.definedProperty</code> 中的<code>setter</code> / <code>getter</code> 代理数据，监控对数据的操作；</p>
+<h5 id="2、组合的视图组件"><a href="#2、组合的视图组件" class="headerlink" title="2、组合的视图组件"></a>2、组合的视图组件</h5><p>ui 页面映射为组件树</p>
+<p>划分组件的优点：<strong>可维护、可重用、可测试</strong> </p>
+<h4 id="三、虚拟DOM"><a href="#三、虚拟DOM" class="headerlink" title="三、虚拟DOM"></a>三、虚拟DOM</h4><p>利用在内存中生成与真实DOM与之对应的数据结构，这个在内存中生成的DOM结构称之为虚拟DOM；当数据发生变化时，能够智能的计算出重新渲染组件的最小代价并应用到DOM操作上；真正意义上的局部刷新。</p>
+<p><img src="http://olywxnzqu.bkt.clouddn.com/img/vue-study/xunidom1.png" alt="虚拟DOM"> </p>
+<p><img src="http://olywxnzqu.bkt.clouddn.com/img/vue-study/xunidom2.png" alt="虚拟DOM"> </p>
+<p><img src="http://olywxnzqu.bkt.clouddn.com/img/vue-study/xunidom3.png" alt="虚拟DOM"> </p>
+<h4 id="四、MVVM模式"><a href="#四、MVVM模式" class="headerlink" title="四、MVVM模式"></a>四、MVVM模式</h4><blockquote>
+<ul>
+<li>M: Model  数据模型</li>
+<li>V: view   视图模版</li>
+<li>VM: view-Model   视图模型</li>
+</ul>
+</blockquote>
+<p><img src="http://olywxnzqu.bkt.clouddn.com/img/vue-study/MVVM.png" alt="MVVM模式">  </p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+<span class="line">8</span>
+<span class="line">9</span>
+<span class="line">10</span>
+<span class="line">11</span>
+<span class="line">12</span>
+<span class="line">13</span>
+<span class="line">14</span>
+<span class="line">15</span>
+<span class="line">16</span>
+<span class="line">17</span>
+<span class="line">18</span>
+<span class="line">19</span>
+<span class="line">20</span>
+<span class="line">21</span>
+<span class="line">22</span>
+<span class="line">23</span>
+<span class="line">24</span>
+<span class="line">25</span>
+<span class="line">26</span>
+<span class="line">27</span>
+<span class="line">28</span>
+</pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span>
+<span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span>
+<span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span>
+<span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span>
+<span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Vue-Study<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span>
+<span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"javascript/vue.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span>
+<span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span>
+<span class="line">    <span class="comment">&lt;!--视图模版--&gt;</span></span>
+<span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span>
+<span class="line">        &#123;&#123; message &#125;&#125;</span>
+<span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span>
+<span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="javascript"></span>
+<span class="line">    <span class="comment">/*数据模型*/</span></span>
+<span class="line">    <span class="keyword">let</span> obj = &#123;</span>
+<span class="line">        <span class="attr">message</span>: <span class="string">'Hello vue.js'</span></span>
+<span class="line">    &#125;</span>
+<span class="line"></span>
+<span class="line">    <span class="comment">/*视图模型*/</span></span>
+<span class="line">    <span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span>
+<span class="line">        <span class="attr">el</span>: <span class="string">'#app'</span>,</span>
+<span class="line">        <span class="attr">data</span>: obj</span>
+<span class="line">    &#125;)</span>
+<span class="line"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span>
+<span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span>
+</pre></td></tr></table></figure>
+<h4 id="五、声明式渲染"><a href="#五、声明式渲染" class="headerlink" title="五、声明式渲染"></a>五、声明式渲染</h4><h5 id="1、声明式渲染"><a href="#1、声明式渲染" class="headerlink" title="1、声明式渲染"></a>1、声明式渲染</h5><p>只需要声明在哪里(where)做什么(what)，而<strong>无需关心</strong> 如何实现(how)（重点关注逻辑即可），初始化根实例Vue自动将数据绑定在DOM模版上；</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+</pre></td><td class="code"><pre><span class="line"><span class="comment">//将一个数组的所有值乘以2，等到一个新的数组——声明式渲染</span></span>
+<span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>];</span>
+<span class="line"><span class="keyword">var</span> arrArr = arr.map(<span class="function"><span class="keyword">function</span> (<span class="params">item</span>) </span>&#123;</span>
+<span class="line">    <span class="keyword">return</span> item * <span class="number">2</span>;</span>
+<span class="line">&#125;);</span>
+</pre></td></tr></table></figure>
+<h5 id="2、命令式渲染"><a href="#2、命令式渲染" class="headerlink" title="2、命令式渲染"></a>2、命令式渲染</h5><p>需要以具体的代码表达在哪里(where)做什么(what)，以及说明如何实现(how)</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+</pre></td><td class="code"><pre><span class="line"><span class="comment">//将一个数组的所有值乘以2，等到一个新的数组——命令式渲染</span></span>
+<span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">9</span>];</span>
+<span class="line"><span class="keyword">var</span> arrArr = [];</span>
+<span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</span>
+<span class="line">    arrArr.push(arr[i] * <span class="number">2</span>);</span>
+<span class="line">&#125;</span>
+</pre></td></tr></table></figure>
+<h4 id="六、指令"><a href="#六、指令" class="headerlink" title="六、指令"></a>六、指令</h4><h5 id="1、v-bind-动态绑定数据"><a href="#1、v-bind-动态绑定数据" class="headerlink" title="1、v-bind 动态绑定数据"></a>1、v-bind 动态绑定数据</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+</pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 完整语法 --&gt;</span></span>
+<span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">v-bind:href</span>=<span class="string">"url"</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span>
+<span class="line"><span class="comment">&lt;!-- 简写 --&gt;</span></span>
+<span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">:href</span>=<span class="string">"url"</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span>
+</pre></td></tr></table></figure>
+<h5 id="2、v-on-绑定一个事件监听器"><a href="#2、v-on-绑定一个事件监听器" class="headerlink" title="2、v-on 绑定一个事件监听器"></a>2、v-on 绑定一个事件监听器</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+</pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 完整语法 --&gt;</span></span>
+<span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">v-on:click</span>=<span class="string">"doSomething"</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span>
+<span class="line"><span class="comment">&lt;!-- 简写 --&gt;</span></span>
+<span class="line"><span class="tag">&lt;<span class="name">a</span> @<span class="attr">click</span>=<span class="string">"doSomething"</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span>
+</pre></td></tr></table></figure>
+<h4 id="七、模版"><a href="#七、模版" class="headerlink" title="七、模版"></a>七、模版</h4><h4 id="八、组件"><a href="#八、组件" class="headerlink" title="八、组件"></a>八、组件</h4><p>使用组件的好处：</p>
+<blockquote>
+<ul>
+<li>提高开发效率；</li>
+<li>方便重复使用；</li>
+<li>简化调试步骤；</li>
+<li>提升整个项目的可维护性；</li>
+<li>便于协同开发；</li>
+</ul>
+</blockquote>
+<p>Vue中的组件：</p>
+<p>vue中组件是一个自定义标签，Vue.js的编译器为它添加特殊功能，vue也可以扩展原生的html元素，封装可重用的代码；</p>
+<p>组件的基本组成：</p>
+<blockquote>
+<ul>
+<li>样式结构；</li>
+<li>行为逻辑；</li>
+<li>数据；</li>
+</ul>
+</blockquote>
+<h3 id="学习资料"><a href="#学习资料" class="headerlink" title="学习资料"></a>学习资料</h3><p><a href="https://github.com/xiachengwei5/vue-study-notes" target="_blank" rel="external">获取源码</a> </p>
+<p><a href="http://pan.baidu.com/s/1hr6uwfy" target="_blank" rel="external">视频资料</a> 密码：7ys1</p>
+<p><a href="https://cn.vuejs.org/" target="_blank" rel="external">Vue 官网</a> </p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2017/11/21/Linux 常用命令/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Linux 常用命令</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="Vue学习笔记" data-title="Vue学习笔记" data-url="http://xiachengwei5.coding.me/2018/01/17/Vue学习笔记/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2018 夏
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: undefined,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: undefined
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

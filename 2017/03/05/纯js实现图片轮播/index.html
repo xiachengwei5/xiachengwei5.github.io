@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>纯js实现图片轮播 | 颭的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="用纯js实现图片通过平移的方式向左、向右轮播，基本实现了图片轮播中常用的功能，主要包括：上一张、下一张的切换；任意图片的快速切换；鼠标悬停停止轮播，鼠标离开继续轮播等；缺点：不能很好的适应不同分辨率的显示器；在线预览下载">
+<meta name="keywords" content="js,图片轮播">
+<meta property="og:type" content="article">
+<meta property="og:title" content="纯js实现图片轮播">
+<meta property="og:url" content="http://xiachengwei5.coding.me/2017/03/05/纯js实现图片轮播/index.html">
+<meta property="og:site_name" content="颭的博客">
+<meta property="og:description" content="用纯js实现图片通过平移的方式向左、向右轮播，基本实现了图片轮播中常用的功能，主要包括：上一张、下一张的切换；任意图片的快速切换；鼠标悬停停止轮播，鼠标离开继续轮播等；缺点：不能很好的适应不同分辨率的显示器；在线预览下载">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://olywxnzqu.bkt.clouddn.com/img/banner/hexinsixiang.png">
+<meta property="og:updated_time" content="2017-07-21T09:05:10.116Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="纯js实现图片轮播">
+<meta name="twitter:description" content="用纯js实现图片通过平移的方式向左、向右轮播，基本实现了图片轮播中常用的功能，主要包括：上一张、下一张的切换；任意图片的快速切换；鼠标悬停停止轮播，鼠标离开继续轮播等；缺点：不能很好的适应不同分辨率的显示器；在线预览下载">
+<meta name="twitter:image" content="http://olywxnzqu.bkt.clouddn.com/img/banner/hexinsixiang.png">
+  
+  
+    <link rel="icon" href="http://olywxnzqu.bkt.clouddn.com/img/hexo_index/logo.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="http://olywxnzqu.bkt.clouddn.com/img/hexo_index/logo.png" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">夏</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">勤能补拙，熟能生巧</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/xiachengwei5" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/xiachengwei5" title="weibo">weibo</a>
+					        
+								<a class="mail" target="_blank" href="mailto:xiachengwei5@163.com" title="mail">mail</a>
+					        
+								<a class="jianshu" target="_blank" href="http://www.jianshu.com/u/a31d9187f8ff" title="jianshu">jianshu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/CSS/" style="font-size: 20px;">CSS</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/Git/" style="font-size: 15px;">Git</a> <a href="/tags/GitHub/" style="font-size: 10px;">GitHub</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Oracle/" style="font-size: 10px;">Oracle</a> <a href="/tags/SQL/" style="font-size: 10px;">SQL</a> <a href="/tags/component/" style="font-size: 10px;">component</a> <a href="/tags/eclipse/" style="font-size: 10px;">eclipse</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/git插件/" style="font-size: 10px;">git插件</a> <a href="/tags/jQuery/" style="font-size: 10px;">jQuery</a> <a href="/tags/js/" style="font-size: 15px;">js</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/mybatsi-generator/" style="font-size: 10px;">mybatsi-generator</a> <a href="/tags/shell/" style="font-size: 10px;">shell</a> <a href="/tags/spring/" style="font-size: 10px;">spring</a> <a href="/tags/spring-mvc/" style="font-size: 10px;">spring-mvc</a> <a href="/tags/swagger/" style="font-size: 10px;">swagger</a> <a href="/tags/todoList/" style="font-size: 10px;">todoList</a> <a href="/tags/tools/" style="font-size: 10px;">tools</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a> <a href="/tags/图片轮播/" style="font-size: 10px;">图片轮播</a> <a href="/tags/布局/" style="font-size: 10px;">布局</a> <a href="/tags/思考/" style="font-size: 10px;">思考</a> <a href="/tags/朗读者/" style="font-size: 10px;">朗读者</a> <a href="/tags/选择器/" style="font-size: 15px;">选择器</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.myronliu.com">Myron</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.devzeng.com">Devzeng</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://heji1993.github.io">Heji</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://litten.me">litten</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://sentsin.com">sentsin</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://moxfive.xyz">MOxFIVE</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.w3cplus.com">w3cplus</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://gold.xitu.io">掘金</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.ruanyifeng.com">阮一峰</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://www.liaoxuefeng.com/">廖雪峰</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">动如脱兔，静如止水</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">夏</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img src="http://olywxnzqu.bkt.clouddn.com/img/hexo_index/logo.png" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">夏</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">勤能补拙，熟能生巧</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/xiachengwei5" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/xiachengwei5" title="weibo">weibo</a>
+			        
+						<a class="mail" target="_blank" href="mailto:xiachengwei5@163.com" title="mail">mail</a>
+			        
+						<a class="jianshu" target="_blank" href="http://www.jianshu.com/u/a31d9187f8ff" title="jianshu">jianshu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-纯js实现图片轮播" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/03/05/纯js实现图片轮播/" class="article-date">
+  	<time datetime="2017-03-05T07:32:04.000Z" itemprop="datePublished">2017-03-05</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      纯js实现图片轮播
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/图片轮播/">图片轮播</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>用纯js实现图片通过平移的方式向左、向右轮播，基本实现了图片轮播中常用的功能，主要包括：上一张、下一张的切换；任意图片的快速切换；鼠标悬停停止轮播，鼠标离开继续轮播等；<br>缺点：不能很好的适应不同分辨率的显示器；<br><a href="/2017/03/05/纯js实现图片轮播/banner/index.html">在线预览</a><br><a href="http://olywxnzqu.bkt.clouddn.com/rar/banner/banner.rar" target="_blank" rel="external">下载</a><br><a id="more"></a><br><strong>核心思想：</strong></p>
+<p>通过设置整个图片轴 left 的值来控制图片显示的区域，进而实现图片的平移轮播，模型如下：</p>
+<p><img src="http://olywxnzqu.bkt.clouddn.com/img/banner/hexinsixiang.png" alt="核心思想"></p>
+<p>html代码如下：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+<span class="line">8</span>
+<span class="line">9</span>
+<span class="line">10</span>
+<span class="line">11</span>
+<span class="line">12</span>
+<span class="line">13</span>
+<span class="line">14</span>
+<span class="line">15</span>
+<span class="line">16</span>
+<span class="line">17</span>
+<span class="line">18</span>
+<span class="line">19</span>
+<span class="line">20</span>
+<span class="line">21</span>
+<span class="line">22</span>
+<span class="line">23</span>
+<span class="line">24</span>
+<span class="line">25</span>
+<span class="line">26</span>
+<span class="line">27</span>
+<span class="line">28</span>
+<span class="line">29</span>
+<span class="line">30</span>
+<span class="line">31</span>
+<span class="line">32</span>
+<span class="line">33</span>
+<span class="line">34</span>
+<span class="line">35</span>
+<span class="line">36</span>
+<span class="line">37</span>
+<span class="line">38</span>
+<span class="line">39</span>
+<span class="line">40</span>
+<span class="line">41</span>
+<span class="line">42</span>
+<span class="line">43</span>
+<span class="line">44</span>
+<span class="line">45</span>
+<span class="line">46</span>
+</pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span>
+<span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span>
+<span class="line">	<span class="tag">&lt;<span class="name">head</span>&gt;</span></span>
+<span class="line">		<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span>
+<span class="line">		<span class="tag">&lt;<span class="name">title</span>&gt;</span>纯js实现图片轮播<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span>
+<span class="line">		<span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">type</span>=<span class="string">"text/css"</span> <span class="attr">href</span>=<span class="string">"css/style.css"</span> /&gt;</span></span>
+<span class="line">	<span class="tag">&lt;/<span class="name">head</span>&gt;</span></span>
+<span class="line"></span>
+<span class="line">	<span class="tag">&lt;<span class="name">body</span>&gt;</span></span>
+<span class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"container"</span>&gt;</span></span>
+<span class="line">			<span class="tag">&lt;<span class="name">ul</span> <span class="attr">id</span>=<span class="string">"list"</span> <span class="attr">style</span>=<span class="string">"left: -1920px;"</span>&gt;</span></span>
+<span class="line">				<span class="tag">&lt;<span class="name">li</span>&gt;</span></span>
+<span class="line">					<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"img/banner_5.png"</span> <span class="attr">width</span>=<span class="string">"1920"</span> <span class="attr">height</span>=<span class="string">"650"</span> <span class="attr">alt</span>=<span class="string">""</span> <span class="attr">title</span>=<span class="string">""</span> /&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span>
+<span class="line">				<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span>
+<span class="line">				<span class="tag">&lt;<span class="name">li</span>&gt;</span></span>
+<span class="line">					<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"img/banner_1.png"</span> <span class="attr">width</span>=<span class="string">"1920"</span> <span class="attr">height</span>=<span class="string">"650"</span> <span class="attr">alt</span>=<span class="string">""</span> <span class="attr">title</span>=<span class="string">""</span> /&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span>
+<span class="line">				<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span>
+<span class="line">				<span class="tag">&lt;<span class="name">li</span>&gt;</span></span>
+<span class="line">					<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"img/banner_2.png"</span> <span class="attr">width</span>=<span class="string">"1920"</span> <span class="attr">height</span>=<span class="string">"650"</span> <span class="attr">alt</span>=<span class="string">""</span> <span class="attr">title</span>=<span class="string">""</span> /&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span>
+<span class="line">				<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span>
+<span class="line">				<span class="tag">&lt;<span class="name">li</span>&gt;</span></span>
+<span class="line">					<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"img/banner_3.png"</span> <span class="attr">width</span>=<span class="string">"1920"</span> <span class="attr">height</span>=<span class="string">"650"</span> <span class="attr">alt</span>=<span class="string">""</span> <span class="attr">title</span>=<span class="string">""</span> /&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span>
+<span class="line">				<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span>
+<span class="line">				<span class="tag">&lt;<span class="name">li</span>&gt;</span></span>
+<span class="line">					<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"img/banner_4.png"</span> <span class="attr">width</span>=<span class="string">"1920"</span> <span class="attr">height</span>=<span class="string">"650"</span> <span class="attr">alt</span>=<span class="string">""</span> <span class="attr">title</span>=<span class="string">""</span> /&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span>
+<span class="line">				<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span>
+<span class="line">				<span class="tag">&lt;<span class="name">li</span>&gt;</span></span>
+<span class="line">					<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"img/banner_5.png"</span> <span class="attr">width</span>=<span class="string">"1920"</span> <span class="attr">height</span>=<span class="string">"650"</span> <span class="attr">alt</span>=<span class="string">""</span> <span class="attr">title</span>=<span class="string">""</span> /&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span>
+<span class="line">				<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span>
+<span class="line">				<span class="tag">&lt;<span class="name">li</span>&gt;</span></span>
+<span class="line">					<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"img/banner_1.png"</span> <span class="attr">width</span>=<span class="string">"1920"</span> <span class="attr">height</span>=<span class="string">"650"</span> <span class="attr">alt</span>=<span class="string">""</span> <span class="attr">title</span>=<span class="string">""</span> /&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span>
+<span class="line">				<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span>
+<span class="line">			<span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span>
+<span class="line">			<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"buttons"</span>&gt;</span></span>
+<span class="line">				<span class="tag">&lt;<span class="name">span</span> <span class="attr">index</span>=<span class="string">"1"</span> <span class="attr">class</span>=<span class="string">"on"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span>
+<span class="line">				<span class="tag">&lt;<span class="name">span</span> <span class="attr">index</span>=<span class="string">"2"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span>
+<span class="line">				<span class="tag">&lt;<span class="name">span</span> <span class="attr">index</span>=<span class="string">"3"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span>
+<span class="line">				<span class="tag">&lt;<span class="name">span</span> <span class="attr">index</span>=<span class="string">"4"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span>
+<span class="line">				<span class="tag">&lt;<span class="name">span</span> <span class="attr">index</span>=<span class="string">"5"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span>
+<span class="line">			<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span>
+<span class="line">			<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"javascript:;"</span> <span class="attr">id</span>=<span class="string">"prev"</span> <span class="attr">class</span>=<span class="string">"arrow"</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"img/l.png"</span> /&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span>
+<span class="line">			<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"javascript:;"</span> <span class="attr">id</span>=<span class="string">"next"</span> <span class="attr">class</span>=<span class="string">"arrow"</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"img/r.png"</span> /&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span>
+<span class="line">		<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span>
+<span class="line">	<span class="tag">&lt;/<span class="name">body</span>&gt;</span></span>
+<span class="line">	<span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"js/banner.js"</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span>
+<span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span>
+</pre></td></tr></table></figure></p>
+<p>CSS 代码如下：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+<span class="line">8</span>
+<span class="line">9</span>
+<span class="line">10</span>
+<span class="line">11</span>
+<span class="line">12</span>
+<span class="line">13</span>
+<span class="line">14</span>
+<span class="line">15</span>
+<span class="line">16</span>
+<span class="line">17</span>
+<span class="line">18</span>
+<span class="line">19</span>
+<span class="line">20</span>
+<span class="line">21</span>
+<span class="line">22</span>
+<span class="line">23</span>
+<span class="line">24</span>
+<span class="line">25</span>
+<span class="line">26</span>
+<span class="line">27</span>
+<span class="line">28</span>
+<span class="line">29</span>
+<span class="line">30</span>
+<span class="line">31</span>
+<span class="line">32</span>
+<span class="line">33</span>
+<span class="line">34</span>
+<span class="line">35</span>
+<span class="line">36</span>
+<span class="line">37</span>
+<span class="line">38</span>
+<span class="line">39</span>
+<span class="line">40</span>
+<span class="line">41</span>
+<span class="line">42</span>
+<span class="line">43</span>
+<span class="line">44</span>
+<span class="line">45</span>
+<span class="line">46</span>
+<span class="line">47</span>
+<span class="line">48</span>
+<span class="line">49</span>
+<span class="line">50</span>
+<span class="line">51</span>
+<span class="line">52</span>
+<span class="line">53</span>
+<span class="line">54</span>
+<span class="line">55</span>
+<span class="line">56</span>
+<span class="line">57</span>
+<span class="line">58</span>
+<span class="line">59</span>
+<span class="line">60</span>
+<span class="line">61</span>
+<span class="line">62</span>
+<span class="line">63</span>
+<span class="line">64</span>
+<span class="line">65</span>
+<span class="line">66</span>
+<span class="line">67</span>
+<span class="line">68</span>
+<span class="line">69</span>
+<span class="line">70</span>
+<span class="line">71</span>
+<span class="line">72</span>
+<span class="line">73</span>
+<span class="line">74</span>
+<span class="line">75</span>
+<span class="line">76</span>
+<span class="line">77</span>
+<span class="line">78</span>
+<span class="line">79</span>
+<span class="line">80</span>
+<span class="line">81</span>
+<span class="line">82</span>
+<span class="line">83</span>
+<span class="line">84</span>
+<span class="line">85</span>
+<span class="line">86</span>
+<span class="line">87</span>
+<span class="line">88</span>
+<span class="line">89</span>
+<span class="line">90</span>
+<span class="line">91</span>
+<span class="line">92</span>
+<span class="line">93</span>
+<span class="line">94</span>
+<span class="line">95</span>
+<span class="line">96</span>
+<span class="line">97</span>
+<span class="line">98</span>
+<span class="line">99</span>
+<span class="line">100</span>
+</pre></td><td class="code"><pre><span class="line">@<span class="keyword">charset</span> <span class="string">"utf-8"</span>;</span>
+<span class="line"><span class="selector-tag">html</span>,</span>
+<span class="line"><span class="selector-tag">body</span> &#123;</span>
+<span class="line">	<span class="attribute">min-width</span>: <span class="number">1280px</span>;</span>
+<span class="line">	<span class="attribute">-webkit-user-select</span>: none;</span>
+<span class="line">	<span class="attribute">-webkit-tap-highlight-color</span>: <span class="built_in">rgba</span>(0, 0, 0, 0);</span>
+<span class="line">	<span class="attribute">-webkit-tap-highlight-color</span>: transparent;</span>
+<span class="line">	<span class="attribute">-webkit-touch-callout</span>: none;</span>
+<span class="line">	<span class="attribute">-webkit-touch-callout</span>: none;</span>
+<span class="line">	<span class="attribute">-webkit-font-smoothing</span>: antialiased;</span>
+<span class="line">	<span class="attribute">font-family</span>: microsoft yahei, arial;</span>
+<span class="line">&#125;</span>
+<span class="line"></span>
+<span class="line"><span class="selector-tag">body</span>,</span>
+<span class="line"><span class="selector-tag">div</span>,</span>
+<span class="line"><span class="selector-tag">ul</span>,</span>
+<span class="line"><span class="selector-tag">ol</span>,</span>
+<span class="line"><span class="selector-tag">li</span> &#123;</span>
+<span class="line">	<span class="attribute">margin</span>: <span class="number">0</span>;</span>
+<span class="line">	<span class="attribute">padding</span>: <span class="number">0</span>;</span>
+<span class="line">&#125;</span>
+<span class="line"></span>
+<span class="line"><span class="selector-tag">ol</span>,</span>
+<span class="line"><span class="selector-tag">ul</span> &#123;</span>
+<span class="line">	<span class="attribute">list-style</span>: none;</span>
+<span class="line">&#125;</span>
+<span class="line"></span>
+<span class="line"><span class="selector-id">#container</span> &#123;</span>
+<span class="line">	<span class="attribute">max-width</span>: <span class="number">1920px</span>;</span>
+<span class="line">	<span class="attribute">height</span>: <span class="number">700px</span>;</span>
+<span class="line">	<span class="attribute">overflow</span>: hidden;</span>
+<span class="line">	<span class="attribute">position</span>: relative;</span>
+<span class="line">&#125;</span>
+<span class="line"></span>
+<span class="line"><span class="selector-id">#list</span> &#123;</span>
+<span class="line">	<span class="attribute">position</span>: absolute;</span>
+<span class="line">	<span class="attribute">width</span>: <span class="number">13440px</span>;</span>
+<span class="line">	<span class="attribute">height</span>: <span class="number">700px</span>;</span>
+<span class="line">	<span class="attribute">z-index</span>: <span class="number">1</span>;</span>
+<span class="line">&#125;</span>
+<span class="line"></span>
+<span class="line"><span class="selector-id">#list</span> <span class="selector-tag">img</span> &#123;</span>
+<span class="line">	<span class="attribute">float</span>: left;</span>
+<span class="line">&#125;</span>
+<span class="line"></span>
+<span class="line"><span class="selector-id">#buttons</span> &#123;</span>
+<span class="line">	<span class="attribute">position</span>: absolute;</span>
+<span class="line">	<span class="attribute">height</span>: <span class="number">10px</span>;</span>
+<span class="line">	<span class="attribute">width</span>: <span class="number">150px</span>;</span>
+<span class="line">	<span class="attribute">z-index</span>: <span class="number">2</span>;</span>
+<span class="line">	<span class="attribute">bottom</span>: <span class="number">40px</span>;</span>
+<span class="line">	<span class="attribute">left</span>: <span class="number">50%</span>;</span>
+<span class="line">	<span class="attribute">margin-left</span>: -<span class="number">36px</span>;</span>
+<span class="line">&#125;</span>
+<span class="line"></span>
+<span class="line"><span class="selector-id">#buttons</span> <span class="selector-tag">span</span> &#123;</span>
+<span class="line">	<span class="attribute">cursor</span>: pointer;</span>
+<span class="line">	<span class="attribute">float</span>: left;</span>
+<span class="line">	<span class="attribute">border</span>: <span class="number">2px</span> solid <span class="number">#fff</span>;</span>
+<span class="line">	<span class="attribute">width</span>: <span class="number">18px</span>;</span>
+<span class="line">	<span class="attribute">height</span>: <span class="number">18px</span>;</span>
+<span class="line">	<span class="attribute">border-radius</span>: <span class="number">50%</span>;</span>
+<span class="line">	<span class="attribute">background</span>: <span class="number">#333</span>;</span>
+<span class="line">	<span class="attribute">margin-right</span>: <span class="number">8px</span>;</span>
+<span class="line">&#125;</span>
+<span class="line"></span>
+<span class="line"><span class="selector-id">#buttons</span> <span class="selector-class">.on</span> &#123;</span>
+<span class="line">	<span class="attribute">background</span>: <span class="number">#fff</span>;</span>
+<span class="line">&#125;</span>
+<span class="line"></span>
+<span class="line"><span class="selector-class">.arrow</span> &#123;</span>
+<span class="line">	<span class="attribute">cursor</span>: pointer;</span>
+<span class="line">	<span class="attribute">display</span>: none;</span>
+<span class="line">	<span class="attribute">line-height</span>: <span class="number">39px</span>;</span>
+<span class="line">	<span class="attribute">text-align</span>: center;</span>
+<span class="line">	<span class="attribute">font-size</span>: <span class="number">36px</span>;</span>
+<span class="line">	<span class="attribute">font-weight</span>: bold;</span>
+<span class="line">	<span class="attribute">width</span>: <span class="number">40px</span>;</span>
+<span class="line">	<span class="attribute">height</span>: <span class="number">40px</span>;</span>
+<span class="line">	<span class="attribute">position</span>: absolute;</span>
+<span class="line">	<span class="attribute">z-index</span>: <span class="number">2</span>;</span>
+<span class="line">	<span class="attribute">top</span>: <span class="number">50%</span>;</span>
+<span class="line">	<span class="attribute">color</span>: <span class="number">#fff</span>;</span>
+<span class="line">&#125;</span>
+<span class="line"></span>
+<span class="line"><span class="selector-class">.arrow</span><span class="selector-pseudo">:hover</span> &#123;</span>
+<span class="line">	<span class="attribute">background-color</span>: <span class="built_in">RGBA</span>(255, 255, 255, .7);</span>
+<span class="line">&#125;</span>
+<span class="line"></span>
+<span class="line"><span class="selector-id">#container</span><span class="selector-pseudo">:hover</span> <span class="selector-class">.arrow</span> &#123;</span>
+<span class="line">	<span class="attribute">display</span>: block;</span>
+<span class="line">&#125;</span>
+<span class="line"></span>
+<span class="line"><span class="selector-id">#prev</span> &#123;</span>
+<span class="line">	<span class="attribute">left</span>: <span class="number">20px</span>;</span>
+<span class="line">&#125;</span>
+<span class="line"></span>
+<span class="line"><span class="selector-id">#next</span> &#123;</span>
+<span class="line">	<span class="attribute">right</span>: <span class="number">20px</span>;</span>
+<span class="line">&#125;</span>
+</pre></td></tr></table></figure></p>
+<p>Javascript 代码如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+<span class="line">8</span>
+<span class="line">9</span>
+<span class="line">10</span>
+<span class="line">11</span>
+<span class="line">12</span>
+<span class="line">13</span>
+<span class="line">14</span>
+<span class="line">15</span>
+<span class="line">16</span>
+<span class="line">17</span>
+<span class="line">18</span>
+<span class="line">19</span>
+<span class="line">20</span>
+<span class="line">21</span>
+<span class="line">22</span>
+<span class="line">23</span>
+<span class="line">24</span>
+<span class="line">25</span>
+<span class="line">26</span>
+<span class="line">27</span>
+<span class="line">28</span>
+<span class="line">29</span>
+<span class="line">30</span>
+<span class="line">31</span>
+<span class="line">32</span>
+<span class="line">33</span>
+<span class="line">34</span>
+<span class="line">35</span>
+<span class="line">36</span>
+<span class="line">37</span>
+<span class="line">38</span>
+<span class="line">39</span>
+<span class="line">40</span>
+<span class="line">41</span>
+<span class="line">42</span>
+<span class="line">43</span>
+<span class="line">44</span>
+<span class="line">45</span>
+<span class="line">46</span>
+<span class="line">47</span>
+<span class="line">48</span>
+<span class="line">49</span>
+<span class="line">50</span>
+<span class="line">51</span>
+<span class="line">52</span>
+<span class="line">53</span>
+<span class="line">54</span>
+<span class="line">55</span>
+<span class="line">56</span>
+<span class="line">57</span>
+<span class="line">58</span>
+<span class="line">59</span>
+<span class="line">60</span>
+<span class="line">61</span>
+<span class="line">62</span>
+<span class="line">63</span>
+<span class="line">64</span>
+<span class="line">65</span>
+<span class="line">66</span>
+<span class="line">67</span>
+<span class="line">68</span>
+<span class="line">69</span>
+<span class="line">70</span>
+<span class="line">71</span>
+<span class="line">72</span>
+<span class="line">73</span>
+<span class="line">74</span>
+<span class="line">75</span>
+<span class="line">76</span>
+<span class="line">77</span>
+<span class="line">78</span>
+<span class="line">79</span>
+<span class="line">80</span>
+<span class="line">81</span>
+<span class="line">82</span>
+<span class="line">83</span>
+<span class="line">84</span>
+<span class="line">85</span>
+<span class="line">86</span>
+<span class="line">87</span>
+<span class="line">88</span>
+<span class="line">89</span>
+<span class="line">90</span>
+<span class="line">91</span>
+<span class="line">92</span>
+<span class="line">93</span>
+<span class="line">94</span>
+<span class="line">95</span>
+<span class="line">96</span>
+<span class="line">97</span>
+<span class="line">98</span>
+<span class="line">99</span>
+<span class="line">100</span>
+<span class="line">101</span>
+<span class="line">102</span>
+<span class="line">103</span>
+<span class="line">104</span>
+<span class="line">105</span>
+<span class="line">106</span>
+<span class="line">107</span>
+<span class="line">108</span>
+<span class="line">109</span>
+<span class="line">110</span>
+<span class="line">111</span>
+<span class="line">112</span>
+<span class="line">113</span>
+<span class="line">114</span>
+<span class="line">115</span>
+<span class="line">116</span>
+<span class="line">117</span>
+<span class="line">118</span>
+<span class="line">119</span>
+<span class="line">120</span>
+<span class="line">121</span>
+<span class="line">122</span>
+<span class="line">123</span>
+<span class="line">124</span>
+<span class="line">125</span>
+<span class="line">126</span>
+<span class="line">127</span>
+<span class="line">128</span>
+<span class="line">129</span>
+<span class="line">130</span>
+<span class="line">131</span>
+<span class="line">132</span>
+<span class="line">133</span>
+</pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span>
+<span class="line">	<span class="keyword">var</span> container = <span class="built_in">document</span>.getElementById(<span class="string">'container'</span>);</span>
+<span class="line">	<span class="keyword">var</span> list = <span class="built_in">document</span>.getElementById(<span class="string">'list'</span>);</span>
+<span class="line">	<span class="keyword">var</span> buttons = <span class="built_in">document</span>.getElementById(<span class="string">'buttons'</span>).getElementsByTagName(<span class="string">'span'</span>);</span>
+<span class="line">	<span class="keyword">var</span> prev = <span class="built_in">document</span>.getElementById(<span class="string">'prev'</span>);</span>
+<span class="line">	<span class="keyword">var</span> next = <span class="built_in">document</span>.getElementById(<span class="string">'next'</span>);</span>
+<span class="line">	<span class="comment">/*定义初始图片的位置*/</span></span>
+<span class="line">	<span class="keyword">var</span> index = <span class="number">1</span>;</span>
+<span class="line">	<span class="comment">/*获取滚动图片的数量*/</span></span>
+<span class="line">	<span class="keyword">var</span> len = buttons.length;</span>
+<span class="line">	<span class="keyword">var</span> animated = <span class="literal">false</span>;</span>
+<span class="line">	<span class="comment">/*自动轮播时的时间间隔*/</span></span>
+<span class="line">	<span class="keyword">var</span> interval = <span class="number">3000</span>;</span>
+<span class="line">	<span class="keyword">var</span> pic_len = <span class="number">1920</span>;</span>
+<span class="line">	<span class="comment">/*setTimeout() 返回的 ID 值，用于控制停止动画*/</span></span>
+<span class="line">	<span class="keyword">var</span> timer;</span>
+<span class="line"></span>
+<span class="line">	<span class="comment">/*动画方法，传入“偏移量”作为参数*/</span></span>
+<span class="line">	<span class="function"><span class="keyword">function</span> <span class="title">animate</span>(<span class="params">offset</span>) </span>&#123;</span>
+<span class="line">		<span class="keyword">if</span>(offset == <span class="number">0</span>) &#123;</span>
+<span class="line">			<span class="keyword">return</span>;</span>
+<span class="line">		&#125;</span>
+<span class="line">		animated = <span class="literal">true</span>;</span>
+<span class="line">		<span class="keyword">var</span> time = <span class="number">300</span>;</span>
+<span class="line">		<span class="keyword">var</span> inteval = <span class="number">10</span>;</span>
+<span class="line">		<span class="comment">/* 计算每次小的移动的偏移量 */</span></span>
+<span class="line">		<span class="keyword">var</span> speed = offset / (time / inteval);</span>
+<span class="line">		<span class="comment">/*每次大的移动完成需要到达的总的偏移量*/</span></span>
+<span class="line">		<span class="keyword">var</span> left = <span class="built_in">parseInt</span>(list.style.left) + offset;</span>
+<span class="line"></span>
+<span class="line">		<span class="comment">/* 定义函数 */</span></span>
+<span class="line">		<span class="keyword">var</span> go = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span>
+<span class="line">				<span class="comment">/* speed&gt;0，也就是offset&gt;0，及图片向右滑动； */</span></span>
+<span class="line">				<span class="keyword">if</span>((speed &gt; <span class="number">0</span> &amp;&amp; <span class="built_in">parseInt</span>(list.style.left) &lt; left) || (speed &lt; <span class="number">0</span> &amp;&amp; <span class="built_in">parseInt</span>(list.style.left) &gt; left)) &#123;</span>
+<span class="line">					list.style.left = <span class="built_in">parseInt</span>(list.style.left) + speed + <span class="string">'px'</span>;</span>
+<span class="line">					setTimeout(go, inteval);</span>
+<span class="line">				&#125; <span class="keyword">else</span> &#123;</span>
+<span class="line">					<span class="comment">/* 当向左移动的图片已经移动到最后一张并且还需要向左移动时，先向左移动完完整的一张图片（这就是左边还需要放一张图片的原因），将位置移到初始位置 */</span></span>
+<span class="line">					<span class="keyword">if</span>(left &lt; (-pic_len * len)) &#123;</span>
+<span class="line">						list.style.left = <span class="string">'-'</span> + pic_len + <span class="string">'px'</span>;</span>
+<span class="line">					&#125;</span>
+<span class="line">					<span class="comment">/* 当向右移动的图片已经移动到最后一张并且还需要向右移动时，先向右移动完完整的一张图片（这就是右边还需要放一张图片的原因），将位置移到最后的位置 */</span></span>
+<span class="line">					<span class="keyword">if</span>(left == <span class="number">0</span>) &#123;</span>
+<span class="line">						list.style.left = -pic_len * len + <span class="string">'px'</span>;</span>
+<span class="line">					&#125;</span>
+<span class="line">					animated = <span class="literal">false</span>;</span>
+<span class="line">				&#125;</span>
+<span class="line">			&#125;</span>
+<span class="line">		<span class="comment">/* 调用函数 */</span></span>
+<span class="line">		go();</span>
+<span class="line">	&#125;</span>
+<span class="line"></span>
+<span class="line">	<span class="comment">/* 切换底部圆形图标“选中”和“非选中”的样式 */</span></span>
+<span class="line">	<span class="function"><span class="keyword">function</span> <span class="title">showButton</span>(<span class="params"></span>) </span>&#123;</span>
+<span class="line">		<span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; buttons.length; i++) &#123;</span>
+<span class="line">			<span class="keyword">if</span>(buttons[i].className == <span class="string">'on'</span>) &#123;</span>
+<span class="line">				buttons[i].className = <span class="string">''</span>;</span>
+<span class="line">				<span class="keyword">break</span>;</span>
+<span class="line">			&#125;</span>
+<span class="line">		&#125;</span>
+<span class="line">		buttons[index - <span class="number">1</span>].className = <span class="string">'on'</span>;</span>
+<span class="line">	&#125;</span>
+<span class="line"></span>
+<span class="line">	<span class="comment">/*播放动画的函数*/</span></span>
+<span class="line">	<span class="function"><span class="keyword">function</span> <span class="title">play</span>(<span class="params"></span>) </span>&#123;</span>
+<span class="line">		timer = setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span>
+<span class="line">			next.onclick();</span>
+<span class="line">			play();</span>
+<span class="line">		&#125;, interval);</span>
+<span class="line">	&#125;</span>
+<span class="line"></span>
+<span class="line">	<span class="comment">/*停止动画*/</span></span>
+<span class="line">	<span class="function"><span class="keyword">function</span> <span class="title">stop</span>(<span class="params"></span>) </span>&#123;</span>
+<span class="line">		clearTimeout(timer);</span>
+<span class="line">	&#125;</span>
+<span class="line"></span>
+<span class="line">	<span class="comment">/* 点击右方向图标，图片向右滑动 */</span></span>
+<span class="line">	next.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span>
+<span class="line">		<span class="keyword">if</span>(animated) &#123;</span>
+<span class="line">			<span class="keyword">return</span>;</span>
+<span class="line">		&#125;</span>
+<span class="line">		<span class="keyword">if</span>(index == len) &#123;</span>
+<span class="line">			index = <span class="number">1</span>;</span>
+<span class="line">		&#125; <span class="keyword">else</span> &#123;</span>
+<span class="line">			index += <span class="number">1</span>;</span>
+<span class="line">		&#125;</span>
+<span class="line">		animate(-pic_len);</span>
+<span class="line">		<span class="comment">/* 切换底部圆形图标‘选中’和‘非选中’的样式 */</span></span>
+<span class="line">		showButton();</span>
+<span class="line">	&#125;</span>
+<span class="line"></span>
+<span class="line">	prev.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span>
+<span class="line">		<span class="keyword">if</span>(animated) &#123;</span>
+<span class="line">			<span class="keyword">return</span>;</span>
+<span class="line">		&#125;</span>
+<span class="line">		<span class="keyword">if</span>(index == <span class="number">1</span>) &#123;</span>
+<span class="line">			index = len;</span>
+<span class="line">		&#125; <span class="keyword">else</span> &#123;</span>
+<span class="line">			index -= <span class="number">1</span>;</span>
+<span class="line">		&#125;</span>
+<span class="line">		animate(pic_len);</span>
+<span class="line">		showButton();</span>
+<span class="line">	&#125;</span>
+<span class="line"></span>
+<span class="line">	<span class="comment">/* 给下面的每个按钮添加点击事件 */</span></span>
+<span class="line">	<span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; buttons.length; i++) &#123;</span>
+<span class="line">		buttons[i].onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span>
+<span class="line">			<span class="comment">/* 如果动画停止则返回 */</span></span>
+<span class="line">			<span class="keyword">if</span>(animated) &#123;</span>
+<span class="line">				<span class="keyword">return</span>;</span>
+<span class="line">			&#125;</span>
+<span class="line">			<span class="comment">/* 如果点击的是当前所在的图片则返回 */</span></span>
+<span class="line">			<span class="keyword">if</span>(<span class="keyword">this</span>.className == <span class="string">'on'</span>) &#123;</span>
+<span class="line">				<span class="keyword">return</span>;</span>
+<span class="line">			&#125;</span>
+<span class="line">			<span class="keyword">var</span> myIndex = <span class="built_in">parseInt</span>(<span class="keyword">this</span>.getAttribute(<span class="string">'index'</span>));</span>
+<span class="line">			<span class="comment">/* 计算点击的图片与当前图片之间的偏移量 */</span></span>
+<span class="line">			<span class="keyword">var</span> offset = -pic_len * (myIndex - index);</span>
+<span class="line"></span>
+<span class="line">			animate(offset);</span>
+<span class="line">			index = myIndex;</span>
+<span class="line">			showButton();</span>
+<span class="line">		&#125;</span>
+<span class="line">	&#125;</span>
+<span class="line"></span>
+<span class="line">	<span class="comment">/* 鼠标移上时停止动画 */</span></span>
+<span class="line">	container.onmouseover = stop;</span>
+<span class="line">	<span class="comment">/* 鼠标移出时开始动画 */</span></span>
+<span class="line">	container.onmouseout = play;</span>
+<span class="line"></span>
+<span class="line">	<span class="comment">/*js代码初始化完之后调用播放方法*/</span></span>
+<span class="line">	play();</span>
+<span class="line">&#125;</span>
+</pre></td></tr></table></figure>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/07/19/mybatis generator插件自定义修改/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          mybatis generator插件自定义修改
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/02/26/看朗读者的思考/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">心记：朗读者——一个人，一段文，一个故事，一串思考</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="纯js实现图片轮播" data-title="纯js实现图片轮播" data-url="http://xiachengwei5.coding.me/2017/03/05/纯js实现图片轮播/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2018 夏
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: undefined,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: undefined
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

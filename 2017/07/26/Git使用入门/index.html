@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>Git使用入门 | 颭的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="最近在修改mybatis-generator的插件，让自动生成的代码更满足符合开发的要求，因为是业余研究，经常需要下班后在自己电脑上来继续之前的工作，之前的状态是下班之前把在公司的电脑上写的代码拷到U盘，回去之后再把代码拷到自己电脑中替换掉之前的，某些特定情况的数据（如：数据库连接信息等）还需要根据环境来调整，每次搭建开发环境都需要较长时间，这样一折腾之后连开发的激情都没有了，为了解决这个问题就需">
+<meta name="keywords" content="Git,GitHub">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Git使用入门">
+<meta property="og:url" content="http://xiachengwei5.coding.me/2017/07/26/Git使用入门/index.html">
+<meta property="og:site_name" content="颭的博客">
+<meta property="og:description" content="最近在修改mybatis-generator的插件，让自动生成的代码更满足符合开发的要求，因为是业余研究，经常需要下班后在自己电脑上来继续之前的工作，之前的状态是下班之前把在公司的电脑上写的代码拷到U盘，回去之后再把代码拷到自己电脑中替换掉之前的，某些特定情况的数据（如：数据库连接信息等）还需要根据环境来调整，每次搭建开发环境都需要较长时间，这样一折腾之后连开发的激情都没有了，为了解决这个问题就需">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://olywxnzqu.bkt.clouddn.com/img/git_door/show.png">
+<meta property="og:image" content="http://olywxnzqu.bkt.clouddn.com/img/git_door/git_bush.png">
+<meta property="og:image" content="http://olywxnzqu.bkt.clouddn.com/img/git_door/selectFont.png">
+<meta property="og:updated_time" content="2018-01-17T07:01:33.458Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Git使用入门">
+<meta name="twitter:description" content="最近在修改mybatis-generator的插件，让自动生成的代码更满足符合开发的要求，因为是业余研究，经常需要下班后在自己电脑上来继续之前的工作，之前的状态是下班之前把在公司的电脑上写的代码拷到U盘，回去之后再把代码拷到自己电脑中替换掉之前的，某些特定情况的数据（如：数据库连接信息等）还需要根据环境来调整，每次搭建开发环境都需要较长时间，这样一折腾之后连开发的激情都没有了，为了解决这个问题就需">
+<meta name="twitter:image" content="http://olywxnzqu.bkt.clouddn.com/img/git_door/show.png">
+  
+  
+    <link rel="icon" href="http://olywxnzqu.bkt.clouddn.com/img/hexo_index/logo.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="http://olywxnzqu.bkt.clouddn.com/img/hexo_index/logo.png" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">夏</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">勤能补拙，熟能生巧</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/xiachengwei5" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/xiachengwei5" title="weibo">weibo</a>
+					        
+								<a class="mail" target="_blank" href="mailto:xiachengwei5@163.com" title="mail">mail</a>
+					        
+								<a class="jianshu" target="_blank" href="http://www.jianshu.com/u/a31d9187f8ff" title="jianshu">jianshu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/CSS/" style="font-size: 20px;">CSS</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/Git/" style="font-size: 15px;">Git</a> <a href="/tags/GitHub/" style="font-size: 10px;">GitHub</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Oracle/" style="font-size: 10px;">Oracle</a> <a href="/tags/SQL/" style="font-size: 10px;">SQL</a> <a href="/tags/component/" style="font-size: 10px;">component</a> <a href="/tags/eclipse/" style="font-size: 10px;">eclipse</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/git插件/" style="font-size: 10px;">git插件</a> <a href="/tags/jQuery/" style="font-size: 10px;">jQuery</a> <a href="/tags/js/" style="font-size: 15px;">js</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/mybatsi-generator/" style="font-size: 10px;">mybatsi-generator</a> <a href="/tags/shell/" style="font-size: 10px;">shell</a> <a href="/tags/spring/" style="font-size: 10px;">spring</a> <a href="/tags/spring-mvc/" style="font-size: 10px;">spring-mvc</a> <a href="/tags/swagger/" style="font-size: 10px;">swagger</a> <a href="/tags/todoList/" style="font-size: 10px;">todoList</a> <a href="/tags/tools/" style="font-size: 10px;">tools</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a> <a href="/tags/图片轮播/" style="font-size: 10px;">图片轮播</a> <a href="/tags/布局/" style="font-size: 10px;">布局</a> <a href="/tags/思考/" style="font-size: 10px;">思考</a> <a href="/tags/朗读者/" style="font-size: 10px;">朗读者</a> <a href="/tags/选择器/" style="font-size: 15px;">选择器</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.myronliu.com">Myron</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.devzeng.com">Devzeng</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://heji1993.github.io">Heji</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://litten.me">litten</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://sentsin.com">sentsin</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://moxfive.xyz">MOxFIVE</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.w3cplus.com">w3cplus</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://gold.xitu.io">掘金</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.ruanyifeng.com">阮一峰</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://www.liaoxuefeng.com/">廖雪峰</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">动如脱兔，静如止水</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">夏</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img src="http://olywxnzqu.bkt.clouddn.com/img/hexo_index/logo.png" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">夏</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">勤能补拙，熟能生巧</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/xiachengwei5" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/xiachengwei5" title="weibo">weibo</a>
+			        
+						<a class="mail" target="_blank" href="mailto:xiachengwei5@163.com" title="mail">mail</a>
+			        
+						<a class="jianshu" target="_blank" href="http://www.jianshu.com/u/a31d9187f8ff" title="jianshu">jianshu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-Git使用入门" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/07/26/Git使用入门/" class="article-date">
+  	<time datetime="2017-07-26T15:02:55.000Z" itemprop="datePublished">2017-07-26</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Git使用入门
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Git/">Git</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GitHub/">GitHub</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近在修改mybatis-generator的插件，让自动生成的代码更满足符合开发的要求，因为是业余研究，经常需要下班后在自己电脑上来继续之前的工作，之前的状态是下班之前把在公司的电脑上写的代码拷到U盘，回去之后再把代码拷到自己电脑中替换掉之前的，某些特定情况的数据（如：数据库连接信息等）还需要根据环境来调整，每次搭建开发环境都需要较长时间，这样一折腾之后连开发的激情都没有了，为了解决这个问题就需要借助功能强大、人气颇旺的版本控制工具——GitHub来管理。</p>
+<a id="more"></a>
+<h3 id="一、简介"><a href="#一、简介" class="headerlink" title="一、简介"></a>一、简介</h3><p>Git 是一款免费、开源的分布式版本控制系统。而 GitHub 主要提供基于 git 的版本托管服务。也就是说现在 GitHub 上托管的所有项目代码都是基于 Git 来进行版本控制的，所以 Git 只是 GitHub 上用来管理项目的一个工具而已，GitHub 的功能可远不止于此。</p>
+<h3 id="二、Git安装"><a href="#二、Git安装" class="headerlink" title="二、Git安装"></a>二、Git安装</h3><p>到<a href="https://git-for-windows.github.io/" target="_blank" rel="external">官网</a> 下载安装即可，安装成功后在桌面右键可以看到下图所示的<code>Git Gui Here</code> 和 <code>Git Bash Here</code> ：</p>
+<p><img src="http://olywxnzqu.bkt.clouddn.com/img/git_door/show.png" alt="安装成功右键显示"> </p>
+<p>需要在哪个文件夹下运行Git 打开该文件夹，右键 ==&gt;  <code>Git Bash Here</code> 即可打开命令窗口，如下图：</p>
+<p><img src="http://olywxnzqu.bkt.clouddn.com/img/git_door/git_bush.png" alt="命令窗口"> </p>
+<h3 id="三、常用命令列表"><a href="#三、常用命令列表" class="headerlink" title="三、常用命令列表"></a>三、常用命令列表</h3><h4 id="基础命令"><a href="#基础命令" class="headerlink" title="基础命令"></a>基础命令</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+<span class="line">8</span>
+<span class="line">9</span>
+<span class="line">10</span>
+<span class="line">11</span>
+<span class="line">12</span>
+<span class="line">13</span>
+<span class="line">14</span>
+<span class="line">15</span>
+<span class="line">16</span>
+<span class="line">17</span>
+<span class="line">18</span>
+<span class="line">19</span>
+<span class="line">20</span>
+<span class="line">21</span>
+<span class="line">22</span>
+<span class="line">23</span>
+<span class="line">24</span>
+<span class="line">25</span>
+<span class="line">26</span>
+<span class="line">27</span>
+<span class="line">28</span>
+<span class="line">29</span>
+<span class="line">30</span>
+<span class="line">31</span>
+<span class="line">32</span>
+<span class="line">33</span>
+<span class="line">34</span>
+<span class="line">35</span>
+<span class="line">36</span>
+<span class="line">37</span>
+<span class="line">38</span>
+<span class="line">39</span>
+<span class="line">40</span>
+<span class="line">41</span>
+<span class="line">42</span>
+<span class="line">43</span>
+<span class="line">44</span>
+<span class="line">45</span>
+<span class="line">46</span>
+<span class="line">47</span>
+<span class="line">48</span>
+<span class="line">49</span>
+<span class="line">50</span>
+<span class="line">51</span>
+<span class="line">52</span>
+<span class="line">53</span>
+<span class="line">54</span>
+<span class="line">55</span>
+<span class="line">56</span>
+<span class="line">57</span>
+<span class="line">58</span>
+<span class="line">59</span>
+<span class="line">60</span>
+<span class="line">61</span>
+</pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 初始化 git 仓库 --&gt;</span></span>
+<span class="line">git init</span>
+<span class="line"></span>
+<span class="line"><span class="comment">&lt;!-- 与远程 git 仓库关联 --&gt;</span></span>
+<span class="line">git remote add origin git@github.com:xiachengwei5/spring-mvc.git</span>
+<span class="line"></span>
+<span class="line"><span class="comment">&lt;!-- 查看你当前 git 仓库的状态信息，如：文件修改、删除等的信息 --&gt;</span></span>
+<span class="line">git status</span>
+<span class="line"></span>
+<span class="line"><span class="comment">&lt;!-- 将需要提交的文件放在缓存中 --&gt;</span></span>
+<span class="line">git add README.md</span>
+<span class="line"><span class="comment">&lt;!-- 如果需要提交的文件很多，对每个文件都这样处理太繁琐，可以通过如下命令一次性添加所有变更后的文件 --&gt;</span></span>
+<span class="line">git add --all</span>
+<span class="line">git add .</span>
+<span class="line">git add *</span>
+<span class="line"></span>
+<span class="line"><span class="comment">&lt;!-- 移除缓存 --&gt;</span></span>
+<span class="line">git rm --cached</span>
+<span class="line"></span>
+<span class="line"><span class="comment">&lt;!--对暂时不需要提交的文件进行暂存 --&gt;</span></span>
+<span class="line">git stash</span>
+<span class="line"><span class="comment">&lt;!--恢复暂存文件 --&gt;</span></span>
+<span class="line">git stash pop</span>
+<span class="line"><span class="comment">&lt;!--删除暂存文件 --&gt;</span></span>
+<span class="line">git stash clean</span>
+<span class="line"></span>
+<span class="line"><span class="comment">&lt;!-- 单个文件用服务器覆盖本地 --&gt;</span></span>
+<span class="line">git checkout 文件</span>
+<span class="line"></span>
+<span class="line"><span class="comment">&lt;!-- 提交在缓存中的文件 --&gt;</span></span>
+<span class="line">git commit -m "提交说明"</span>
+<span class="line"></span>
+<span class="line"><span class="comment">&lt;!-- 将提交的信息推送到默认的远程仓库 --&gt;</span></span>
+<span class="line">git push</span>
+<span class="line"><span class="comment">&lt;!-- 将提交的信息推送到指定的远程仓库 --&gt;</span></span>
+<span class="line">git push -u origin master</span>
+<span class="line"></span>
+<span class="line"><span class="comment">&lt;!-- 从默认分支更新文件 --&gt;</span></span>
+<span class="line">git pull</span>
+<span class="line"><span class="comment">&lt;!-- 从指定分支更新文件 --&gt;</span></span>
+<span class="line">git pull origin master</span>
+<span class="line"></span>
+<span class="line"><span class="comment">&lt;!-- 查看标签 --&gt;</span></span>
+<span class="line">git tag</span>
+<span class="line"><span class="comment">&lt;!-- 新建标签 --&gt;</span></span>
+<span class="line">git tag v1.0</span>
+<span class="line"><span class="comment">&lt;!-- 新建带注释的标签 --&gt;</span></span>
+<span class="line">git tag -a V1.1 -m '注释内容'</span>
+<span class="line"><span class="comment">&lt;!-- 将标签推送到远程仓库 --&gt;</span></span>
+<span class="line">git push origin --tags</span>
+<span class="line"><span class="comment">&lt;!-- 切换到指定标签 --&gt;</span></span>
+<span class="line">git checkout v1.0</span>
+<span class="line"><span class="comment">&lt;!-- 删除本地标签 --&gt;</span></span>
+<span class="line">git tag -d V1.0</span>
+<span class="line"><span class="comment">&lt;!-- 删除远程仓库标签（推送的空的同名版本到线下,达到删除线上版本的目标） --&gt;</span></span>
+<span class="line">git push origin :refs/tags/V1.0</span>
+<span class="line"><span class="comment">&lt;!-- 获取指定标签的代码 --&gt;</span></span>
+<span class="line">git fetch origin tag V1.2</span>
+<span class="line"></span>
+<span class="line"><span class="comment">&lt;!-- 查看日志 --&gt;</span></span>
+<span class="line">git log</span>
+</pre></td></tr></table></figure>
+<h4 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+<span class="line">8</span>
+<span class="line">9</span>
+<span class="line">10</span>
+<span class="line">11</span>
+<span class="line">12</span>
+<span class="line">13</span>
+<span class="line">14</span>
+<span class="line">15</span>
+<span class="line">16</span>
+<span class="line">17</span>
+<span class="line">18</span>
+<span class="line">19</span>
+</pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 查询本地的分支情况 --&gt;</span></span>
+<span class="line">git branch</span>
+<span class="line"><span class="comment">&lt;!-- 查询远程仓库的分支情况 --&gt;</span></span>
+<span class="line">git branch -r</span>
+<span class="line"></span>
+<span class="line"><span class="comment">&lt;!-- 在本地新建分支 --&gt;</span></span>
+<span class="line">git branch 分支名称</span>
+<span class="line"><span class="comment">&lt;!-- 将本地分支提交到远程服务器 --&gt;</span></span>
+<span class="line">git push --set-upstream origin 分支名称</span>
+<span class="line"></span>
+<span class="line"><span class="comment">&lt;!-- 删除本地分支 --&gt;</span></span>
+<span class="line">git branch -d 分支名称</span>
+<span class="line"><span class="comment">&lt;!-- 删除远程仓库分支 --&gt;</span></span>
+<span class="line">git push origin :分支名称</span>
+<span class="line"><span class="comment">&lt;!-- 强制删除本地分支 --&gt;</span></span>
+<span class="line">git branch -D</span>
+<span class="line"></span>
+<span class="line"><span class="comment">&lt;!-- 将远程仓库分支（本地不存在）拉取到本地 --&gt;</span></span>
+<span class="line">git checkout -b 本地分支名 origin/远程分支名</span>
+</pre></td></tr></table></figure>
+<h4 id="切换"><a href="#切换" class="headerlink" title="切换"></a>切换</h4><p>切换到指定分支、标签，或撤销还没有 add 进暂存区的文件，具体用法如下：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+<span class="line">8</span>
+<span class="line">9</span>
+<span class="line">10</span>
+</pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 切换当前分支为source --&gt;</span></span>
+<span class="line">git checkout source</span>
+<span class="line"><span class="comment">&lt;!-- 新建一个a分支，并且自动切换到a分支 --&gt;</span></span>
+<span class="line">git checkout -b a</span>
+<span class="line"></span>
+<span class="line"><span class="comment">&lt;!-- 切换到指定标签 --&gt;</span></span>
+<span class="line">git checkout v1.0</span>
+<span class="line"></span>
+<span class="line"><span class="comment">&lt;!-- 撤销a.md --&gt;</span></span>
+<span class="line">git checkout a.md</span>
+</pre></td></tr></table></figure>
+<h4 id="合并"><a href="#合并" class="headerlink" title="合并"></a>合并</h4><p>合并分支，一般是在master分支下合并其他分支，具体用法如下：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+</pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 直接将两个分支合并，合并之后两块还是相对独立的 --&gt;</span></span>
+<span class="line">git checkout master</span>
+<span class="line">git merge source</span>
+<span class="line"></span>
+<span class="line"><span class="comment">&lt;!-- 根据相关逻辑将两个分支合并，合并之后两个分支是糅合的 --&gt;</span></span>
+<span class="line">git checkout master</span>
+<span class="line">git rebase source</span>
+</pre></td></tr></table></figure>
+<h4 id="别名"><a href="#别名" class="headerlink" title="别名"></a>别名</h4><p>对使用很频繁，并且命名比较长的操作每次输入都比较麻烦，可以通过<code>alias</code> 来起简单好记的别名：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+</pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 表示 co 等同于 checkout --&gt;</span></span>
+<span class="line">git config --global alias.co checkout</span>
+<span class="line"><span class="comment">&lt;!-- 可以根据习惯来定制一些组合 --&gt;</span></span>
+<span class="line">git config --global alias.psm 'push origin master'</span>
+<span class="line"></span>
+<span class="line"><span class="comment">&lt;!-- 格式化日志信息 --&gt;</span></span>
+<span class="line">git config --global alias.lg "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)% d%Creset %s %Cgreen(%cr) %C(bold blue)<span class="tag">&lt;<span class="name">%an</span>&gt;</span>%Creset' --abbrev-commit --date=relative"</span>
+</pre></td></tr></table></figure>
+<h4 id="差异"><a href="#差异" class="headerlink" title="差异"></a>差异</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+<span class="line">8</span>
+</pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 查看当前文件与暂存区文件的差异 --&gt;</span></span>
+<span class="line">git diff</span>
+<span class="line"><span class="comment">&lt;!-- 比较两次提交之间的差异 --&gt;</span></span>
+<span class="line">git diff <span class="tag">&lt;<span class="name">$id1</span>&gt;</span> <span class="tag">&lt;<span class="name">$id2</span>&gt;</span></span>
+<span class="line"><span class="comment">&lt;!-- 在两个分支之间比较 --&gt;</span></span>
+<span class="line">git diff origin/master origin/source</span>
+<span class="line"><span class="comment">&lt;!-- 比较暂存区和版本库差异 --&gt;</span></span>
+<span class="line">git diff --staged</span>
+</pre></td></tr></table></figure>
+<h4 id="设置用户名和邮箱"><a href="#设置用户名和邮箱" class="headerlink" title="设置用户名和邮箱"></a>设置用户名和邮箱</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+</pre></td><td class="code"><pre><span class="line">git config --global user.name "xiachengwei5"</span>
+<span class="line">git config --global user.email "xiachengwei5@163.com"</span>
+</pre></td></tr></table></figure>
+<h4 id="其他命名"><a href="#其他命名" class="headerlink" title="其他命名"></a>其他命名</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+</pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 开启Git着色 --&gt;</span></span>
+<span class="line">git config --global color.ui true</span>
+</pre></td></tr></table></figure>
+<h4 id="四、解决中文乱码的问题"><a href="#四、解决中文乱码的问题" class="headerlink" title="四、解决中文乱码的问题"></a>四、解决中文乱码的问题</h4><p><strong>解决通过git status查看中文文件名乱码</strong> </p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span>
+</pre></td><td class="code"><pre><span class="line">git config --global core.quotepath false</span>
+</pre></td></tr></table></figure>
+<p>在git bush中右键==&gt;<code>options</code> ，选择编码格式：</p>
+<p><img src="http://olywxnzqu.bkt.clouddn.com/img/git_door/selectFont.png" alt="选择字体和编码格式"> </p>
+<h3 id="五、参考资料"><a href="#五、参考资料" class="headerlink" title="五、参考资料"></a>五、参考资料</h3><p><a href="http://stormzhang.com/github/2016/06/19/learn-github-from-zero-summary/" target="_blank" rel="external">从0开始学习 GitHub 系列</a> </p>
+<p><a href="http://pan.baidu.com/s/1miJYaYs" target="_blank" rel="external">从0开始学习 GitHub 系列——电子书下载</a> </p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/07/28/SpringMVC集成Swagger插件以及Swagger注解的简单使用/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          SpringMVC集成Swagger插件以及Swagger注解的简单使用
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/07/19/mybatis generator插件自定义修改/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">mybatis generator插件自定义修改</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="Git使用入门" data-title="Git使用入门" data-url="http://xiachengwei5.coding.me/2017/07/26/Git使用入门/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2018 夏
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: undefined,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: undefined
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

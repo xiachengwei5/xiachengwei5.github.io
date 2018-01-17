@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>CSS布局 | 颭的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="以前对CSS布局有些接触，但是因为没有系统的学习过，导致每次在调整和修改起来都觉得比较困难，为了解决这个难啃的骨头花了两天时间系统的把目前比较主流的CSS布局方式系统的看了一遍，解决了之前的一些模糊的知其然不知其所以然的问题，在此记录供后续参考。 一、盒模型（Box Model）所有HTML元素可以看作盒子，CSS盒模型本质上是一个盒子，封装周围的HTML元素，它包括：  margin：边距/外边">
+<meta name="keywords" content="CSS,布局">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS布局">
+<meta property="og:url" content="http://xiachengwei5.coding.me/2017/02/19/CSS布局/index.html">
+<meta property="og:site_name" content="颭的博客">
+<meta property="og:description" content="以前对CSS布局有些接触，但是因为没有系统的学习过，导致每次在调整和修改起来都觉得比较困难，为了解决这个难啃的骨头花了两天时间系统的把目前比较主流的CSS布局方式系统的看了一遍，解决了之前的一些模糊的知其然不知其所以然的问题，在此记录供后续参考。 一、盒模型（Box Model）所有HTML元素可以看作盒子，CSS盒模型本质上是一个盒子，封装周围的HTML元素，它包括：  margin：边距/外边">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://olywxnzqu.bkt.clouddn.com/img/css_buju/BoxModel.jpg">
+<meta property="og:image" content="http://olywxnzqu.bkt.clouddn.com/img/css_buju/boxmodel4.jpg">
+<meta property="og:image" content="http://olywxnzqu.bkt.clouddn.com/img/css_buju/boxmodel2.jpg">
+<meta property="og:image" content="http://olywxnzqu.bkt.clouddn.com/img/css_buju/flex3.png">
+<meta property="og:image" content="http://olywxnzqu.bkt.clouddn.com/img/css_buju/flex1.jpg">
+<meta property="og:image" content="http://olywxnzqu.bkt.clouddn.com/img/css_buju/flex2.jpg">
+<meta property="og:updated_time" content="2017-07-21T09:05:10.111Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CSS布局">
+<meta name="twitter:description" content="以前对CSS布局有些接触，但是因为没有系统的学习过，导致每次在调整和修改起来都觉得比较困难，为了解决这个难啃的骨头花了两天时间系统的把目前比较主流的CSS布局方式系统的看了一遍，解决了之前的一些模糊的知其然不知其所以然的问题，在此记录供后续参考。 一、盒模型（Box Model）所有HTML元素可以看作盒子，CSS盒模型本质上是一个盒子，封装周围的HTML元素，它包括：  margin：边距/外边">
+<meta name="twitter:image" content="http://olywxnzqu.bkt.clouddn.com/img/css_buju/BoxModel.jpg">
+  
+  
+    <link rel="icon" href="http://olywxnzqu.bkt.clouddn.com/img/hexo_index/logo.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="http://olywxnzqu.bkt.clouddn.com/img/hexo_index/logo.png" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">夏</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">勤能补拙，熟能生巧</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/xiachengwei5" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/xiachengwei5" title="weibo">weibo</a>
+					        
+								<a class="mail" target="_blank" href="mailto:xiachengwei5@163.com" title="mail">mail</a>
+					        
+								<a class="jianshu" target="_blank" href="http://www.jianshu.com/u/a31d9187f8ff" title="jianshu">jianshu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/CSS/" style="font-size: 20px;">CSS</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/Git/" style="font-size: 15px;">Git</a> <a href="/tags/GitHub/" style="font-size: 10px;">GitHub</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Oracle/" style="font-size: 10px;">Oracle</a> <a href="/tags/SQL/" style="font-size: 10px;">SQL</a> <a href="/tags/component/" style="font-size: 10px;">component</a> <a href="/tags/eclipse/" style="font-size: 10px;">eclipse</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/git插件/" style="font-size: 10px;">git插件</a> <a href="/tags/jQuery/" style="font-size: 10px;">jQuery</a> <a href="/tags/js/" style="font-size: 15px;">js</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/mybatsi-generator/" style="font-size: 10px;">mybatsi-generator</a> <a href="/tags/shell/" style="font-size: 10px;">shell</a> <a href="/tags/spring/" style="font-size: 10px;">spring</a> <a href="/tags/spring-mvc/" style="font-size: 10px;">spring-mvc</a> <a href="/tags/swagger/" style="font-size: 10px;">swagger</a> <a href="/tags/todoList/" style="font-size: 10px;">todoList</a> <a href="/tags/tools/" style="font-size: 10px;">tools</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a> <a href="/tags/图片轮播/" style="font-size: 10px;">图片轮播</a> <a href="/tags/布局/" style="font-size: 10px;">布局</a> <a href="/tags/思考/" style="font-size: 10px;">思考</a> <a href="/tags/朗读者/" style="font-size: 10px;">朗读者</a> <a href="/tags/选择器/" style="font-size: 15px;">选择器</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.myronliu.com">Myron</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.devzeng.com">Devzeng</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://heji1993.github.io">Heji</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://litten.me">litten</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://sentsin.com">sentsin</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://moxfive.xyz">MOxFIVE</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.w3cplus.com">w3cplus</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://gold.xitu.io">掘金</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.ruanyifeng.com">阮一峰</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://www.liaoxuefeng.com/">廖雪峰</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">动如脱兔，静如止水</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">夏</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img src="http://olywxnzqu.bkt.clouddn.com/img/hexo_index/logo.png" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">夏</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">勤能补拙，熟能生巧</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/xiachengwei5" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/xiachengwei5" title="weibo">weibo</a>
+			        
+						<a class="mail" target="_blank" href="mailto:xiachengwei5@163.com" title="mail">mail</a>
+			        
+						<a class="jianshu" target="_blank" href="http://www.jianshu.com/u/a31d9187f8ff" title="jianshu">jianshu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-CSS布局" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/02/19/CSS布局/" class="article-date">
+  	<time datetime="2017-02-19T07:32:44.000Z" itemprop="datePublished">2017-02-19</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      CSS布局
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/布局/">布局</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>以前对CSS布局有些接触，但是因为没有系统的学习过，导致每次在调整和修改起来都觉得比较困难，为了解决这个难啃的骨头花了两天时间系统的把目前比较主流的CSS布局方式系统的看了一遍，解决了之前的一些模糊的知其然不知其所以然的问题，在此记录供后续参考。</p>
+<h2 id="一、盒模型（Box-Model）"><a href="#一、盒模型（Box-Model）" class="headerlink" title="一、盒模型（Box Model）"></a>一、盒模型（Box Model）</h2><p>所有HTML元素可以看作盒子，CSS盒模型本质上是一个盒子，封装周围的HTML元素，它包括：</p>
+<ul>
+<li>margin：边距/外边距，清除边框外的区域，外边距是透明的；</li>
+<li>border：边框，围绕在内边距和内容外的边框；</li>
+<li>padding：填充/内边距，清除内容周围的区域，内边距是透明的；</li>
+<li>content：内容，盒子的内容，显示文本和图像。</li>
+</ul>
+<a id="more"></a>
+<p>下面的图片展示了盒子模型：</p>
+<p><img src="http://olywxnzqu.bkt.clouddn.com/img/css_buju/BoxModel.jpg" alt="img"></p>
+<p><strong>元素的高度和宽度</strong></p>
+<p>通过CSS设置元素的高度和宽度，实际设置的是content（内容）部分的高度和宽度而不是整个盒子的宽度和高度，而整个盒子的宽度是：（内容宽度 +padding宽度 +  border宽度 + margin宽度）之和，如下图：</p>
+<p><img src="http://olywxnzqu.bkt.clouddn.com/img/css_buju/boxmodel4.jpg" alt="img"></p>
+<p>这样我们改四个中的其中一个，都会导致盒子宽度的改变，这对我们来说不友好，为了消除这种差异，CSS新增了<code>box-sizing</code>属性，现在通过CSS设置的宽度300px是content+padding+border，如下图：</p>
+<p><img src="http://olywxnzqu.bkt.clouddn.com/img/css_buju/boxmodel2.jpg" alt="img"></p>
+<p>想要页面上所有的元素在高度和宽度的设置上都有统一的表现，所以建议为系统写css时候，第一个样式是：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+</pre></td><td class="code"><pre><span class="line">*&#123;</span>
+<span class="line">  <span class="attribute">margin</span>:<span class="number">0</span>;</span>
+<span class="line">  <span class="attribute">padding</span>:<span class="number">0</span>;</span>
+<span class="line">  <span class="attribute">-webkit-box-sizing</span>: border-box;		<span class="comment">/*兼容webkit内核浏览器，如：Chrome，Safari等*/</span></span>
+<span class="line">     <span class="attribute">-moz-box-sizing</span>: border-box;		<span class="comment">/*兼容火狐浏览器*/</span></span>
+<span class="line">          <span class="attribute">box-sizing</span>: border-box;</span>
+<span class="line">&#125;</span>
+</pre></td></tr></table></figure>
+<hr>
+<h2 id="二、display属性"><a href="#二、display属性" class="headerlink" title="二、display属性"></a>二、display属性</h2><p><code>display</code> 是CSS中最重要的用于控制布局的属性，决定元素属于那种盒子（指定元素的显示类型）。每个元素都有一个默认的 display 值，这与元素的类型有关。对于大多数元素它们的默认值通常是 <code>block</code> 或 <code>inline</code> 。</p>
+<p><strong>块级元素（block）</strong></p>
+<p>一般是其他元素的容器，可容纳内联元素和其他块状元素，块状元素排斥其他元素与其位于同一行，宽度(width)高度(height)起作用。常见块状元素为<code>div</code>、<code>p</code>、<code>h1</code>、<code>li</code>。</p>
+<p><strong>内联元素（inline）</strong></p>
+<p>内联元素只能容纳文本或者其他内联元素，它允许其他内联元素与其位于同一行，其宽度(width)和高度(height)只与其包含的内容有关，通过CSS设置高度和宽度不起作用。常见内联元素为<code>a</code>、<code>span</code>。</p>
+<p>可以通过设置display属性让块级元素和内联元素相互转换，如：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+</pre></td><td class="code"><pre><span class="line"><span class="selector-tag">li</span>&#123;</span>
+<span class="line">  <span class="attribute">display</span>:inline;		<span class="comment">/*将内联元素设置为块级元素*/</span></span>
+<span class="line">&#125;</span>
+<span class="line"></span>
+<span class="line"><span class="selector-tag">span</span>&#123;</span>
+<span class="line">  <span class="attribute">display</span>:block;		<span class="comment">/*将块级元素设置为内联元素*/</span></span>
+<span class="line">&#125;</span>
+</pre></td></tr></table></figure>
+<p><strong>隐藏元素（none）</strong></p>
+<p>一些特殊元素的默认 display 值就是none，如：<code>script</code>。</p>
+<p>隐藏一个元素可以通过<code>display:none</code>，或<code>visibility:hidden</code>。但是请注意，这两种方法会产生不同的结果：</p>
+<blockquote>
+<ul>
+<li>通过visibility:hidden隐藏的元素仍需占用与未隐藏之前一样的空间，也就是说，该元素虽然被隐藏了，但仍然会影响布局；</li>
+<li>display:none，不会占据它本来应该占据的空间，不会影响布局。</li>
+</ul>
+</blockquote>
+<p><strong>块级内联元素（inline-block）</strong></p>
+<p>将对象呈递为内联对象，但是对象的内容作为块对象呈递。旁边的内联对象会被呈递在同一行内，允许空格。准确地说，应用此特性的元素呈现为内联对象，周围内联元素保持在同一行，但保留设置宽度和高度地块元素的属性。</p>
+<hr>
+<h2 id="三、position属性"><a href="#三、position属性" class="headerlink" title="三、position属性"></a>三、position属性</h2><p>display决定了盒子种类，position就用来确定盒子的位置。</p>
+<p><strong>标准文档流（static）</strong></p>
+<p><code>static</code> 是positon属性的默认值，指按照文档至上而下的标准文档流，被 <code>position: static</code> 修饰的元素不会受到top, bottom, left, right影响。</p>
+<p><strong>绝对定位（fixed）</strong></p>
+<p>元素的位置相对于浏览器窗口固定，配合top、right、bottom、left进行定位，脱离标准文档流，不会受到父元素overflow:hidden影响，即使窗口是滚动的它也不会移动，常用示例：二维码、广告的悬浮；</p>
+<p><strong>绝对定位（absolute）</strong></p>
+<p>绝对定位的元素的位置相对于最近的已定位（position属性值不为static）<em>父元素</em>，如果元素没有已定位的父元素，那么它的位置相对于<code>body</code>，配合top、right、bottom、left进行定位，脱离标准文档流，会受到父元素<code>overflow:hidden</code>影响，并且它会随着页面滚动而移动。</p>
+<p><strong>相对定位（relative）</strong></p>
+<p>默认参照父级的原始点为原始点，配合top、right、bottom、left进行定位，当父级内有padding等CSS属性时，当前级的原始点则参照父级内容区的原始点进行定位。</p>
+<hr>
+<h2 id="四、float属性"><a href="#四、float属性" class="headerlink" title="四、float属性"></a>四、float属性</h2><p>元素的水平方向浮动，意味着元素只能左右移动而不能上下移动，一个浮动元素会尽量向左或向右移动，直到它的外边缘碰到包含框或另一个浮动框的边框为止，浮动元素之后的元素将围绕它，浮动元素之前的元素将不会受到影响，其属性值如下：</p>
+<ul>
+<li>left（向左浮动）</li>
+<li>rigth（向右浮动）</li>
+<li>top（向上浮动）</li>
+<li>bottom（向下浮动）</li>
+</ul>
+<p><strong>清除浮动（clean）</strong></p>
+<p>使用浮动后会影响到后面的元素所以需要及时的清除浮动，而且会造成父级元素高度塌陷。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+<span class="line">8</span>
+<span class="line">9</span>
+<span class="line">10</span>
+<span class="line">11</span>
+<span class="line">12</span>
+<span class="line">13</span>
+<span class="line">14</span>
+<span class="line">15</span>
+<span class="line">16</span>
+<span class="line">17</span>
+</pre></td><td class="code"><pre><span class="line">.clean&#123;</span>
+<span class="line">  clean:left;	/*清除左浮动*/</span>
+<span class="line">  clean:right;	/*清除右浮动*/</span>
+<span class="line">  clean:top;	/*清除上浮动*/</span>
+<span class="line">  clean:bottom;	/*清除下浮动*/</span>
+<span class="line">  clean:both;	/*清除所有浮动*/</span>
+<span class="line">&#125;</span>
+<span class="line">/*清除浮动并防止父级元素高度塌陷*/</span>
+<span class="line">.clearfix:before, .clearfix:after &#123;</span>
+<span class="line">    content: '\0020';</span>
+<span class="line">    display: block;</span>
+<span class="line">    overflow: hidden;</span>
+<span class="line">    visibility: hidden;</span>
+<span class="line">    width: 0; height: 0;</span>
+<span class="line">&#125;</span>
+<span class="line">.clearfix:after &#123; clear: both &#125;</span>
+<span class="line">.clearfix &#123; *zoom: 1 &#125;</span>
+</pre></td></tr></table></figure>
+<h2 id="五、响应式布局"><a href="#五、响应式布局" class="headerlink" title="五、响应式布局"></a>五、响应式布局</h2><p>使用<strong>媒体查询 （@media）</strong> 可以针对不同的媒体类型定义不同的样式，达到响应式布局的目的，在不同尺寸的设备上都有完美的展示。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+<span class="line">8</span>
+<span class="line">9</span>
+<span class="line">10</span>
+<span class="line">11</span>
+<span class="line">12</span>
+<span class="line">13</span>
+<span class="line">14</span>
+<span class="line">15</span>
+</pre></td><td class="code"><pre><span class="line">@<span class="keyword">media</span> screen and (min-width:<span class="number">600px</span>) &#123;</span>
+<span class="line">  <span class="selector-tag">nav</span> &#123;</span>
+<span class="line">    <span class="attribute">float</span>: left;</span>
+<span class="line">    <span class="attribute">width</span>: <span class="number">25%</span>;</span>
+<span class="line">  &#125;</span>
+<span class="line">  <span class="selector-tag">section</span> &#123;</span>
+<span class="line">    <span class="attribute">margin-left</span>: <span class="number">25%</span>;</span>
+<span class="line">  &#125;</span>
+<span class="line">&#125;</span>
+<span class="line"></span>
+<span class="line">@<span class="keyword">media</span> screen and (max-width:<span class="number">599px</span>) &#123;</span>
+<span class="line">  <span class="selector-tag">nav</span> <span class="selector-tag">li</span> &#123;</span>
+<span class="line">    <span class="attribute">display</span>: inline;</span>
+<span class="line">  &#125;</span>
+<span class="line">&#125;</span>
+</pre></td></tr></table></figure>
+<p>同时可以针对不同的媒体引用不同的 <em>stylesheets</em> </p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+</pre></td><td class="code"><pre><span class="line">&lt;link media="screen and (max-device-width:299px)" rel="stylesheet" href="small.css" /&gt;</span>
+<span class="line">&lt;link media="screen and (min-device-width:300px) and (max-device-width:900px)" rel="stylesheet" href="middle.css" /&gt;</span>
+<span class="line">&lt;link media="screen and (min-device-width:901px)" rel="stylesheet" href="big.css" /&gt;</span>
+</pre></td></tr></table></figure>
+<h2 id="六、弹性布局（Flex）"><a href="#六、弹性布局（Flex）" class="headerlink" title="六、弹性布局（Flex）"></a>六、弹性布局（Flex）</h2><p>Flex是Flexible Box的缩写，意为”弹性布局”，用来为盒状模型提供最大的灵活性。</p>
+<p>采用Flex布局的元素，称为Flex容器（flex container），简称”容器”。它的所有子元素自动成为容器成员，称为Flex项目（flex item），简称”项目”。容器默认存在两根轴：水平的主轴（main axis）和垂直的交叉轴（cross axis）。主轴的开始位置（与边框的交叉点）叫做<code>main start</code>，结束位置叫做<code>main end</code>；交叉轴的开始位置叫做<code>cross start</code>，结束位置叫做<code>cross end</code>。项目默认沿主轴排列。单个项目占据的主轴空间叫做<code>main size</code>，占据的交叉轴空间叫做<code>cross size</code>。图示如下：</p>
+<p><img src="http://olywxnzqu.bkt.clouddn.com/img/css_buju/flex3.png" alt="img"></p>
+<p>任何一个容器都可以指定为flex布局<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+</pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span>&#123;</span>
+<span class="line">  <span class="attribute">display</span>: -webkit-flex;</span>
+<span class="line">  <span class="attribute">display</span>: flex;</span>
+<span class="line">&#125;</span>
+</pre></td></tr></table></figure></p>
+<p>行内元素也可以使用flex布局</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+</pre></td><td class="code"><pre><span class="line">.box&#123;</span>
+<span class="line">  display: -webkit-inline-flex;</span>
+<span class="line">  display：inline-flex;</span>
+<span class="line">&#125;</span>
+</pre></td></tr></table></figure>
+<p><strong> 注意：</strong> 设为Flex布局以后，子元素的<code>float</code>、<code>clear</code>和<code>vertical-align</code>属性将失效，如果元素不是弹性盒模型对象的子元素，则 flex 属性不起作用。</p>
+<p>下面了解一下弹性布局的威力：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+<span class="line">8</span>
+<span class="line">9</span>
+<span class="line">10</span>
+<span class="line">11</span>
+<span class="line">12</span>
+<span class="line">13</span>
+<span class="line">14</span>
+<span class="line">15</span>
+<span class="line">16</span>
+<span class="line">17</span>
+<span class="line">18</span>
+<span class="line">19</span>
+<span class="line">20</span>
+<span class="line">21</span>
+<span class="line">22</span>
+<span class="line">23</span>
+</pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span>
+<span class="line">  <span class="attribute">display</span>: -webkit-flex;</span>
+<span class="line">  <span class="attribute">display</span>: flex;</span>
+<span class="line">&#125;</span>
+<span class="line"><span class="selector-class">.initial</span> &#123;</span>
+<span class="line">  <span class="attribute">-webkit-flex</span>: initial;</span>
+<span class="line">          <span class="attribute">flex</span>: initial;</span>
+<span class="line">  <span class="attribute">width</span>: <span class="number">200px</span>;</span>
+<span class="line">  <span class="attribute">min-width</span>: <span class="number">100px</span>;</span>
+<span class="line">&#125;</span>
+<span class="line"><span class="selector-class">.none</span> &#123;</span>
+<span class="line">  <span class="attribute">-webkit-flex</span>: none;</span>
+<span class="line">          <span class="attribute">flex</span>: none;</span>
+<span class="line">  <span class="attribute">width</span>: <span class="number">200px</span>;</span>
+<span class="line">&#125;</span>
+<span class="line"><span class="selector-class">.flex1</span> &#123;</span>
+<span class="line">  <span class="attribute">-webkit-flex</span>: <span class="number">1</span>;</span>
+<span class="line">          <span class="attribute">flex</span>: <span class="number">1</span>;</span>
+<span class="line">&#125;</span>
+<span class="line"><span class="selector-class">.flex2</span> &#123;</span>
+<span class="line">  <span class="attribute">-webkit-flex</span>: <span class="number">2</span>;</span>
+<span class="line">          <span class="attribute">flex</span>: <span class="number">2</span>;</span>
+<span class="line">&#125;</span>
+</pre></td></tr></table></figure>
+<p><img src="http://olywxnzqu.bkt.clouddn.com/img/css_buju/flex1.jpg" alt="img"></p>
+<p>实现棘手的垂直居中：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+<span class="line">8</span>
+<span class="line">9</span>
+</pre></td><td class="code"><pre><span class="line"><span class="selector-class">.vertical-container</span> &#123;</span>
+<span class="line">  <span class="attribute">height</span>: <span class="number">300px</span>;</span>
+<span class="line">  <span class="attribute">display</span>: -webkit-flex;</span>
+<span class="line">  <span class="attribute">display</span>:         flex;			<span class="comment">/*设置容器为flex布局*/</span></span>
+<span class="line">  <span class="attribute">-webkit-align-items</span>: center;		<span class="comment">/*设置交叉轴方向上的对齐方式为居中*/</span></span>
+<span class="line">          <span class="attribute">align-items</span>: center;		</span>
+<span class="line">  <span class="attribute">-webkit-justify-content</span>: center;	<span class="comment">/*设置主轴方向上的对齐方式为居中*/</span></span>
+<span class="line">          <span class="attribute">justify-content</span>: center;</span>
+<span class="line">&#125;</span>
+</pre></td></tr></table></figure>
+<p><img src="http://olywxnzqu.bkt.clouddn.com/img/css_buju/flex2.jpg" alt="img"></p>
+<p>对使用flex布局的容器的属性：</p>
+<blockquote>
+<ul>
+<li><code>flex-direction</code>        定义主轴的方向（即项目的排列方向）</li>
+<li><code>flex-wrap</code>         定义当一条轴线排不下时换行的方式</li>
+<li><code>flex-flow</code>         是<code>flex-direction</code>属性和<code>flex-wrap</code>属性的简写形式，默认值为<code>row nowrap</code>。</li>
+<li><code>justify-content</code>   定义了项目在主轴上的对齐方式。</li>
+<li><code>align-items</code>       定义项目在交叉轴上如何对齐。</li>
+<li><code>align-content</code>     定义了多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用。</li>
+</ul>
+</blockquote>
+<p>和使用flex布局容器里子元素的属性：</p>
+<blockquote>
+<ul>
+<li><code>order</code>               定义项目的排列顺序。数值越小，排列越靠前，默认为0。</li>
+<li><code>flex-grow</code>      定义项目的放大比例，默认为0，即如果存在剩余空间，也不放大。</li>
+<li><code>flex-shrink</code>    定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小。</li>
+<li><code>flex-basis</code>     定义了在分配多余空间之前，项目占据的主轴空间（main size），也可以设为跟<code>width</code>或<code>height</code>属性一样的值（比如350px），则项目将占据固定空间</li>
+<li><code>flex</code>           是 flex-grow、flex-shrink 和 flex-basis 属性的简写属性，默认值为<code>0 1 auto</code>后两个属性可选。该属性有三个快捷值：<code>auto</code> (<code>1 1 auto</code>) 、 none (<code>0 0 auto</code>)和initial（<code>0 1 auto</code>）。</li>
+<li><code>align-self</code>     允许单个项目有与其他项目不一样的对齐方式，可覆盖<code>align-items</code>属性，默认值为<code>auto</code>，表示继承父元素的<code>align-items</code>属性。</li>
+</ul>
+</blockquote>
+<p>因flex布局涉及到的属性比较多在此只做属性描述待深入学习后再做总结。</p>
+<h2 id="七、Grid布局"><a href="#七、Grid布局" class="headerlink" title="七、Grid布局"></a>七、Grid布局</h2><p>CSS Grid现在已经被<strong>W3C</strong>纳入到CSS3的一个布局模块当中，但由于其目前仅在IE10+上支持，而且也仅支持部分属性，目前各浏览器对其支持程度不一致，致使无法全面使用，就算是学习做一些测试示例都还需要做一些设置，所以暂时不做学习，等后续标准规范之后再学习总结。</p>
+<p>不过“大漠”在<a href="http://www.w3cplus.com/" target="_blank" rel="external">W3cplus</a>中已经有了详细的教程，感兴趣的可以提前了解学习，链接如下：</p>
+<p><a href="http://www.w3cplus.com/css3/what-is-css-grid-layout.html" target="_blank" rel="external">CSS Grid布局学习</a></p>
+<h2 id="八、参考资料"><a href="#八、参考资料" class="headerlink" title="八、参考资料"></a>八、参考资料</h2><p><a href="http://zh.learnlayout.com/" target="_blank" rel="external">学习CSS布局</a></p>
+<p><a href="http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html" target="_blank" rel="external">Flex 布局教程：语法篇</a></p>
+<p><a href="http://www.cnblogs.com/wangfupeng1988/p/4287292.html" target="_blank" rel="external">css知多少（7）——盒子模型</a></p>
+<p><a href="http://www.myronliu.com/2016/03/04/css/css%E5%B8%83%E5%B1%80-%E7%9B%92%E6%A8%A1%E5%9E%8B%EF%BC%8C%E5%AE%9A%E4%BD%8D%E5%92%8C%E6%B5%AE%E5%8A%A8/" target="_blank" rel="external">css布局-盒模型，定位和浮动</a></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/02/25/CSS3-新特性/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          CSS3 新特性
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/02/12/CSS选择器/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">CSS选择器</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="CSS布局" data-title="CSS布局" data-url="http://xiachengwei5.coding.me/2017/02/19/CSS布局/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2018 夏
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: undefined,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: undefined
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

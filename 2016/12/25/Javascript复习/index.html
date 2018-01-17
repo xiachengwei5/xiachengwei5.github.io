@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>Javascript复习 | 颭的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="1.字面量（常量），对象字面量的声明和取值：1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 var config = &amp;#123;firstName:&quot;John&quot;, lastName:&quot;Doe&quot;, age:50, eyeColor:&quot;blue&quot;&amp;#125;; 或 var config = &amp;#123;   firstName = &quot;">
+<meta name="keywords" content="js">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Javascript复习">
+<meta property="og:url" content="http://xiachengwei5.coding.me/2016/12/25/Javascript复习/index.html">
+<meta property="og:site_name" content="颭的博客">
+<meta property="og:description" content="1.字面量（常量），对象字面量的声明和取值：1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 var config = &amp;#123;firstName:&quot;John&quot;, lastName:&quot;Doe&quot;, age:50, eyeColor:&quot;blue&quot;&amp;#125;; 或 var config = &amp;#123;   firstName = &quot;">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-07-21T09:05:10.113Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Javascript复习">
+<meta name="twitter:description" content="1.字面量（常量），对象字面量的声明和取值：1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 var config = &amp;#123;firstName:&quot;John&quot;, lastName:&quot;Doe&quot;, age:50, eyeColor:&quot;blue&quot;&amp;#125;; 或 var config = &amp;#123;   firstName = &quot;">
+  
+  
+    <link rel="icon" href="http://olywxnzqu.bkt.clouddn.com/img/hexo_index/logo.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="http://olywxnzqu.bkt.clouddn.com/img/hexo_index/logo.png" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">夏</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">勤能补拙，熟能生巧</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/xiachengwei5" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/xiachengwei5" title="weibo">weibo</a>
+					        
+								<a class="mail" target="_blank" href="mailto:xiachengwei5@163.com" title="mail">mail</a>
+					        
+								<a class="jianshu" target="_blank" href="http://www.jianshu.com/u/a31d9187f8ff" title="jianshu">jianshu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/CSS/" style="font-size: 20px;">CSS</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/Git/" style="font-size: 15px;">Git</a> <a href="/tags/GitHub/" style="font-size: 10px;">GitHub</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Oracle/" style="font-size: 10px;">Oracle</a> <a href="/tags/SQL/" style="font-size: 10px;">SQL</a> <a href="/tags/component/" style="font-size: 10px;">component</a> <a href="/tags/eclipse/" style="font-size: 10px;">eclipse</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/git插件/" style="font-size: 10px;">git插件</a> <a href="/tags/jQuery/" style="font-size: 10px;">jQuery</a> <a href="/tags/js/" style="font-size: 15px;">js</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/mybatsi-generator/" style="font-size: 10px;">mybatsi-generator</a> <a href="/tags/shell/" style="font-size: 10px;">shell</a> <a href="/tags/spring/" style="font-size: 10px;">spring</a> <a href="/tags/spring-mvc/" style="font-size: 10px;">spring-mvc</a> <a href="/tags/swagger/" style="font-size: 10px;">swagger</a> <a href="/tags/todoList/" style="font-size: 10px;">todoList</a> <a href="/tags/tools/" style="font-size: 10px;">tools</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a> <a href="/tags/图片轮播/" style="font-size: 10px;">图片轮播</a> <a href="/tags/布局/" style="font-size: 10px;">布局</a> <a href="/tags/思考/" style="font-size: 10px;">思考</a> <a href="/tags/朗读者/" style="font-size: 10px;">朗读者</a> <a href="/tags/选择器/" style="font-size: 15px;">选择器</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.myronliu.com">Myron</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.devzeng.com">Devzeng</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://heji1993.github.io">Heji</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://litten.me">litten</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://sentsin.com">sentsin</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://moxfive.xyz">MOxFIVE</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.w3cplus.com">w3cplus</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://gold.xitu.io">掘金</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.ruanyifeng.com">阮一峰</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://www.liaoxuefeng.com/">廖雪峰</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">动如脱兔，静如止水</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">夏</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img src="http://olywxnzqu.bkt.clouddn.com/img/hexo_index/logo.png" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">夏</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">勤能补拙，熟能生巧</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/xiachengwei5" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/xiachengwei5" title="weibo">weibo</a>
+			        
+						<a class="mail" target="_blank" href="mailto:xiachengwei5@163.com" title="mail">mail</a>
+			        
+						<a class="jianshu" target="_blank" href="http://www.jianshu.com/u/a31d9187f8ff" title="jianshu">jianshu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-Javascript复习" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/12/25/Javascript复习/" class="article-date">
+  	<time datetime="2016-12-25T14:31:18.000Z" itemprop="datePublished">2016-12-25</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Javascript复习
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="1-字面量（常量），对象字面量的声明和取值："><a href="#1-字面量（常量），对象字面量的声明和取值：" class="headerlink" title="1.字面量（常量），对象字面量的声明和取值："></a>1.字面量（常量），对象字面量的声明和取值：</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+<span class="line">8</span>
+<span class="line">9</span>
+<span class="line">10</span>
+<span class="line">11</span>
+<span class="line">12</span>
+<span class="line">13</span>
+<span class="line">14</span>
+<span class="line">15</span>
+<span class="line">16</span>
+<span class="line">17</span>
+<span class="line">18</span>
+<span class="line">19</span>
+<span class="line">20</span>
+<span class="line">21</span>
+<span class="line">22</span>
+</pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> config = &#123;<span class="attr">firstName</span>:<span class="string">"John"</span>, <span class="attr">lastName</span>:<span class="string">"Doe"</span>, <span class="attr">age</span>:<span class="number">50</span>, <span class="attr">eyeColor</span>:<span class="string">"blue"</span>&#125;;</span>
+<span class="line">或</span>
+<span class="line"><span class="keyword">var</span> config = &#123;</span>
+<span class="line">  firstName = <span class="string">"John"</span>;</span>
+<span class="line">  lastName = <span class="string">"Doe"</span>;</span>
+<span class="line">  age = <span class="number">50</span>;</span>
+<span class="line">  eysColor = <span class="string">"blue"</span>;</span>
+<span class="line">  fullName: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span>
+<span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.fisrtName +<span class="string">" "</span>+ lastName;</span>
+<span class="line">  &#125;</span>
+<span class="line">&#125;;</span>
+<span class="line"></span>
+<span class="line">config.firstName == <span class="string">"John"</span>;</span>
+<span class="line">config.lastName == <span class="string">"Doe"</span>;</span>
+<span class="line">config.age == <span class="number">50</span>;</span>
+<span class="line">config.eyeColor == <span class="string">"blue"</span>;</span>
+<span class="line">config[<span class="string">"eyeColor"</span>] == <span class="string">"blue"</span></span>
+<span class="line">config.fullName() == <span class="string">"John Doe"</span>;			<span class="comment">//fullName()作为方法调用；</span></span>
+<span class="line">config.fullName == <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;			<span class="comment">//fullName作为属性调用；</span></span>
+<span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.fisrtName +<span class="string">" "</span>+ lastName;</span>
+<span class="line">&#125;;</span>
+<span class="line">参考：http:<span class="comment">//www.runoob.com/js/js-obj-intro.html</span></span>
+</pre></td></tr></table></figure>
+<a id="more"></a>
+<h4 id="2-数组的声明和取值："><a href="#2-数组的声明和取值：" class="headerlink" title="2.数组的声明和取值："></a>2.数组的声明和取值：</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+<span class="line">8</span>
+<span class="line">9</span>
+<span class="line">10</span>
+<span class="line">11</span>
+<span class="line">12</span>
+<span class="line">13</span>
+<span class="line">14</span>
+<span class="line">15</span>
+<span class="line">16</span>
+</pre></td><td class="code"><pre><span class="line"><span class="comment">//直接指定数组内容</span></span>
+<span class="line"><span class="keyword">var</span> cars = [<span class="string">"Saab"</span>, <span class="string">"Volvo"</span>, <span class="string">"BMW"</span>];</span>
+<span class="line">cars[<span class="number">-1</span>] == <span class="string">"undefined"</span>			<span class="comment">//不在数字下标范围内的显示undefined</span></span>
+<span class="line">cars[<span class="number">0</span>] == <span class="string">"Saab"</span></span>
+<span class="line">cars[<span class="number">1</span>] == <span class="string">"Volvo"</span></span>
+<span class="line">cars[<span class="number">2</span>] == <span class="string">"BMW"</span></span>
+<span class="line">cars[<span class="number">3</span>] == <span class="string">"undefined"</span>			<span class="comment">//不在数字下标范围内的显示undefined</span></span>
+<span class="line"></span>
+<span class="line"><span class="comment">//先声明再赋值</span></span>
+<span class="line"><span class="keyword">var</span> cars = <span class="keyword">new</span> <span class="built_in">Array</span>();</span>
+<span class="line">cars[<span class="number">0</span>] = <span class="string">"Saab"</span>;</span>
+<span class="line">cars[<span class="number">1</span>] = <span class="string">"Volvo"</span>;</span>
+<span class="line">cars[<span class="number">2</span>] = <span class="string">"BMW"</span>;</span>
+<span class="line"></span>
+<span class="line"><span class="comment">//声明时直接赋值</span></span>
+<span class="line"><span class="keyword">var</span> cars = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="string">"Saab"</span>,<span class="string">"Volvo"</span>,<span class="string">"BMW"</span>);</span>
+</pre></td></tr></table></figure>
+<h4 id="3-Javascript的数据类型"><a href="#3-Javascript的数据类型" class="headerlink" title="3.Javascript的数据类型"></a>3.Javascript的数据类型</h4><blockquote>
+<ul>
+<li><p>字符串（String）、数字(Number)、布尔(Boolean)、数组(Array)、对象(Object)、空（Null）、未定义（Undefined）；</p>
+</li>
+<li><p>JavaScript 变量均为对象，当声明一个变量时，就创建了一个新的对象；</p>
+</li>
+</ul>
+</blockquote>
+<p>   JavaScript 拥有动态类型。这意味着相同的变量可用作不同的类型：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+</pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x;				<span class="comment">//声明变量</span></span>
+<span class="line">x = <span class="number">5</span>;				<span class="comment">//数字类型</span></span>
+<span class="line">x = <span class="string">"Marl"</span>;			<span class="comment">//字符串类型</span></span>
+</pre></td></tr></table></figure>
+<p>   JavaScript 只有一种数字类型。数字可以带小数点，也可以不带：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+</pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="number">34.00</span>;</span>
+<span class="line"><span class="keyword">var</span> y = <span class="number">34</span>;</span>
+<span class="line"><span class="built_in">console</span>.log(x +<span class="string">"==&gt;"</span>+ y +<span class="string">"==&gt;"</span>+ (x == y));</span>
+<span class="line">结果：<span class="number">34</span>==&gt;<span class="number">34</span>==&gt;<span class="literal">true</span></span>
+</pre></td></tr></table></figure>
+<p>   如果您把值赋给尚未声明的变量，该变量将被自动作为全局变量声明（<strong>即使在函数内执行</strong>），如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span>
+</pre></td><td class="code"><pre><span class="line">car_name = <span class="string">"Volvo"</span>;		<span class="comment">//直接给尚未声明的变量赋值，会自动作为全局变量声明，即使在函数内执行</span></span>
+</pre></td></tr></table></figure>
+<h4 id="4-Javascript的作用域"><a href="#4-Javascript的作用域" class="headerlink" title="4.Javascript的作用域"></a>4.Javascript的作用域</h4><p>   JavaScript 变量的生存期：</p>
+<blockquote>
+<ul>
+<li>JavaScript 变量的生命期从它们被声明时初始化。</li>
+<li>局部变量会在函数运行以后被销毁。</li>
+<li>全局变量会在页面关闭后被销毁。</li>
+</ul>
+</blockquote>
+<p>   在 HTML 中, 全局变量是 window 对象: 所有数据变量都属于 window 对象</p>
+<p>   ​</p>
+<h4 id="5-Javascript的运算符"><a href="#5-Javascript的运算符" class="headerlink" title="5.Javascript的运算符"></a>5.Javascript的运算符</h4><p>   <strong>赋值运算符</strong></p>
+<p>   =            x = y</p>
+<p>   +=            x += y            x = x + y</p>
+<p>   -=            x -+ y            x = x - y</p>
+<p>   <em>=            x </em>= y            x = x * y</p>
+<p>   /=            x /= y            x = x / y</p>
+<p>   %=          x %=y              x = x % y</p>
+<p>   <strong>比较运算符</strong></p>
+<p>   1、等于（==）和绝对等于/值和类型都相等（===）</p>
+<p>   A.对于string,number等基础类型，==和===是有区别的</p>
+<blockquote>
+<p>1）不同类型间比较，==只比较“转化成同一类型后的值”看“值”是否相等，===如果类型不同，其结果就是不等<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+</pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="number">10</span>;</span>
+<span class="line"><span class="keyword">var</span> y = <span class="string">"10"</span>;</span>
+<span class="line">x == y;        <span class="comment">//true;</span></span>
+<span class="line">x === y;       <span class="comment">//false;</span></span>
+</pre></td></tr></table></figure></p>
+</blockquote>
+<p>   &gt;</p>
+<blockquote>
+<p>2）同类型比较，直接进行“值”比较，两者结果一样</p>
+</blockquote>
+<p>   B.对于Array,Object等高级类型，==和===是没有区别的，都是进行“指针地址”比较<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+</pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="keyword">new</span> <span class="built_in">Object</span>(<span class="number">10</span>);</span>
+<span class="line"><span class="keyword">var</span> y = <span class="keyword">new</span> <span class="built_in">Object</span>(<span class="string">"10"</span>);</span>
+<span class="line"><span class="keyword">var</span> z = <span class="keyword">new</span> <span class="built_in">Object</span>(<span class="number">10</span>);</span>
+<span class="line">x == y;        <span class="comment">//false;</span></span>
+<span class="line">x === z;       <span class="comment">//false;</span></span>
+</pre></td></tr></table></figure></p>
+<p>   C.基础类型与高级类型，==和===是有区别的</p>
+<blockquote>
+<p>1）对于==，将高级转化为基础类型，进行“值”的比较<br>2）因为类型不同，===结果为false<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+</pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="keyword">new</span> <span class="built_in">Object</span>(<span class="string">"10"</span>);</span>
+<span class="line"><span class="keyword">var</span> y = <span class="number">10</span>;</span>
+<span class="line">x == y;        <span class="comment">//true</span></span>
+<span class="line">x === y;       <span class="comment">//false</span></span>
+</pre></td></tr></table></figure></p>
+</blockquote>
+<p>   2、不等于（!=）和不绝对等于/值或类型都不相等（!==）<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+</pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="number">5</span>;</span>
+<span class="line"><span class="keyword">var</span> y = <span class="string">"5"</span>;</span>
+<span class="line">x != y;			<span class="comment">//false</span></span>
+<span class="line">x !== y;		<span class="comment">//true</span></span>
+</pre></td></tr></table></figure></p>
+<h4 id="6-undefinded和null的区别"><a href="#6-undefinded和null的区别" class="headerlink" title="6.undefinded和null的区别"></a>6.undefinded和null的区别</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+</pre></td><td class="code"><pre><span class="line"><span class="keyword">typeof</span> <span class="literal">undefined</span>             <span class="comment">// undefined</span></span>
+<span class="line"><span class="keyword">typeof</span> <span class="literal">null</span>                  <span class="comment">// object</span></span>
+<span class="line"><span class="literal">null</span> === <span class="literal">undefined</span>           <span class="comment">// false</span></span>
+<span class="line"><span class="literal">null</span> == <span class="literal">undefined</span>            <span class="comment">// true</span></span>
+</pre></td></tr></table></figure>
+<h4 id="7-Javascript类型转换"><a href="#7-Javascript类型转换" class="headerlink" title="7.Javascript类型转换"></a>7.Javascript类型转换</h4><p>1、typeof 操作符</p>
+<blockquote>
+<p>使用typeof操作符来查看Javascript的数据类型<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+<span class="line">8</span>
+<span class="line">9</span>
+<span class="line">10</span>
+</pre></td><td class="code"><pre><span class="line"><span class="keyword">typeof</span> <span class="string">"John"</span>                 <span class="comment">// 返回 string</span></span>
+<span class="line"><span class="keyword">typeof</span> <span class="number">3.14</span>                   <span class="comment">// 返回 number</span></span>
+<span class="line"><span class="keyword">typeof</span> <span class="literal">NaN</span>                    <span class="comment">// 返回 number</span></span>
+<span class="line"><span class="keyword">typeof</span> <span class="literal">false</span>                  <span class="comment">// 返回 boolean</span></span>
+<span class="line"><span class="keyword">typeof</span> [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]              <span class="comment">// 返回 object</span></span>
+<span class="line"><span class="keyword">typeof</span> &#123;<span class="attr">name</span>:<span class="string">'John'</span>, <span class="attr">age</span>:<span class="number">34</span>&#125;  <span class="comment">// 返回 object</span></span>
+<span class="line"><span class="keyword">typeof</span> <span class="keyword">new</span> <span class="built_in">Date</span>()             <span class="comment">// 返回 object</span></span>
+<span class="line"><span class="keyword">typeof</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;         <span class="comment">// 返回 function</span></span>
+<span class="line"><span class="keyword">typeof</span> myCar                  <span class="comment">// 返回 undefined (如果 myCar 没有声明)</span></span>
+<span class="line"><span class="keyword">typeof</span> <span class="literal">null</span>                   <span class="comment">// 返回 object</span></span>
+</pre></td></tr></table></figure></p>
+</blockquote>
+<p>   2、constructor 属性</p>
+<blockquote>
+<p>constructor 属性返回所有 JavaScript 变量的构造函数</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+</pre></td><td class="code"><pre><span class="line"><span class="string">"John"</span>.constructor                 <span class="comment">// 返回函数 String()  &#123; [native code] &#125;</span></span>
+<span class="line">(<span class="number">3.14</span>).constructor                 <span class="comment">// 返回函数 Number()  &#123; [native code] &#125;</span></span>
+<span class="line"><span class="literal">false</span>.constructor                  <span class="comment">// 返回函数 Boolean() &#123; [native code] &#125;</span></span>
+<span class="line">[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>].constructor              <span class="comment">// 返回函数 Array()   &#123; [native code] &#125;</span></span>
+<span class="line">&#123;<span class="attr">name</span>:<span class="string">'John'</span>, <span class="attr">age</span>:<span class="number">34</span>&#125;.constructor  <span class="comment">// 返回函数 Object()  &#123; [native code] &#125;</span></span>
+<span class="line"><span class="keyword">new</span> <span class="built_in">Date</span>().constructor             <span class="comment">// 返回函数 Date()    &#123; [native code] &#125;</span></span>
+<span class="line"><span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;.constructor         <span class="comment">// 返回函数 Function()&#123; [native code] &#125;</span></span>
+</pre></td></tr></table></figure>
+<blockquote>
+<p>可以使用 constructor 属性来查看是对象是否为数组 (包含字符串 “Array”):<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+</pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isArray</span>(<span class="params">myArray</span>) </span>&#123;</span>
+<span class="line"><span class="keyword">return</span> myArray.constructor.toString().indexOf(<span class="string">"Array"</span>) &gt; <span class="number">-1</span>;</span>
+<span class="line">&#125;</span>
+</pre></td></tr></table></figure></p>
+</blockquote>
+<p>3、日期转换为字符串的函数<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+<span class="line">8</span>
+<span class="line">9</span>
+</pre></td><td class="code"><pre><span class="line">getDate()			从 <span class="built_in">Date</span> 对象返回一个月中的某一天 (<span class="number">1</span> ~ <span class="number">31</span>)。</span>
+<span class="line">getDay()			从 <span class="built_in">Date</span> 对象返回一周中的某一天 (<span class="number">0</span> ~ <span class="number">6</span>)。</span>
+<span class="line">getFullYear()		从 <span class="built_in">Date</span> 对象以四位数字返回年份。</span>
+<span class="line">getHours()			返回 <span class="built_in">Date</span> 对象的小时 (<span class="number">0</span> ~ <span class="number">23</span>)。</span>
+<span class="line">getMilliseconds()	 返回 <span class="built_in">Date</span> 对象的毫秒(<span class="number">0</span> ~ <span class="number">999</span>)。</span>
+<span class="line">getMinutes()		返回 <span class="built_in">Date</span> 对象的分钟 (<span class="number">0</span> ~ <span class="number">59</span>)。</span>
+<span class="line">getMonth()			从 <span class="built_in">Date</span> 对象返回月份 (<span class="number">0</span> ~ <span class="number">11</span>)。</span>
+<span class="line">getSeconds()		返回 <span class="built_in">Date</span> 对象的秒数 (<span class="number">0</span> ~ <span class="number">59</span>)。</span>
+<span class="line">getTime()			返回 <span class="number">1970</span> 年 <span class="number">1</span> 月 <span class="number">1</span> 日至今的毫秒数。</span>
+</pre></td></tr></table></figure></p>
+<p>4、自动类型转换</p>
+<blockquote>
+<p>当 JavaScript 尝试操作一个 “错误” 的数据类型时，会自动转换为 “正确” 的数据类型<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+</pre></td><td class="code"><pre><span class="line"><span class="number">5</span> + <span class="literal">null</span>    <span class="comment">// 返回 5         null 转换为 0</span></span>
+<span class="line"><span class="string">"5"</span> + <span class="literal">null</span>  <span class="comment">// 返回"5null"    null 转换为 "null"</span></span>
+<span class="line"><span class="string">"5"</span> + <span class="number">1</span>     <span class="comment">// 返回 "51"      1 转换为 "1"  </span></span>
+<span class="line"><span class="string">"5"</span> - <span class="number">1</span>     <span class="comment">// 返回 4         "5" 转换为 5</span></span>
+</pre></td></tr></table></figure></p>
+</blockquote>
+<h4 id="8-Javascript变量提升-Hoisting-和严格模式（use-strict）"><a href="#8-Javascript变量提升-Hoisting-和严格模式（use-strict）" class="headerlink" title="8.Javascript变量提升(Hoisting)和严格模式（use strict）"></a>8.Javascript变量提升(Hoisting)和严格模式（use strict）</h4><blockquote>
+<p>1、变量提升：函数声明和变量声明总是会被解释器悄悄地被”提升”到方法体的最顶部，但只会提升声明，不会提升初始化；但是这种先使用后声明的写法既不规范也不易于阅读理解所以还是提倡在顶部声明变量；<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+</pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="number">5</span>;</span>
+<span class="line"><span class="keyword">var</span> z = x + y;		<span class="comment">//NaN，代码执行到此处时y还没有被初始化，但是由于变量提升已经声明</span></span>
+<span class="line"><span class="keyword">var</span> y = <span class="number">7</span>;</span>
+</pre></td></tr></table></figure></p>
+<p>2、严格模式：通过在脚本或函数的头部添加 “use strict”; 表达式来声明；<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+<span class="line">8</span>
+</pre></td><td class="code"><pre><span class="line"><span class="string">"use strice"</span>;</span>
+<span class="line">x = <span class="number">3.14</span>;		<span class="comment">//报错（x未定义）</span></span>
+<span class="line"></span>
+<span class="line">x = <span class="number">3.14</span>;		<span class="comment">//不报错</span></span>
+<span class="line"><span class="string">"use strice"</span>;</span>
+<span class="line"><span class="function"><span class="keyword">function</span> <span class="title">myFunction</span>(<span class="params"></span>)</span>&#123;</span>
+<span class="line">	y = <span class="number">1640</span>;	<span class="comment">//报错（y未定义）</span></span>
+<span class="line">&#125;</span>
+</pre></td></tr></table></figure></p>
+<p>严格模式下的限制：</p>
+<ul>
+<li>不允许使用未声明的变量</li>
+<li>不允许删除变量或对象</li>
+<li>不允许删除函数</li>
+<li>不允许变量重名</li>
+<li>不允许使用八进制</li>
+<li>不允许使用转义字符</li>
+<li>不允许对只读属性赋值</li>
+<li>不允许对一个使用getter方法读取的属性进行赋值</li>
+<li>不允许删除一个不允许删除的属性</li>
+<li>变量名不能使用 “eval” 字符串</li>
+<li>变量名不能使用 “arguments” 字符串</li>
+<li>等……</li>
+</ul>
+</blockquote>
+<h4 id="9-Javascript使用误区"><a href="#9-Javascript使用误区" class="headerlink" title="9.Javascript使用误区"></a>9.Javascript使用误区</h4><blockquote>
+<p>1、赋值运算符应用错误<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+</pre></td><td class="code"><pre><span class="line"> <span class="keyword">var</span> x = <span class="number">0</span>;</span>
+<span class="line"> <span class="keyword">if</span> (x = <span class="number">10</span>)		<span class="comment">//true，并且x的值已经被赋值为10</span></span>
+<span class="line"></span>
+<span class="line"> <span class="keyword">var</span> x = <span class="number">0</span>;</span>
+<span class="line"> <span class="keyword">if</span> (x = <span class="number">0</span>)		<span class="comment">//false，因为javascript中0表示false，1表示true</span></span>
+<span class="line">&gt; 原因：赋值语句返回的是变量的值</span>
+</pre></td></tr></table></figure></p>
+<p>2、比较运算符常见错误<br>​     A.在常规的比较中，数据类型是被忽略的<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+</pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="number">10</span>;</span>
+<span class="line"><span class="keyword">var</span> y = <span class="string">"10"</span>;</span>
+<span class="line"><span class="keyword">if</span> (x == y)			<span class="comment">//true</span></span>
+</pre></td></tr></table></figure></p>
+</blockquote>
+<p> ​    B.但在switch 语句会使用恒等计算符(===)进行比较</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+</pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="number">10</span>;</span>
+<span class="line"><span class="keyword">switch</span>(x) &#123;</span>
+<span class="line">    <span class="keyword">case</span> <span class="number">10</span>: alert(<span class="string">"Hello"</span>);		<span class="comment">//会执行弹窗</span></span>
+<span class="line">  	<span class="keyword">case</span> <span class="string">"10"</span>: alert(<span class="string">"World"</span>);		<span class="comment">//不会执行弹窗</span></span>
+<span class="line">&#125;</span>
+</pre></td></tr></table></figure>
+<blockquote>
+<p>3、<em>浮点型数据使用注意事项</em>（<strong>这个很容易忽略</strong>）</p>
+<p>JavaScript 中的所有数据都是以 64 位浮点型数据(float) 来存储。</p>
+<p>所有的编程语言，包括 JavaScript，对浮点型数据的精确度都很难确定：</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+</pre></td><td class="code"><pre><span class="line"> <span class="keyword">var</span> x = <span class="number">0.1</span>;</span>
+<span class="line"> <span class="keyword">var</span> y = <span class="number">0.2</span>;</span>
+<span class="line"> <span class="keyword">var</span> z = x + y            <span class="comment">// z 的结果为 0.30000000000000004</span></span>
+<span class="line"> <span class="keyword">if</span> (z == <span class="number">0.3</span>)            <span class="comment">// 返回 false</span></span>
+<span class="line"></span>
+<span class="line">&gt; <span class="comment">//可以通过下面的方式进行计算</span></span>
+<span class="line"> <span class="keyword">var</span> z = (x * <span class="number">10</span> + y * <span class="number">10</span>) / <span class="number">10</span>;       <span class="comment">// z 的结果为 0.3，先转换为int再转换为float</span></span>
+</pre></td></tr></table></figure>
+<blockquote>
+<p>4、Undefined 和 Null混淆<br>在 JavaScript 中, null 用于对象, undefined 用于变量，属性和方法。<br>对象只有被定义才有可能为 null，否则为 undefined。<br>如果我们想测试对象是否存在，在对象还没定义时将会抛出一个错误。<br>错误的使用方式：</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span>
+</pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (myObj !== <span class="literal">null</span> &amp;&amp; <span class="keyword">typeof</span> myObj !== <span class="string">"undefined"</span>)</span>
+</pre></td></tr></table></figure>
+<blockquote>
+<p>正确的方式是我们需要先使用 typeof 来检测对象是否已定义：</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span>
+</pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="keyword">typeof</span> myObj !== <span class="string">"undefined"</span> &amp;&amp; myObj !== <span class="literal">null</span>)</span>
+</pre></td></tr></table></figure>
+<blockquote>
+<p>5、程序块的作用域</p>
+<p>在每个代码块中 JavaScript 不会创建一个新的作用域，一般各个代码块的作用域都是<strong>全局</strong>的，但是在函数中声明的变量是局部变量。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+<span class="line">8</span>
+<span class="line">9</span>
+<span class="line">10</span>
+<span class="line">11</span>
+<span class="line">12</span>
+<span class="line">13</span>
+<span class="line">14</span>
+<span class="line">15</span>
+<span class="line">16</span>
+<span class="line">17</span>
+</pre></td><td class="code"><pre><span class="line"><span class="comment">//for循环代码块中</span></span>
+<span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span>
+<span class="line">    <span class="comment">// some code</span></span>
+<span class="line">&#125;</span>
+<span class="line"><span class="keyword">return</span> i;			<span class="comment">//i的值为10，而不是undefinded</span></span>
+<span class="line"></span>
+<span class="line"><span class="comment">//if代码块中</span></span>
+<span class="line"><span class="keyword">if</span>(<span class="literal">true</span>)&#123;</span>
+<span class="line">	<span class="keyword">var</span> x = <span class="number">55</span>;</span>
+<span class="line">&#125;</span>
+<span class="line"><span class="keyword">return</span> x;			<span class="comment">//x的值为55，而不是undefinded</span></span>
+<span class="line"></span>
+<span class="line"><span class="comment">//函数中</span></span>
+<span class="line"><span class="function"><span class="keyword">function</span> <span class="title">myFunction</span>(<span class="params"></span>)</span>&#123;</span>
+<span class="line">	<span class="keyword">var</span> x = <span class="number">33</span>;</span>
+<span class="line">&#125;</span>
+<span class="line"><span class="keyword">return</span> x;			<span class="comment">//x的值为undefinded，因为在函数中声明的变量为局部变量</span></span>
+</pre></td></tr></table></figure>
+<h4 id="10-Javascript-JSON"><a href="#10-Javascript-JSON" class="headerlink" title="10.Javascript JSON"></a>10.Javascript JSON</h4>
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/01/07/jQuery-选择器/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          jQuery 选择器
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/08/20/Oracle中常用SQL积累/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Oracle中常用SQL积累</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="Javascript复习" data-title="Javascript复习" data-url="http://xiachengwei5.coding.me/2016/12/25/Javascript复习/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2018 夏
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: undefined,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: undefined
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>Hexo+Git/Coding+Node.js搭建自己的博客 | 颭的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="前言一直一来都想找平台来记录工作上的一些经验和生活中的一些感悟，之前也用过CSDN和博客园这些博客平台，虽然注册了就可以用，但是自带的富文本编辑器太不好用，样式也不好看，最让人反感的是有太多的广告让本就不干净的页面显得很杂很乱，所以用了一段时间就放弃了，但是上次看到小宇的博客感觉很炫、很Geek，很简洁，典型的互联网风格，所以决定自己也搭一个来玩玩。">
+<meta name="keywords" content="Git,Hexo,博客">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo+Git&#x2F;Coding+Node.js搭建自己的博客">
+<meta property="og:url" content="http://xiachengwei5.coding.me/2016/07/03/Hexo-Git-Nodejs搭建自己的博客/index.html">
+<meta property="og:site_name" content="颭的博客">
+<meta property="og:description" content="前言一直一来都想找平台来记录工作上的一些经验和生活中的一些感悟，之前也用过CSDN和博客园这些博客平台，虽然注册了就可以用，但是自带的富文本编辑器太不好用，样式也不好看，最让人反感的是有太多的广告让本就不干净的页面显得很杂很乱，所以用了一段时间就放弃了，但是上次看到小宇的博客感觉很炫、很Geek，很简洁，典型的互联网风格，所以决定自己也搭一个来玩玩。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://olywxnzqu.bkt.clouddn.com/img/hexo_create/gitBush.jpg">
+<meta property="og:image" content="http://olywxnzqu.bkt.clouddn.com/img/hexo_create/gitVersion.png">
+<meta property="og:image" content="http://olywxnzqu.bkt.clouddn.com/img/hexo_create/gitEve.png">
+<meta property="og:image" content="http://olywxnzqu.bkt.clouddn.com/img/hexo_create/nodeSite.png">
+<meta property="og:image" content="http://olywxnzqu.bkt.clouddn.com/img/hexo_create/nodeVersion.png">
+<meta property="og:image" content="http://olywxnzqu.bkt.clouddn.com/img/hexo_create/npmVersion.png">
+<meta property="og:image" content="http://olywxnzqu.bkt.clouddn.com/img/hexo_create/nodeEve.png">
+<meta property="og:image" content="http://olywxnzqu.bkt.clouddn.com/img/hexo_create/gitBushHere.png">
+<meta property="og:image" content="http://olywxnzqu.bkt.clouddn.com/img/hexo_create/hexoInit.png">
+<meta property="og:image" content="http://olywxnzqu.bkt.clouddn.com/img/hexo_create/hexoInstall.png">
+<meta property="og:image" content="http://olywxnzqu.bkt.clouddn.com/img/hexo_create/hexoServer.png">
+<meta property="og:image" content="http://olywxnzqu.bkt.clouddn.com/img/hexo_create/welcome.jpg">
+<meta property="og:image" content="http://olywxnzqu.bkt.clouddn.com/img/hexo_create/github_home.jpg">
+<meta property="og:image" content="http://olywxnzqu.bkt.clouddn.com/img/hexo_create/Repository_name.jpg">
+<meta property="og:image" content="http://olywxnzqu.bkt.clouddn.com/img/hexo_create/repositoryPages.jpg">
+<meta property="og:image" content="http://olywxnzqu.bkt.clouddn.com/img/hexo_create/publishPage.jpg">
+<meta property="og:image" content="http://olywxnzqu.bkt.clouddn.com/img/hexo_create/site_name.png">
+<meta property="og:image" content="http://olywxnzqu.bkt.clouddn.com/img/hexo_create/gitSettings.jpg">
+<meta property="og:image" content="http://olywxnzqu.bkt.clouddn.com/img/hexo_create/ssh_key.jpg">
+<meta property="og:image" content="http://olywxnzqu.bkt.clouddn.com/img/hexo_create/new_ssh_key.jpg">
+<meta property="og:image" content="http://olywxnzqu.bkt.clouddn.com/img/hexo_create/add_ssh_key.jpg">
+<meta property="og:image" content="http://olywxnzqu.bkt.clouddn.com/img/hexo_create/coding_add.jpg">
+<meta property="og:image" content="http://olywxnzqu.bkt.clouddn.com/img/hexo_create/coding_add_baseInfo.jpg">
+<meta property="og:image" content="http://olywxnzqu.bkt.clouddn.com/img/hexo_create/coding_pages.jpg">
+<meta property="og:image" content="http://olywxnzqu.bkt.clouddn.com/img/hexo_create/coding_master.jpg">
+<meta property="og:updated_time" content="2017-07-21T09:05:10.112Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo+Git&#x2F;Coding+Node.js搭建自己的博客">
+<meta name="twitter:description" content="前言一直一来都想找平台来记录工作上的一些经验和生活中的一些感悟，之前也用过CSDN和博客园这些博客平台，虽然注册了就可以用，但是自带的富文本编辑器太不好用，样式也不好看，最让人反感的是有太多的广告让本就不干净的页面显得很杂很乱，所以用了一段时间就放弃了，但是上次看到小宇的博客感觉很炫、很Geek，很简洁，典型的互联网风格，所以决定自己也搭一个来玩玩。">
+<meta name="twitter:image" content="http://olywxnzqu.bkt.clouddn.com/img/hexo_create/gitBush.jpg">
+  
+  
+    <link rel="icon" href="http://olywxnzqu.bkt.clouddn.com/img/hexo_index/logo.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="http://olywxnzqu.bkt.clouddn.com/img/hexo_index/logo.png" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">夏</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">勤能补拙，熟能生巧</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/xiachengwei5" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/xiachengwei5" title="weibo">weibo</a>
+					        
+								<a class="mail" target="_blank" href="mailto:xiachengwei5@163.com" title="mail">mail</a>
+					        
+								<a class="jianshu" target="_blank" href="http://www.jianshu.com/u/a31d9187f8ff" title="jianshu">jianshu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/CSS/" style="font-size: 20px;">CSS</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/Git/" style="font-size: 15px;">Git</a> <a href="/tags/GitHub/" style="font-size: 10px;">GitHub</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Oracle/" style="font-size: 10px;">Oracle</a> <a href="/tags/SQL/" style="font-size: 10px;">SQL</a> <a href="/tags/component/" style="font-size: 10px;">component</a> <a href="/tags/eclipse/" style="font-size: 10px;">eclipse</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/git插件/" style="font-size: 10px;">git插件</a> <a href="/tags/jQuery/" style="font-size: 10px;">jQuery</a> <a href="/tags/js/" style="font-size: 15px;">js</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/mybatsi-generator/" style="font-size: 10px;">mybatsi-generator</a> <a href="/tags/shell/" style="font-size: 10px;">shell</a> <a href="/tags/spring/" style="font-size: 10px;">spring</a> <a href="/tags/spring-mvc/" style="font-size: 10px;">spring-mvc</a> <a href="/tags/swagger/" style="font-size: 10px;">swagger</a> <a href="/tags/todoList/" style="font-size: 10px;">todoList</a> <a href="/tags/tools/" style="font-size: 10px;">tools</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a> <a href="/tags/图片轮播/" style="font-size: 10px;">图片轮播</a> <a href="/tags/布局/" style="font-size: 10px;">布局</a> <a href="/tags/思考/" style="font-size: 10px;">思考</a> <a href="/tags/朗读者/" style="font-size: 10px;">朗读者</a> <a href="/tags/选择器/" style="font-size: 15px;">选择器</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.myronliu.com">Myron</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.devzeng.com">Devzeng</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://heji1993.github.io">Heji</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://litten.me">litten</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://sentsin.com">sentsin</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://moxfive.xyz">MOxFIVE</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.w3cplus.com">w3cplus</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://gold.xitu.io">掘金</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.ruanyifeng.com">阮一峰</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://www.liaoxuefeng.com/">廖雪峰</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">动如脱兔，静如止水</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">夏</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img src="http://olywxnzqu.bkt.clouddn.com/img/hexo_index/logo.png" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">夏</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">勤能补拙，熟能生巧</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/xiachengwei5" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/xiachengwei5" title="weibo">weibo</a>
+			        
+						<a class="mail" target="_blank" href="mailto:xiachengwei5@163.com" title="mail">mail</a>
+			        
+						<a class="jianshu" target="_blank" href="http://www.jianshu.com/u/a31d9187f8ff" title="jianshu">jianshu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-Hexo-Git-Nodejs搭建自己的博客" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/07/03/Hexo-Git-Nodejs搭建自己的博客/" class="article-date">
+  	<time datetime="2016-07-03T13:34:41.000Z" itemprop="datePublished">2016-07-03</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Hexo+Git/Coding+Node.js搭建自己的博客
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Git/">Git</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/博客/">博客</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>一直一来都想找平台来记录工作上的一些经验和生活中的一些感悟，之前也用过CSDN和博客园这些博客平台，虽然注册了就可以用，但是自带的富文本编辑器太不好用，样式也不好看，最让人反感的是有太多的广告让本就不干净的页面显得很杂很乱，所以用了一段时间就放弃了，但是上次看到小宇的博客感觉很炫、很Geek，很简洁，典型的互联网风格，所以决定自己也搭一个来玩玩。<br><a id="more"></a><br>经过前期了解之后才知道使用流行的Hexo+Git+Node.js搭建的自己的博客，他因为考虑到Git在国内的访问速度比较慢，所以托管到了国内的Coding上，我经过两天的学习，暂时把博客托管到Git上，如果访问速度确实比较慢后续也会考虑到Coding上。</p>
+<p>因为要用到Node.js所以专门提前学了一点Nodejs的知识（发现一个比较好用的，适合入门级的学习网站：<a href="http://www.runoob.com/" target="_blank" rel="external">菜鸟教程</a>，提前了解一下还是又有必要的，虽然网上关与“Hexo+Git+Nodejs搭建自己的博客”的文章一搜一大把，但是都多多少少感觉缺点东西，所以写下这篇博客，一方面是为了记录总结，另一方面也让更多的跟我一样第一次接触Hexo的朋友快速高效的搭建自己的博客，就让这篇文章成为新平台的第一篇博客吧。</p>
+<hr>
+<p>先来了解几个概念：</p>
+<ol>
+<li><p>什么是Hexo<br>Hexo是一个快速、简洁且高效的博客框架,可以方便的生成静态网页托管在<a href="https://github.com/" target="_blank" rel="external">github</a>、<a href="https://www.heroku.com/" target="_blank" rel="external">Heroku</a>和<a href="https://coding.net/" target="_blank" rel="external">Coding</a>等代码托管平台上，绑定自己的域名，用markdown写文章。<br>类似Hexo的博客框架还有很多如:<a href="http://jekyll.bootcss.com/" target="_blank" rel="external">Jekyll</a>、Octopress、Wordpress等。</p>
+</li>
+<li><p>为什么要用Hexo来写博客，引用原作者的话来说:</p>
+<blockquote>
+<ul>
+<li>超快速度: Node.js 所带来的超快生成速度，让上百个页面在几秒内瞬间完成渲染。</li>
+<li>支持 Markdown: Hexo 支持 GitHub Flavored Markdown 的所有功能，甚至可以整合 Octopress 的大多数插件。</li>
+<li>一键部署: 只需一条指令即可部署到 GitHub Pages,Heroku或其他网站。</li>
+<li>丰富的插件: Hexo 拥有强大的插件系统，安装插件可以让 Hexo 支持 Jade, CoffeeScript。</li>
+</ul>
+</blockquote>
+</li>
+<li><p>另外,还有几个优点另Hexo这么风靡:</p>
+<blockquote>
+<ul>
+<li><p>易用。部署的话，就算是小白，也很简单，而且平时用到的命令仅需要四个命令即可,不像Jekyll需要很多繁琐的git命令：</p>
+<blockquote>
+<ul>
+<li>hexo new —— hexo n（新建文章）</li>
+<li>hexo generate —— hexo g（生成静态文件）</li>
+<li>hexo server —— hexo s（启动服务预览）</li>
+<li>hexo deploy —— hexo d（上传部署）</li>
+<li>hexo clean （清理已生成的静态文件）</li>
+</ul>
+</blockquote>
+</li>
+<li><p>轻便. 文件少，小，易理解，方便自定义更改；</p>
+</li>
+<li>用户多. 用户的量级虽然比不上Jekyll，但遇到什么问题基本在网上搜索出来就能搞定了。</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<h2 id="在本地搭建部署hexo"><a href="#在本地搭建部署hexo" class="headerlink" title="在本地搭建部署hexo"></a>在本地搭建部署hexo</h2><p>好啦上面废了那么多话，下面开始正式搭建：</p>
+<h3 id="安装所需的环境和工具"><a href="#安装所需的环境和工具" class="headerlink" title="安装所需的环境和工具"></a>安装所需的环境和工具</h3><h4 id="安装Git-Bush"><a href="#安装Git-Bush" class="headerlink" title="安装Git Bush"></a>安装Git Bush</h4><p>百度Git Bush，打开官网，点击下载安装，如下图：<br><img src="http://olywxnzqu.bkt.clouddn.com/img/hexo_create/gitBush.jpg" alt="img"><br>安装成功之后，打开安装好的的Git Bush，输入：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span>
+</pre></td><td class="code"><pre><span class="line">$ git --version</span>
+</pre></td></tr></table></figure></p>
+<p>查看安装的Git Bush的版本号，输出版本信息表示安装成功：<br><img src="http://olywxnzqu.bkt.clouddn.com/img/hexo_create/gitVersion.png" alt="img"><br>如果安装成功但是没有输出版本信息，需要自己Path配置环境变量，win10系统如下图：<br><img src="http://olywxnzqu.bkt.clouddn.com/img/hexo_create/gitEve.png" alt="img"></p>
+<h4 id="安装Node-js"><a href="#安装Node-js" class="headerlink" title="安装Node.js"></a>安装Node.js</h4><p>百度node.js，进入官网，官网会自动检测系统版本提供可用版本供下载，如下图：<br><img src="http://olywxnzqu.bkt.clouddn.com/img/hexo_create/nodeSite.png" alt="img"><br>安装成功后，在Git Bush中输入：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span>
+</pre></td><td class="code"><pre><span class="line">$ node -v</span>
+</pre></td></tr></table></figure></p>
+<p>查看安装的node.js的版本号，输出版本信息表示安装成功，如下图：<br><img src="http://olywxnzqu.bkt.clouddn.com/img/hexo_create/nodeVersion.png" alt="img"><br>NPM是随同NodeJS一起安装的包管理工具，查看其版本信息，在Git bush中输入：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span>
+</pre></td><td class="code"><pre><span class="line">$ npm -v</span>
+</pre></td></tr></table></figure></p>
+<p>查看安装的npm的版本号，输出版本信息表示安装成功，如下图：<br><img src="http://olywxnzqu.bkt.clouddn.com/img/hexo_create/npmVersion.png" alt="img"><br>如果安装成功但是没有输出版本信息，需要自己Path配置环境变量，win10系统如下图：<br><img src="http://olywxnzqu.bkt.clouddn.com/img/hexo_create/nodeEve.png" alt="img"></p>
+<h4 id="通过Node-js命令安装Hexo"><a href="#通过Node-js命令安装Hexo" class="headerlink" title="通过Node.js命令安装Hexo"></a>通过Node.js命令安装Hexo</h4><p>在Git Bush中输入：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span>
+</pre></td><td class="code"><pre><span class="line">$ npm install hexo-cli -g</span>
+</pre></td></tr></table></figure></p>
+<p>因暂时还不知道怎样通过命名在Git Bush中切换当前文件夹，所以直接在建好的博客根目录（我的是：D:\hexo），右键，选择“Git Bush Here”打卡Git Bush命令窗口，后续命令都在该命令窗口下输入，如下图：<br><img src="http://olywxnzqu.bkt.clouddn.com/img/hexo_create/gitBushHere.png" alt="img"><br>安装完成后，初始化Hexo，初始化完成后就会自动在目标文件夹下创建建立网站所需要的文件，网络不好时Cloing比较慢请耐心等待，输入：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span>
+</pre></td><td class="code"><pre><span class="line">$ hexo init</span>
+</pre></td></tr></table></figure></p>
+<p><img src="http://olywxnzqu.bkt.clouddn.com/img/hexo_create/hexoInit.png" alt="img"></p>
+<p>待输出“INFO String blog with Hexo!”表示已经初始化成功。<br>安装依赖包，输入：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span>
+</pre></td><td class="code"><pre><span class="line">$ hexo install</span>
+</pre></td></tr></table></figure></p>
+<p>安装成功后，目录结构如下：<br><img src="http://olywxnzqu.bkt.clouddn.com/img/hexo_create/hexoInstall.png" alt="img"><br>因Hexo 3.0以后把服务器独立成了单独的模块,所以还需要安装hexo-server才可以使用，输入：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span>
+</pre></td><td class="code"><pre><span class="line">$ npm install hexo-server --save</span>
+</pre></td></tr></table></figure></p>
+<h3 id="本地调试"><a href="#本地调试" class="headerlink" title="本地调试"></a>本地调试</h3><p>到目前为止，本地的Hexo博客已经搭好了，先生成文件，输入：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span>
+</pre></td><td class="code"><pre><span class="line">$ hexo g</span>
+</pre></td></tr></table></figure></p>
+<p>再启动服务器，输入：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span>
+</pre></td><td class="code"><pre><span class="line">$ hexo s</span>
+</pre></td></tr></table></figure></p>
+<p><img src="http://olywxnzqu.bkt.clouddn.com/img/hexo_create/hexoServer.png" alt="img"><br>在浏览器中输入：<a href="http://localhost:4000/" target="_blank" rel="external">http://localhost:4000/</a> ，查看初始页面，如下图：<br><img src="http://olywxnzqu.bkt.clouddn.com/img/hexo_create/welcome.jpg" alt="img"><br>好啦，今天就到此为止，本地的Hexo就已经部署完毕了，接下来就是要将博客部署上传到Git上，欲知详情，请听下回分解！</p>
+<h2 id="将hexo部署到服务器上"><a href="#将hexo部署到服务器上" class="headerlink" title="将hexo部署到服务器上"></a>将hexo部署到服务器上</h2><p>好咧，接着上次的说，在本地部署好之后还不过瘾，我们需要挂到网上让其可以通过互联网来访问，这时就要用到一些代码托管平台提供的pages服务（静态站点托管服务），我试了一下挂在Git上访问速度确实有点慢，所以最后还是选择挂在国内的Coding上，访问速度上会快很多，下面我们就把这两种方式都介绍一下：</p>
+<h3 id="将hexo挂在Git上"><a href="#将hexo挂在Git上" class="headerlink" title="将hexo挂在Git上"></a>将hexo挂在Git上</h3><p>因为GitHub的网站是全英文的所以这个时候才觉得英文好其实对编程还是很有帮助的，有时其实还是蛮佩服何老师的</p>
+<h4 id="注册GitHub"><a href="#注册GitHub" class="headerlink" title="注册GitHub"></a>注册GitHub</h4><p>该操作比较简单，自己处理，不清楚的可以查看<a href="http://wiki.jikexueyuan.com/project/github-basics/sign-up.html" target="_blank" rel="external">示例教程</a>。</p>
+<h4 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h4><p>然后登录创建自己的仓库，如下图：<br><img src="http://olywxnzqu.bkt.clouddn.com/img/hexo_create/github_home.jpg" alt="img"><br>打开创建界面后，输入Repository name，注意：此处的Repository name最好与拥有者名称（用户名）保持一致，防止在访问时出现一些莫名其妙的问题，如下图：<br><img src="http://olywxnzqu.bkt.clouddn.com/img/hexo_create/Repository_name.jpg" alt="img"><br>点击“Create Repository”按钮创建repository，点击右边Settings，拉到最下方找到GitHub Pages模块，点击Launch automatic page generator，让GitHub生成GitHubPager，如下图：<br><img src="http://olywxnzqu.bkt.clouddn.com/img/hexo_create/repositoryPages.jpg" alt="img"><br>点击下面的“Continue to Layouts”进入下一步，下一个操作是选择主题，但选择哪个无所谓,因为后面将要与Hexo关联，站点所有内容都将被Hexo博客所替换，所以直接点击“Publish page”，如下图：<br><img src="http://olywxnzqu.bkt.clouddn.com/img/hexo_create/publishPage.jpg" alt="img"><br>点击“Settings”即可看到如下提示：Your sit is published at xiachengwei5.github.io，表示你可以访问独立的该域名的网站了，如下图：<br><img src="http://olywxnzqu.bkt.clouddn.com/img/hexo_create/site_name.png" alt="img"></p>
+<h4 id="配置SSH-Keys"><a href="#配置SSH-Keys" class="headerlink" title="配置SSH Keys"></a>配置SSH Keys</h4><p>下面只说明在本次处理中的操作，详细信息请查看<a href="https://help.github.com/articles/generating-an-ssh-key/" target="_blank" rel="external">官方教程</a>。<br>SSH密钥是一个用来识别值得信赖的电脑在进行GitHub一些操作时，不用输入密码。用户可以生成一个SSH密钥，并按照本节所述的方法将公共密钥添加到你的GitHub帐户。<br>生成新的SSH密钥并将其添加到ssh-agent中<br>打开gitBush，将后面的邮箱地址换成你的邮箱地址：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span>
+</pre></td><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -b 4096 -C &quot;your_email@example.com&quot;</span>
+</pre></td></tr></table></figure></p>
+<p>当提示你，如下信息，按Enter键，表示接受默认文件位置：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span>
+</pre></td><td class="code"><pre><span class="line">Enter a file in which to save the key (/Users/you/.ssh/id_rsa): [Press enter]</span>
+</pre></td></tr></table></figure></p>
+<p>当出现如下提示时，输入安全密码（可以为空），既然可以为空，那就为空吧，免得以后麻烦：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+</pre></td><td class="code"><pre><span class="line">Enter passphrase (empty for no passphrase): [Type a passphrase]</span>
+<span class="line">Enter same passphrase again: [Type passphrase again]</span>
+</pre></td></tr></table></figure></p>
+<p>将ssh秘钥添加到ssh-agent，输入：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span>
+</pre></td><td class="code"><pre><span class="line">$ eval $(ssh-agent -s)</span>
+</pre></td></tr></table></figure></p>
+<p>如果你使用现有的SSH密钥，而不是生成新的SSH密钥，你需要替换现有的私有密钥文件的名称，以取代id_rsa的命令:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span>
+</pre></td><td class="code"><pre><span class="line">$ ssh-add ~/.ssh/id_rsa</span>
+</pre></td></tr></table></figure></p>
+<p>添加新的SSH密钥到你的帐户GitHub中<br>复制SSH密钥到剪贴板<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span>
+</pre></td><td class="code"><pre><span class="line">$ clip &lt; ~/.ssh/id_rsa.pub</span>
+</pre></td></tr></table></figure></p>
+<p>如果clip命令没有执行，你可以找到隐藏的.ssh文件夹中，打开你喜欢的文本编辑器文件，并将其复制到剪贴板,一般是在C:\Users\yourname.ssh文件夹下的id_rsa.pub文件中,使用文本文档打开后复制内容即可，我的文件路径为：C:\Users\xiachengwei.ssh\id_rsa.pub<br>在GitHub任何界面中，点击右上角个人资料照片，选择Settings，如下图：<br><img src="http://olywxnzqu.bkt.clouddn.com/img/hexo_create/gitSettings.jpg" alt="img"><br>点击左边菜单中的“SSH and GPG keys”，如下图：<br><img src="http://olywxnzqu.bkt.clouddn.com/img/hexo_create/ssh_key.jpg" alt="img"><br>然后点击“New SSH Key”，如下图：<br><img src="http://olywxnzqu.bkt.clouddn.com/img/hexo_create/new_ssh_key.jpg" alt="img"><br>在“Title”字段中，为新的密钥添加描述性标签，粘贴刚才复制的秘钥值到“key”框中，点击“Add SSH key”，然后输入你的GitHub密码进行确认：<br><img src="http://olywxnzqu.bkt.clouddn.com/img/hexo_create/add_ssh_key.jpg" alt="img"><br>到此SSH密钥的添加就完成了。</p>
+<hr>
+<h2 id="在Hexo配置文件中关联服务器信息"><a href="#在Hexo配置文件中关联服务器信息" class="headerlink" title="在Hexo配置文件中关联服务器信息"></a>在Hexo配置文件中关联服务器信息</h2><h3 id="在Hexo配置文件中关联GitHub账号"><a href="#在Hexo配置文件中关联GitHub账号" class="headerlink" title="在Hexo配置文件中关联GitHub账号"></a>在Hexo配置文件中关联GitHub账号</h3><p>打开刚才所建的hexo的目录(H:\Hexo下)，编辑_config.yml，在最下方找到deploy标签，然后更为如下配置，注意:你自己在修改时，需要将 xiachengwei5修改为自己的用户名：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+</pre></td><td class="code"><pre><span class="line">deploy:</span>
+<span class="line">  type: git</span>
+<span class="line">  repo: ssh://github.com/xiachengwei5/xiachengwei5.github.io</span>
+<span class="line">  branch: master</span>
+<span class="line">  message: xiachengwei&apos;s blog</span>
+</pre></td></tr></table></figure></p>
+<p>有几个需要注意的地方：<br>1.注意: 因yml格式要求，所有键值对的”:”冒号后面必须跟有一个空格；<br>2.注意: 自Hexo 3.0以后，type类型都为 git，而非 github；<br>3.repo指定Git的url地址时用的是 ssh而不是，http或https；</p>
+<p>这样处理之后就完成了在Hexo配置文件中关联GitHub账号，下面执行命令生成静态网页：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span>
+</pre></td><td class="code"><pre><span class="line">$ hexo g</span>
+</pre></td></tr></table></figure></p>
+<p>再执行命令将静态网页部署到Github上，这时会提示输入github的邮箱和密码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span>
+</pre></td><td class="code"><pre><span class="line">$ hexo d</span>
+</pre></td></tr></table></figure></p>
+<p>提交完成之后就可以通过：<a href="http://xiachengwei5.github.io" target="_blank" rel="external">http://xiachengwei5.github.io</a> 访问用hexo搭建的博客了。</p>
+<p>但是部署到GitHub之后发现访问速度真的很慢，还经常出现访问不了的情况，所以又尝试将博客部署到国内的Coding上，部署到Coding上比部署到GitHub上简单些，不需要配置SSH密钥认证。<br>首先还是要注册<a href="http://coding.net" target="_blank" rel="external">Coding</a>帐号，这个是中文网站，自己搞定。<br>登录成功后，点击“创建新项目”，如下图：<br><img src="http://olywxnzqu.bkt.clouddn.com/img/hexo_create/coding_add.jpg" alt="img"><br>同样项目名与用户名保持一致（这样处理表示是“用户Pages”，可以通过：<a href="http://username.coding.me" target="_blank" rel="external">http://username.coding.me</a> 访问），选择“公开”：<br><img src="http://olywxnzqu.bkt.clouddn.com/img/hexo_create/coding_add_baseInfo.jpg" alt="img"><br>开启Coding的pages服务，特别注意：部署分支默认为：coding-pages，但是新建项目的默认分支为：master，所以没有coding-pages分支的话这里需要写成master：<br><img src="http://olywxnzqu.bkt.clouddn.com/img/hexo_create/coding_pages.jpg" alt="img"><br><img src="http://olywxnzqu.bkt.clouddn.com/img/hexo_create/coding_master.jpg" alt="img"></p>
+<h3 id="Hexo配置文件中关联Coding账号"><a href="#Hexo配置文件中关联Coding账号" class="headerlink" title="Hexo配置文件中关联Coding账号"></a>Hexo配置文件中关联Coding账号</h3><p>同样修改hexo目录（H:\hexo）下的_config.xml文件中的deploy标签的信息：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+</pre></td><td class="code"><pre><span class="line">deploy:</span>
+<span class="line">  type: git</span>
+<span class="line">  repo: https://git.coding.net/xiachengwei5/xiachengwei5.git</span>
+<span class="line">  branch: master</span>
+<span class="line">  message: xiachengwei&apos;s blog</span>
+</pre></td></tr></table></figure></p>
+<p>同样在执行命令之后生成静态文件然后部署到Coding上，就可以通过<a href="http://xiachengwei5.coding.me">http://xiachengwei5.coding.me</a> 访问搭建好的博客了：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+</pre></td><td class="code"><pre><span class="line">$ hexo g</span>
+<span class="line">$ hexo d</span>
+</pre></td></tr></table></figure></p>
+<p>如果在执行<code>hexo d</code> 时出现<code>npm install hexo-deployer-git --save</code> 错误，运行：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span>
+</pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span>
+</pre></td></tr></table></figure>
+<hr>
+<p>写了这篇博客之后发现自己是个婆婆妈妈的人，在写的时候想把每一个细节都囊括其中，想让一个小白都能根据这篇文章都能搭建自己的hexo博客，但是最后回过头来看发现很累赘，所以以后的文章会精简，抓住关键的几个点，起点拨作用。</p>
+<hr>
+<p>特别鸣谢：<br><a href="http://liuyy.coding.me/" target="_blank" rel="external">小宇</a>给我的启发以及<a href="http://blog.csdn.net/smallcheric/article/details/51049683" target="_blank" rel="external">SmallCheric</a>的博客对我搭建博客上的帮助。</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/08/20/Oracle中常用SQL积累/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          Oracle中常用SQL积累
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="Hexo-Git-Nodejs搭建自己的博客" data-title="Hexo+Git/Coding+Node.js搭建自己的博客" data-url="http://xiachengwei5.coding.me/2016/07/03/Hexo-Git-Nodejs搭建自己的博客/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2018 夏
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: undefined,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: undefined
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
