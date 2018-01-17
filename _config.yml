@@ -69,8 +69,8 @@ theme: yilia
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  #repo: https://github.com/xiachengwei5/xiachengwei5.github.io
-  repo: http://git.coding.net/xiachengwei5/xiachengwei5.git
+  repo: https://github.com/xiachengwei5/xiachengwei5.github.io
+  #repo: http://git.coding.net/xiachengwei5/xiachengwei5.git
   #repo: git@git.coding.net:xiachengwei5/xiachengwei5.git
   branch: master
   message: xiachengwei's blog

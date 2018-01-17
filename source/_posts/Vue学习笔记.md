@@ -1,6 +1,6 @@
 ---
 title: Vue学习笔记
-data: 2017-08-23 15:33:00
+date: 2017-08-23 15:33:00
 tags: [vue, todoList, component]
 ---
 

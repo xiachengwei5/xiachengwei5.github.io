@@ -88,6 +88,13 @@ git fetch origin tag V1.2
 
 <!-- 查看日志 -->
 git log
+
+<!-- 查看当前的远程仓库 -->
+git remote -v
+
+<!-- 切换远程仓库地址 -->
+git remote set-url origin http://192.168.31.8/pms/pms-govern.git
+git remote set-url origin git@192.168.31.8:pms/pms-govern.git
 ```
 
 #### 分支
