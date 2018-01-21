@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>Coding技术小馆——高效workflow探索 | 颭的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="之前一直很疑惑：Coding 刚开始提供的代码托管服务跟GitHub 很类似，那时GitHub就已经很成熟，并且拥有很大体量的用户，还是免费的，Coding这样的平台还能做什么，难道仅仅是做个中文版GitHub，这样的平台有什么竞争力，后续又通过怎样的方式来盈利……，从创立到现在3年多的时间这些疑惑的答案已经很明显了，Coding以为个人提供免费的代码托管服务为切入点，进而为小型互联网公司提供代码">
+<meta name="keywords" content="Coding,workflow,沙龙">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Coding技术小馆——高效workflow探索">
+<meta property="og:url" content="http://xiachengwei5.coding.me/2018/01/20/Coding技术小馆——高效workflow探索/index.html">
+<meta property="og:site_name" content="颭的博客">
+<meta property="og:description" content="之前一直很疑惑：Coding 刚开始提供的代码托管服务跟GitHub 很类似，那时GitHub就已经很成熟，并且拥有很大体量的用户，还是免费的，Coding这样的平台还能做什么，难道仅仅是做个中文版GitHub，这样的平台有什么竞争力，后续又通过怎样的方式来盈利……，从创立到现在3年多的时间这些疑惑的答案已经很明显了，Coding以为个人提供免费的代码托管服务为切入点，进而为小型互联网公司提供代码">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://olywxnzqu.bkt.clouddn.com/image/coding-workflow/huichang1.jpg">
+<meta property="og:image" content="http://olywxnzqu.bkt.clouddn.com/image/coding-workflow/huichang2.jpg">
+<meta property="og:image" content="http://olywxnzqu.bkt.clouddn.com/image/coding-workflow/changjing.png">
+<meta property="og:image" content="http://olywxnzqu.bkt.clouddn.com/image/coding-workflow/note.jpg">
+<meta property="og:updated_time" content="2018-01-21T10:29:29.718Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Coding技术小馆——高效workflow探索">
+<meta name="twitter:description" content="之前一直很疑惑：Coding 刚开始提供的代码托管服务跟GitHub 很类似，那时GitHub就已经很成熟，并且拥有很大体量的用户，还是免费的，Coding这样的平台还能做什么，难道仅仅是做个中文版GitHub，这样的平台有什么竞争力，后续又通过怎样的方式来盈利……，从创立到现在3年多的时间这些疑惑的答案已经很明显了，Coding以为个人提供免费的代码托管服务为切入点，进而为小型互联网公司提供代码">
+<meta name="twitter:image" content="http://olywxnzqu.bkt.clouddn.com/image/coding-workflow/huichang1.jpg">
+  
+  
+    <link rel="icon" href="http://olywxnzqu.bkt.clouddn.com/img/hexo_index/logo.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="http://olywxnzqu.bkt.clouddn.com/img/hexo_index/logo.png" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">夏</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">勤能补拙，熟能生巧</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/xiachengwei5" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/xiachengwei5" title="weibo">weibo</a>
+					        
+								<a class="mail" target="_blank" href="mailto:xiachengwei5@163.com" title="mail">mail</a>
+					        
+								<a class="jianshu" target="_blank" href="http://www.jianshu.com/u/a31d9187f8ff" title="jianshu">jianshu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/CSS/" style="font-size: 20px;">CSS</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/Coding/" style="font-size: 10px;">Coding</a> <a href="/tags/Git/" style="font-size: 15px;">Git</a> <a href="/tags/GitHub/" style="font-size: 10px;">GitHub</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Oracle/" style="font-size: 10px;">Oracle</a> <a href="/tags/SQL/" style="font-size: 10px;">SQL</a> <a href="/tags/component/" style="font-size: 10px;">component</a> <a href="/tags/eclipse/" style="font-size: 10px;">eclipse</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/git插件/" style="font-size: 10px;">git插件</a> <a href="/tags/jQuery/" style="font-size: 10px;">jQuery</a> <a href="/tags/js/" style="font-size: 15px;">js</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/mybatsi-generator/" style="font-size: 10px;">mybatsi-generator</a> <a href="/tags/shell/" style="font-size: 10px;">shell</a> <a href="/tags/spring/" style="font-size: 10px;">spring</a> <a href="/tags/spring-mvc/" style="font-size: 10px;">spring-mvc</a> <a href="/tags/swagger/" style="font-size: 10px;">swagger</a> <a href="/tags/todoList/" style="font-size: 10px;">todoList</a> <a href="/tags/tools/" style="font-size: 10px;">tools</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/workflow/" style="font-size: 10px;">workflow</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a> <a href="/tags/图片轮播/" style="font-size: 10px;">图片轮播</a> <a href="/tags/布局/" style="font-size: 10px;">布局</a> <a href="/tags/思考/" style="font-size: 10px;">思考</a> <a href="/tags/朗读者/" style="font-size: 10px;">朗读者</a> <a href="/tags/沙龙/" style="font-size: 10px;">沙龙</a> <a href="/tags/选择器/" style="font-size: 15px;">选择器</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.myronliu.com">Myron</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.devzeng.com">Devzeng</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://heji1993.github.io">Heji</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://litten.me">litten</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://sentsin.com">sentsin</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://moxfive.xyz">MOxFIVE</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.w3cplus.com">w3cplus</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://gold.xitu.io">掘金</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.ruanyifeng.com">阮一峰</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://www.liaoxuefeng.com/">廖雪峰</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">动如脱兔，静如止水</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">夏</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img src="http://olywxnzqu.bkt.clouddn.com/img/hexo_index/logo.png" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">夏</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">勤能补拙，熟能生巧</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/xiachengwei5" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/xiachengwei5" title="weibo">weibo</a>
+			        
+						<a class="mail" target="_blank" href="mailto:xiachengwei5@163.com" title="mail">mail</a>
+			        
+						<a class="jianshu" target="_blank" href="http://www.jianshu.com/u/a31d9187f8ff" title="jianshu">jianshu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-Coding技术小馆——高效workflow探索" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/01/20/Coding技术小馆——高效workflow探索/" class="article-date">
+  	<time datetime="2018-01-20T09:00:00.000Z" itemprop="datePublished">2018-01-20</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Coding技术小馆——高效workflow探索
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Coding/">Coding</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/workflow/">workflow</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/沙龙/">沙龙</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>之前一直很疑惑：<a href="https://coding.net/" target="_blank" rel="external">Coding</a> 刚开始提供的代码托管服务跟<a href="https://github.com/" target="_blank" rel="external">GitHub</a> 很类似，那时GitHub就已经很成熟，并且拥有很大体量的用户，还是免费的，Coding这样的平台还能做什么，难道仅仅是做个中文版GitHub，这样的平台有什么竞争力，后续又通过怎样的方式来盈利……，从创立到现在3年多的时间这些疑惑的答案已经很明显了，Coding以为个人提供免费的代码托管服务为切入点，进而为小型互联网公司提供代码托管、项目管理、开发云平台等服务，后续可能还会提供系统部署、云服务器以及更多的服务，形成从开发、测试到最后部署的一条完整的产业链，为企业节省购买服务器、环境搭建等成本，进而收取相关服务费。现在还有一个很类似做得也很不错的平台——<a href="https://gitee.com/" target="_blank" rel="external">码云</a> 。</p>
+<a id="more"></a>
+<p>Coding 是2014年成立的以代码托管和项目管理为主的平台，刚开始只有代码托管的业务，跟大名鼎鼎的Github的功能很类似，我是因为之前有段时间GitHub被墙了，压根就访问不了，后来能访问，但访问速度也超慢，所以我这一块自留地的博客就在GitHub和Coding上各部署了一套，因此用了Coding上很小的一部分功能。</p>
+<p>因为最近想在博客上添加评论的功能，而之前的免费的评论插件都已经陆续关掉了，还能使用的<a href="https://changyan.kuaizhan.com/" target="_blank" rel="external">畅言</a> 必须绑定顶级域名才能使用，所以近期申请并在Coding的Pages服务上绑定了<a href="http://www.xiacw.cn/" target="_blank" rel="external">自己的域名</a> ，恰逢Coding在深圳举办线下主题沙龙——高效workflow探索，就去开开眼界，学习学习。</p>
+<p><img src="http://olywxnzqu.bkt.clouddn.com/image/coding-workflow/huichang1.jpg" alt="会场1"> </p>
+<p><img src="http://olywxnzqu.bkt.clouddn.com/image/coding-workflow/huichang2.jpg" alt="会场2">   </p>
+<h3 id="一、场景式解读Git工作流"><a href="#一、场景式解读Git工作流" class="headerlink" title="一、场景式解读Git工作流"></a>一、场景式解读Git工作流</h3><p>符合使用场景的工作流才是好的工作流；</p>
+<p>根据协作人员数量和开发周期大致将使用场景分为以下四个：</p>
+<p><img src="http://olywxnzqu.bkt.clouddn.com/image/coding-workflow/changjing.png" alt="场景图"> </p>
+<blockquote>
+<ol>
+<li>小型外包项目：<ul>
+<li>项目周期短，团队沟通方便，code review 需求不强，基本上一条分支搞定；</li>
+</ul>
+</li>
+<li>小型开源项目：<ul>
+<li>项目周期长，接收第三方贡献，code review需求强烈，有维护多版本需求；</li>
+</ul>
+</li>
+<li>大型外包：<ul>
+<li>开发人员多，分模块并行开发，code review需求强烈；</li>
+</ul>
+</li>
+<li>大型互联网项目：<ul>
+<li>项目周期长，开发人员多，code review需求强烈，有紧急修复和紧急上线需求；</li>
+</ul>
+</li>
+</ol>
+</blockquote>
+<p>当子分子与主分支的代码存在差异时的解决方法：</p>
+<ol>
+<li>rebase（变基）；</li>
+<li>将主分支反向merge到子分支；</li>
+</ol>
+<p><strong>code review</strong> </p>
+<p>这一块反复提到一个概念——<code>code review(代码评审)</code> ，这个是我在团队开发中做的很不好的地方，我们现在做项目基本上没有做code review, 导致经常就会有一些因为不规范导致的问题。这个工作确实很有必要，但是在时间紧、任务中的显示大背景下，经常性的code review 又不太现实，这就需要找到一个平衡点。</p>
+<p><strong>版本控制和自动部署</strong></p>
+<p>这是Coding即将要开发上线的功能，将版本控制和自动部署结合在一起，这样就能让开发专注于写代码，测试专注于部署和测试，避免因版本未达成共识导致的问题，减少开发和测试之间的沟通成本。</p>
+<p><strong>注重Git底层原理的理解</strong></p>
+<p>任何时候都要知其然还要知其所以然，凡事去看看底层是怎样实现的，简单理解一下Git的底层实现原理：Git的一个标签，一个分支就是一个文件夹，但是为了节省空间，不会每建一个文件夹就拷贝一份全代码，而是存文件之间的差异，然后在需要时通过索引的形式进行组装。</p>
+<p><strong>Git使用小技巧</strong> </p>
+<ol>
+<li>大型文件会严重拖慢Git性能，推荐使用Git LFS;</li>
+<li>用git bisect功能查找历史记录，定位bug；</li>
+</ol>
+<h3 id="二、全远程团队工作流探索"><a href="#二、全远程团队工作流探索" class="headerlink" title="二、全远程团队工作流探索"></a>二、全远程团队工作流探索</h3><p><strong>全远程办公</strong> 顾名思义就是不聚在一起集中办公，而是利用互联网工作的独特性进行远程写作办公的方式。一直以为这种工作方式只会在国外的互联网公司存在，没想到国内居然也有一些公司开始在用这种方式办公，想想就觉得很炫酷。原来真的可以一边朝九晚五，一边浪迹天涯，真的可以把工作变成一件浪漫的事：边旅游边工作。</p>
+<p><strong>集中式办公的缺点</strong>：</p>
+<ol>
+<li>因地域原因公司直接错过了在其他城市但各方面更符合岗位的员工；</li>
+<li>公司所在位置平均薪资水平的增加导致公司生存压力增加；</li>
+<li>在非一线城市的人更难找到好的公司、好同事；</li>
+<li>有经验、有能力的员工由于要照顾到家庭，不得已选择回家而离职；</li>
+<li>员工浪费在通勤时间较长，幸福感和工作效率不高；</li>
+</ol>
+<p><strong>全远程的工作方式的优势</strong> ：</p>
+<ol>
+<li>公司可以在更广阔的空间纬度上选择人才，同时公司的成本相对更低；</li>
+<li>员工可以有更多的时间陪伴家人；也有更多的时间、更好的心情来工作；</li>
+<li>甚至真的可以边旅游边工作，激发更多的创作灵感；</li>
+</ol>
+<p><strong>全远程的工作方式存在的问题</strong> ：</p>
+<ol>
+<li>招聘人员的风险更高：<ul>
+<li>信任：择人更严格，出专业能力符合岗位要求外，还需要有强力的责任感和自律性，所以在招聘人员时优先选择通过兴趣的人员，一般通过GitHub上的开源项目进行寻找和筛选；</li>
+<li>纪律更严明，对诚信问题零容忍；</li>
+</ul>
+</li>
+<li>沟通成本高；</li>
+<li>宅：因不是集中办公，员工的被动社交圈变窄，如果员工本来就比较宅，很容易变成死肥宅，继而引发各种健康问题。需要员工能主动的参与其他圈子。</li>
+<li>地域分散，团对建设更难，公司理念、方针的传达、贯彻相对困难；</li>
+<li>员工之间更难相互学习以共同提高；</li>
+</ol>
+<p><strong>协同工具探讨</strong> ：</p>
+<p>basecamp:</p>
+<ol>
+<li>功能多，学习成本较高，不够直观——很多功能暂时用不到；</li>
+<li>需要刻意打理：需要符合特定流程；</li>
+<li>更适合大型、复杂的项目；</li>
+</ol>
+<p>trello:</p>
+<ol>
+<li>简单易用、信息密度不够高，进阶功能操作繁琐，视图单一，无多项目汇总；</li>
+</ol>
+<p>webhoook+脚本更新</p>
+<p><strong>小结：</strong></p>
+<p>虽然觉得这种全远程工作的方式很炫酷，但是还是觉得很遥远，因为茶歇沟通时了解了一下，zila团队算老板总共才6个人，稍大一点的团队，通过这种方式就很难管理了，并且这种方式也还存在很多实际的问题，近期还是不渴望了吧，毕竟我们现在是连弹性工作都实现不了的呀……，不过有一点是可以肯定的：利用业余的时间干点真正有意义，真正很酷炫，真正很geek的事情，做到极致或许就多了很多选择；</p>
+<h3 id="三、快速开发杂谈"><a href="#三、快速开发杂谈" class="headerlink" title="三、快速开发杂谈"></a>三、快速开发杂谈</h3><p>快速：不是快速的写完代码，而是节约项目的总时间（调研、设计、开发、测试、部署、运维等）；</p>
+<p>开发：从项目开始到后期的维护；</p>
+<p><strong>开发前：</strong> </p>
+<ul>
+<li>需求分析：花10%-20%的时间，有奇葩的需求可以，先指出来这样处理的不合理性和风险，并且需要增加成本；尝试沟通提出更好的方案既满足产品的需求又让开发能更快更好的完成（这不正是项目经理的职责吗）；</li>
+<li>Design view：保证架构是相对合理的；</li>
+<li>团队规范：越细越好，最好团队写出来的代码就像一个人写的；</li>
+<li>协作开发要在业务层面让划分的模块相对独立，这样能减少冲突；</li>
+</ul>
+<p><strong>开发中：</strong> </p>
+<ul>
+<li>工欲善其事必先利其器——选择切实好用的工具，并把自己的工具调到最优，让其出鞘就是利刃；</li>
+<li><a href="https://baike.baidu.com/item/%E5%BF%83%E6%B5%81/9824097?fr=aladdin" target="_blank" rel="external">Mental Flow</a> （心流），多次听说过这个词，但是我自己貌似一直没有达到过（貌似有类似的经历），推荐<a href="https://baike.baidu.com/item/%E6%B7%B1%E5%BA%A6%E5%B7%A5%E4%BD%9C/21501834?fr=aladdin" target="_blank" rel="external">《深度工作》</a> 这本书；</li>
+<li>沟通：在沟通中往往会陷入<em>不管对错，只争输赢</em> 的局面，沟通时好好说事，共同目标是让功能更合理，暴露风险、成本等；</li>
+<li>不要用好的注释掩盖好的代码；</li>
+</ul>
+<p><strong>后期维护：</strong> </p>
+<ul>
+<li>持续部署与集成：程序员就应该用自动化工具干稳定高效的事情来偷懒，而用节省的时间去干更有趣的事情；</li>
+<li>收集错误，逐步提高：从自己之前犯的错误中找问题，这样才能逐步提高；</li>
+</ul>
+<p><strong>小结：</strong> </p>
+<p>在现在做的项目中确实有很多地方做的不够好，如：在开发前没有花很多时间跟产品去沟通、梳理细节的需求（当然这里面有些客观的原因——需求不明确，原型与开发几乎是同步进行的……）；没有通过Design view梳理相对合理的架构；开发前没有制定严格的开发规范；没有阶段性的进行code review，在以后的项目中需要有计划的去执行。</p>
+<h3 id="四、想法"><a href="#四、想法" class="headerlink" title="四、想法"></a>四、想法</h3><p>一直想自己基于互联网搭个环境用户管理自己的业余代码（包括一些家庭的文件——重要文件、照片等）类似于私有云，现在想到的是可以在阿里云上搭建gitlab仓库来管理个人代码和文件，有时间实践一下；</p>
+<p><img src="http://olywxnzqu.bkt.clouddn.com/image/coding-workflow/note.jpg" alt="笔记"> </p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2017/11/21/Linux 常用命令/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Linux 常用命令</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="Coding技术小馆——高效workflow探索" data-title="Coding技术小馆——高效workflow探索" data-url="http://xiachengwei5.coding.me/2018/01/20/Coding技术小馆——高效workflow探索/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2018 夏
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: undefined,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: undefined
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
