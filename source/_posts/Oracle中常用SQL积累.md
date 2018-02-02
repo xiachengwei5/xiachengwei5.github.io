@@ -87,7 +87,28 @@ ALTER USER U_HJYJ_HY IDENTIFIED BY U_HJYJ_HY DEFAULT TABLESPACE TBS_HJYJ_HY;
 > * RESOURCE:拥有Resource权限的用户只可以创建实体，不可以创建数据库结构。
 > * CONNECT:拥有Connect权限的用户只可以登录Oracle，不可以创建实体，不可以创建数据库结构。
 
+### 对数据表的操作
+
+``` sql
+-- 修改指定表指定字段的数据类型和长度
+alter table <表名> modify <字段名> <数据类型和长度>;
+alter table milestone modify description NVARCHAR2(500);
+
+-- 添加字段信息
+alter table <表名> add <字段名> <数据类型和长度>;
+alter table project add COMPLETED_TIME TIMESTAMP(6);
+
+-- 添加注释
+comment on column <表名>.<字段名> is <'注释信息'>;
+comment on column PROJECT.COMPLETED_SUBMITTER is '竣工提交人';
+```
+
+
+
+
+
 ### 普通的数据库备份和还原
+
 备份数据库（直接在dos中执行）   语法：用户名/密码/@数据库
 ``` SQL
   EXP U_HJYJ_HY/U_HJYJ_HY@ORCL ROWS=YES

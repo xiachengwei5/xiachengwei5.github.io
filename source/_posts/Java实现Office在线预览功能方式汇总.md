@@ -187,18 +187,32 @@ public class Office2PdfByJacob {
 		ppt2Pdf(srcFilePath, pdfFilePath);
 	}
 }
-
 ```
 
 
 
-### 二、通过Java+poi的方式将Office转换成Html
+### 二、通过Java+Jodconverter+Libreoffice的方式将Office转换成PDF 
+
+遇到的问题：
+
+1. officeHome must exit and be a dicrecory
+2. 中文乱码
+3. 转换文件较慢
+4. 转换较大文件会直接死掉
+
+
+
+
+
+
+
+### 三、通过Java+poi的方式将Office转换成Html
 
 测试完善中......
 
 
 
-### 三、参考资料
+### 四、参考资料
 
 [(java office转pdf) MS Office2010、WPS2015、OpenOffice4用Java将Office文档转换为PDF，WIN7 64位系统](http://blog.csdn.net/huitoukest/article/details/51374623) 
 
@@ -210,3 +224,8 @@ public class Office2PdfByJacob {
 
 [DLL转换so(NDK配置)](http://blog.csdn.net/panpen120/article/details/42193003) 
 
+[js学习笔记-PDF.js专题](http://blog.csdn.net/xiangcns/article/details/42089189) 
+
+[Linux平台Java调用so库-JNI使用例子](http://blog.csdn.net/u010212643/article/details/69567391) 
+
+[通过 JACOB 实现 Java 与 COM 组件的互操作](http://blog.csdn.net/dangerous_fire/article/details/61922656) 
