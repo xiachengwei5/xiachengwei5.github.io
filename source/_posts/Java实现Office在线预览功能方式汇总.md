@@ -260,7 +260,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.regex.Pattern; 
 
-public class Test {
+public class Office2PdfByJodconverter {
 	// 删除临时文件标识（false:不删除； true: 删除）
 	private static boolean deleteFlag = false;
 	
@@ -269,10 +269,10 @@ public class Test {
 		String targetPath = "E:\\file\\2pdf\\NewFile.pdf";
 		libreOffice2PDF(sourcePath,targetPath);
 	}
-	
-	 /** 
+	 
+     /** 
      * 打开libreOffice服务的方法 
-     * @return 
+     * @return  
      */  
     public static String getLibreOfficeHome() {  
         String osName = System.getProperty("os.name");
@@ -299,8 +299,7 @@ public class Test {
         // 根据文件转换成文件流
         File inputFilePath = new File(inputPath);
 		File outputFilePath = new File(outputPath);
-		
-		// 获取当前系统安装libreoffice的路径
+        // 获取当前系统安装libreoffice的路径
     	String LibreOffice_HOME = getLibreOfficeHome();
 		String fileName = inputFilePath.getName();
 		
