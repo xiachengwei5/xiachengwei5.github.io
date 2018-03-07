@@ -1,6 +1,7 @@
 ---
 title: Java实现Office在线预览功能方式汇总
 data: 2018-01-28
+comments: true
 tags: [java, jacob, office转pdf, 在线预览]
 ---
 
