@@ -192,6 +192,8 @@ public class Office2PdfByJacob {
 
 4. **参考资料** 
 
+   [java将doc文件转换为pdf文件的三种方法](http://feifei.im/archives/93)
+
    [(java office转pdf) MS Office2010、WPS2015、OpenOffice4用Java将Office文档转换为PDF，WIN7 64位系统](http://blog.csdn.net/huitoukest/article/details/51374623) 
 
    [jacob操作office分享](http://men4661273.iteye.com/blog/2097871) 
@@ -238,14 +240,14 @@ public class Office2PdfByJacob {
 
    **劣势：** 
 
-   > * 转换文件较相对慢；
-   > * 转换较大文件时会假死；
+   > * 对office的兼容性不太好（如：当.doc/.wps格式的文件中有图片时转换成PDF会样式错乱，其实直接通过libreoffice打开.doc/.wps文件样式已经错乱了）；
+   > * 转换较大文件（word 18M+、300页+）时会转换过程会卡死；
 
 2. **环境搭建** 
 
    > * 在服务器上安装[Libreoffice](https://zh-cn.libreoffice.org/download/libreoffice-fresh/) ；
    > * 添加`jodconverter-core-3.0.1.jar`、`slf4j-api.jar`、`slf4j-nop.jar` 等jar包依赖，有些包可能没有显示用到，但是在其他jar包中有引用，也需要引入；
-   > * 如果将office文件转换成pdf后乱码，很有可能是服务器上没有中文字体`simsun.ttc`  导致的，需要将windows下的字体拷贝到linux系统的字体`/usr/share/fonts` 目录下；
+   > * 如果将office文件转换成pdf后乱码，很有可能是服务器上没有中文字体`simsun.ttc`  导致的，需要将windows下的字体拷贝到libreoffice的安装目录下`/opt/libreoffice6.0/share/fonts/truetype` 或拷贝到linux系统的字体`/usr/share/fonts` 目录下；
 
 3. **编写代码** 
 
@@ -418,6 +420,10 @@ public class Office2PdfByJodconverter {
 测试完善中......
 
 
+
+
+
+[java实现在线预览--poi实现word、excel、ppt转html](http://blog.csdn.net/chentao866/article/details/68065329) 
 
 ### 四、对纯文本格式文件转换编码的处理
 
