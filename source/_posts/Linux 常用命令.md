@@ -119,6 +119,10 @@ umount /srv/www/app/upload												// 取消挂载
 hwclock --set --date '2018-06-06  21:27:00' 
 // 设置系统时间和硬件时间同步
 hwclock  --hctosys
+
+// 查询文件夹的大小
+du -h --max-depth
+du -s * | sort -nr
 ```
 
 

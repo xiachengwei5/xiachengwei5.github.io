@@ -111,8 +111,12 @@ comment on column PROJECT.COMPLETED_SUBMITTER is '竣工提交人';
 
 备份数据库（直接在dos中执行）   语法：用户名/密码/@数据库
 ``` SQL
+  -- 导出本地数据库
   EXP U_HJYJ_HY/U_HJYJ_HY@ORCL ROWS=YES
-  FILE='E:\Database\U_HJYJ_HY.DMP' LOG='E:\Database\U_HJYJ_HY.LOG'
+  FILE='E:\Database\NAME.DMP' LOG='E:\Database\NAME.LOG'
+  
+  -- 导出远程数据库
+  EXP USERNAME/PASSWORD@10.0.0.1:1521/ORCL FILE='E:\Database\NAME.DMP'              LOG='E:\Database\NAME.LOG' ROWS=YES
 ```
 
 如果需要对空表也进行备份，执行查询出的SQL语句即可
@@ -214,7 +218,7 @@ LEFT JOIN z_game g ON u.game_id = g.game_id
 where  u.user_id = 1  
 ```
 
-**修改** ：
+**修改1** ：
 
 ``` sql
 UPDATE z_test t,z_user u,z_book b,z_game g SET  
@@ -226,5 +230,11 @@ and t.user_id  =  u.user_id
 and b.book_id  =  u.book_id  
 and g.game_id  =  u.game_id  
 and u.user_id = 1  
+```
+
+**修改2** ：
+
+``` sql
+UPDATE A a  SET (a.a1,a.a2)=(SELECT b.b1,b,b2 FROM B b WHERE b.b3=a.a3)
 ```
 
